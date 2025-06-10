@@ -1,13 +1,14 @@
 /*データベース作成*/
 CREATE DATABASE e6;
+use e6;
 
 /*usersテーブル作成*/
 CREATE TABLE users (
     regist_number INT PRIMARY KEY AUTO_INCREMENT,
     mail VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    name VARCHAR(100),
-    company VARCHAR(100)
+    name VARCHAR(100) NOT NULL,
+    company VARCHAR(100)NOT NULL
 );
 
 /*coinテーブル作成*/
@@ -23,10 +24,10 @@ CREATE TABLE coin (
 CREATE TABLE send (
     id INT PRIMARY KEY AUTO_INCREMENT,
     regist_number INT NOT NULL,
-    send_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    comment VARCHAR(200),
+    send_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    comment VARCHAR(3000),
     send_coin INT DEFAULT 0,
-    receiver_number INT NOT NULL,
+    receiver_number INT NOT NULL
 );
 
 /*usersに入った登録番号をcoinにも入れるトリガー*/
@@ -40,3 +41,31 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+/*ログイン判定*/
+SELECT count(*) FROM users WHERE mail=? AND pw=?;
+
+/*新規登録*/
+INSERT INTO users VALUES (0, ?, ?, ?, ?);
+
+/*パスワード登録*/
+INSERT INTO users VALUES　(0, ?, ?, ?, ?);
+
+/*メニュー画面の新着受信履歴*/
+SELECT id, send_data, name FROM send WHERE receiver_number=? ORDER BY DESC;
+
+/*ユーザー情報の表示*/
+SELECT company, name, mail FROM users WHERE regist_number=?;
+
+/*ユーザー情報の登録*/
+UPDATE SET users SET company=?, name=?, mail=? WHERE regist_number=?;
+
+/*ユーザー情報の削除*/
+DELETE FROM users WHERE regist_number=?;
+
+/*コインの送信*/
+
+INSERT INTO send VALUES (0, ?, ?, ?, ?, ?);
+
+/*コインの受信履歴*/
+SELECT 
