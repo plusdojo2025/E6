@@ -30,13 +30,17 @@
               <input style="margin: auto; width: 220px;" type="password" name="pw" placeholder="🔒Password">
               </label>
             </td>
+          </tr>
           <tr>
+          <td>
+           <p>登録していない方は<a>こちら</a></p>
+           </td>
+           </tr>
           <tr>
             <td colspan="2">
               <input class="sub_botun" type="submit" name="submit" value="ログイン">
               <span id="error_message"></span>
             <td>
-            <p>登録していない方は<a>こちら</a></p>
           </tr>
         </table>
       </form>
