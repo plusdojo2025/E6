@@ -9,7 +9,8 @@
 <body>
 	<div>
 		<ul id="nav">
-			<li><img src=".png" width="600" height="600" alt="Arico"></li>
+			<li><img src="/img/arico_logo2.png" " width="600" height="600"
+				alt="Arico"></li>
 			<li><a href="/build/classes/servlet/MenuServlet">アカウント情報</a></li>
 			<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
 			<li><a href="/build/classes/servlet/webapp/CoinReceiveServlet">受信履歴</a></li>
@@ -17,6 +18,25 @@
 			<li><a href="/build/classes/servlet/webapp/LogoutServlet">ログアウト</a></li>
 		</ul>
 	</div>
-
+	<h2>ホーム画面</h2>
+	<div>
+		<p>Topics</p>
+		<ul><li></li></ul>
+	</div>
+	<div>
+		<img>
+		<h3>感謝を気軽に可視化して伝える仕組み</h3>
+		<p></p>
+	</div>
+	<div>
+		<img>
+		<h3>感謝を気軽に可視化して伝える仕組み</h3>
+		<p></p>
+	</div>
+	<div>
+		<img>
+		<h3>見えにくい気配りや助け合いを評価可能に</h3>
+		<p></p>
+	</div>
 </body>
 </html>
