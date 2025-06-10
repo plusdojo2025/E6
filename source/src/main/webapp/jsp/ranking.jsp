@@ -9,7 +9,7 @@
 </head>
 <body>
    <header>
-    	<a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="200" height="100" alt="Arico"></a>
+    	<a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
     		<ul>
 	   			<li><a href="/build/classes/servlet/webapp/DataServlet">アカウント情報</a></li>
 					<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
