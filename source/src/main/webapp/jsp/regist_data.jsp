@@ -36,5 +36,7 @@
 	<!-- メイン（ここまで） -->
     <!-- フッター（ここから） -->
 </div>
+<script src="js/regist_data.js">
+</script>
 </body>
 </html>
