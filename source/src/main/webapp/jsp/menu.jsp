@@ -11,7 +11,7 @@
 <body>
 	<div>
 		<ul id="nav">
-			<li><img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="613px" height="1283px" alt="Arico" " width="600" height="600"
+			<li><img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico" " width="600" height="600"
 				alt="Arico"></li>
 			<li><a href="/build/classes/servlet/MenuServlet">アカウント情報</a></li>
 			<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
