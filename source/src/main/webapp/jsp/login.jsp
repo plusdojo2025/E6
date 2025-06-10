@@ -34,9 +34,9 @@
           <tr>
             <td colspan="2">
               <input class="sub_botun" type="submit" name="submit" value="ログイン">
-              <input class="sub_botun" type="reset" name="reset" value="リセット">
               <span id="error_message"></span>
             <td>
+            <p>登録していない方は<a>こちら</a></p>
           </tr>
         </table>
       </form>
