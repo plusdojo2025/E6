@@ -20,20 +20,20 @@
           <tr>
             <td>
               <label>ユーザーID<br>
-              <input style="margin: auto; width: 220px;" type="text" name="id" placeholder="✉Mailadress">
+              <input style="margin: auto; width: 220px;" type="text" placeholder="✉Mailadress">
               </label>
             </td>
           </tr>
           <tr>
             <td>
               <label>パスワード<br>
-              <input style="margin: auto; width: 220px;" type="password" name="pw" placeholder="🔒Password">
+              <input style="margin: auto; width: 220px;" type="password" placeholder="🔒Password">
               </label>
             </td>
           </tr>
           <tr>
           <td>
-           <p>登録していない方は<a>こちら</a></p>
+           <p>登録していない方は<a href="/build/classes/servlet/MenuServlet" style="color: blue;">こちら</a></p>
            </td>
            </tr>
           <tr>
