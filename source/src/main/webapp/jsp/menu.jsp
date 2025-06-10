@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>メニュー</title>
+<link rel="stylesheet" href="/webapp/css/menu.css"
+	href="/webapp/css/common.css">
 </head>
 <body>
 	<div>
@@ -21,7 +23,9 @@
 	<h2>ホーム画面</h2>
 	<div>
 		<p>Topics</p>
-		<ul><li></li></ul>
+		<ul>
+			<li></li>
+		</ul>
 	</div>
 	<div>
 		<img>
@@ -38,5 +42,8 @@
 		<h3>見えにくい気配りや助け合いを評価可能に</h3>
 		<p></p>
 	</div>
+
+	<script src="/webapp/js/common.js"></script>
+	<script src="/webapp/js/menu.js"></script>
 </body>
 </html>
