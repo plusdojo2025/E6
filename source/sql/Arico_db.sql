@@ -29,3 +29,15 @@ CREATE TABLE send (
     receiver_number INT NOT NULL,
     FOREIGN KEY (regist_number) REFERENCES users(regist_number)
 );
+
+/*usersに入った登録番号をcoinにも入れるトリガー*/
+DELIMITER $$
+
+CREATE TRIGGER after_user_insert
+AFTER INSERT ON users
+FOR EACH ROW
+BEGIN
+  INSERT INTO coin (regist_number) VALUES (NEW.regist_number);
+END $$
+
+DELIMITER ;
