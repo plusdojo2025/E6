@@ -64,8 +64,12 @@ UPDATE SET users SET company=?, name=?, mail=? WHERE regist_number=?;
 DELETE FROM users WHERE regist_number=?;
 
 /*コインの送信*/
-
+SELECT name FROM users WHERE regist_number=?;
 INSERT INTO send VALUES (0, ?, ?, ?, ?, ?);
 
 /*コインの受信履歴*/
-SELECT 
+SELECT name FROM users WHERE regist_number=?;
+SELECT name FROM users WHERE regist_number=?;
+SELECT id, comment, send_coin, send_date FROM send WHERE receive_number=? ORDER BY DESC;
+
+/*ランキング表示*/
