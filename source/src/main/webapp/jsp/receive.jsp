@@ -19,5 +19,7 @@
     <li><a href="/webapp/LogoutServlet">ログアウト</a></li>    
 </ul>
 <h2>受信履歴</h2>
+<script src="js/receive.js">
+</script>
 </body>
 </html>

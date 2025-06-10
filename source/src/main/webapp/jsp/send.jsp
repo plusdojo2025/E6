@@ -20,5 +20,7 @@
     <li><a href="/webapp/LogoutServlet">ログアウト</a></li>    
 </ul>
 <h2>コイン送信</h2>
+<script src="js/send.js">
+</script>
 </body>
 </html>
