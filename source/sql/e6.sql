@@ -1,5 +1,5 @@
 /*データベース作成*/
-CREATE DATABASE Arico_db;
+CREATE DATABASE e6;
 
 /*usersテーブル作成*/
 CREATE TABLE users (
