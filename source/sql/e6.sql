@@ -73,3 +73,13 @@ SELECT name FROM users WHERE regist_number=?;
 SELECT id, comment, send_coin, send_date FROM send WHERE receive_number=? ORDER BY DESC;
 
 /*ランキング表示*/
+SELECT name, ranking_coin
+
+/*
+ * 
+ * 
+ * 会社でまとめるの忘れるな！！！！！！！！！！！！！！！
+ * 
+ * 
+ * 
+ */*/
