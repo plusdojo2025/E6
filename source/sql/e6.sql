@@ -27,7 +27,6 @@ CREATE TABLE send (
     comment VARCHAR(200),
     send_coin INT DEFAULT 0,
     receiver_number INT NOT NULL,
-    FOREIGN KEY (regist_number) REFERENCES users(regist_number)
 );
 
 /*usersに入った登録番号をcoinにも入れるトリガー*/
