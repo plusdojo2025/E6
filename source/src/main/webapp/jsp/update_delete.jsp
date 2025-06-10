@@ -7,6 +7,17 @@
 <title>アカウント情報画面</title>
 </head>
 <body>
+	<header>
+    	<a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
+    		<ul>
+	   			<li><a href="/build/classes/servlet/webapp/DataServlet">アカウント情報</a></li>
+					<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
+					<li><a href="/build/classes/servlet/webapp/CoinReceiveServlet">受信履歴</a></li>
+					<li><a href="/build/classes/servlet/webapp/MenuServlet">メニュー</a></li>
+					<li><a href="/build/classes/servlet/webapp/LogoutServlet">ログアウト</a></li>
+   			</ul>
+   		<h2>アカウント情報</h2>
+   </header>
 	<div class="accout-info">
 		<h2>アカウント情報</h2>
 		
