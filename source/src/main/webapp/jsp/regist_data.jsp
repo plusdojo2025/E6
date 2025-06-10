@@ -10,10 +10,9 @@
 </head>
 <body>
 <div class="wrapper">
-<!-- ヘッダー -->
-<h1 id="logo">
-<a href="/webapp/"
-</h1>
+	<!-- ヘッダー -->
+	<form id="regist_form" action="/webapp/" method="post">
+	</form>
 </div>
 </body>
 </html>
