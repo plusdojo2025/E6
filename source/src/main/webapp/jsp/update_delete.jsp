@@ -27,7 +27,7 @@
 			<button>アカウント削除</button>
 		</div>
 </div>
-<script src="update_delete.js">
+<script src="js/update_delete.js">
 </script>		
 </body>
 </html>
