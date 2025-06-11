@@ -28,7 +28,7 @@ CREATE TABLE coin (
 
     hold_coin INT DEFAULT 50,
 
-    recive_coin INT DEFAULT 0,
+    receive_coin INT DEFAULT 0,
 
     ranking_coin INT DEFAULT 0,
 
