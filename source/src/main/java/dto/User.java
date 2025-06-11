@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 	private int regist_number; // 登録番号
-	private String mail;
-	private String password;
-	private String name;
-	private String company;
+	private String mail; //メールアドレス
+	private String password; //パスワード
+	private String name; //氏名
+	private String company; //会社名
 
 	public User(int number, String mail, String password,String name, String company, int regist_number) {
 	this.regist_number= regist_number;
