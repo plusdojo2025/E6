@@ -1,10 +1,51 @@
 package servlet;
 
-public class RegistServlet {
+import java.io.IOException;
 
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.UsersDao;
+
+
+@WebServlet("/RegistServlet")
+public class RegistServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/E6/LoginServlet");
+			return;
+		}
+
+		// 登録ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Webapp/jsp/regist_data.jsp");
+		dispatcher.forward(request, response);
+	
+
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String company = request.getParameter("company");
+		String department = request.getParameter("name");
+		String position = request.getParameter("mail");
+
+
+		// 登録処理を行う
+		UsersDao bDao = new UsersDao();
+		if (bDao.insert(new Users(0, company, name, mail))) { // 登録成功
+		} else { // 登録失敗
+
+		}
+
+		
 	}
-
 }

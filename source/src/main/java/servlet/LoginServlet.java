@@ -35,8 +35,8 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("id", new User(id));
 
-				// メニューサーブレットにリダイレクトする
-				response.sendRedirect("/E6/MenuServlet");
+				// ローディング画面にリダイレクトする
+				response.sendRedirect("/E6/looding.html");
 			} 
 
 				
