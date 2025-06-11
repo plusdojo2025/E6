@@ -81,7 +81,7 @@ public class SendDao {
 
             while (rs.next()) {
                 User user = new User();
-                user.setRegist_number(String.valueOf(rs.getInt("regist_number")));
+                user.setRegist_number(Integer.valueOf(rs.getInt("regist_number")));
                 user.setName(rs.getString("name"));
                 userList.add(user);
             }

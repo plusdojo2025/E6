@@ -160,7 +160,11 @@ public class UsersDao {
             pStmt.setString(1, card.getCompany() != null ? card.getCompany() : "");
             pStmt.setString(2, card.getName() != null ? card.getName() : "");
             pStmt.setString(3, card.getMail() != null ? card.getMail() : "");
-            pStmt.setString(4, card.getRegist_number() != null ? card.getRegist_number() : "");
+            if (card.getRegist_number() != null) {
+                pStmt.setInt(4, card.getRegist_number());
+            } else {
+                pStmt.setNull(4, java.sql.Types.INTEGER);
+            }
 
             if (pStmt.executeUpdate() == 1) {
                 result = true;
@@ -189,7 +193,11 @@ public class UsersDao {
             String sql = "DELETE FROM users WHERE regist_number=?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
-            pStmt.setString(1, card.getRegist_number() != null ? card.getRegist_number() : "");
+            if (card.getRegist_number() != null) {
+                pStmt.setInt(1, card.getRegist_number());
+            } else {
+                pStmt.setNull(1, java.sql.Types.INTEGER);
+            }
 
             if (pStmt.executeUpdate() == 1) {
                 result = true;

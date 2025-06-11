@@ -1,16 +1,18 @@
 package dto;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Send implements Serializable {
 	private int id;
 	private int regist_number; 
-	private String send_date;
+	private Timestamp send_date;
 	private String comment;
 	private int send_coin;
 	private int receiver_number;
+	private String sender_name;
 	
-	public Send(int id,int regist_number,String send_date,String comment,int send_coin,int receiver_coin) {
+	public Send(int id,int regist_number,Timestamp send_date,String comment,int send_coin,int receiver_coin) {
 		this.id=id; //ID
 		this.regist_number= regist_number; //登録番号
 		this.send_date=send_date; //送信日時
@@ -22,7 +24,7 @@ public class Send implements Serializable {
 	public Send() {
 		this.id=0;
 		this.regist_number=0;
-		this.send_date="";
+		this.send_date= null;
 		this.comment="";
 		this.send_coin=0;
 		this.receiver_number=0;
@@ -44,11 +46,11 @@ public class Send implements Serializable {
 		this.regist_number = regist_number;
 	}
 
-	public String getSend_date() {
+	public Timestamp getSend_date() {
 		return send_date;
 	}
 
-	public void setSend_date(String send_date) {
+	public void setSend_date(Timestamp send_date) {
 		this.send_date = send_date;
 	}
 
@@ -74,6 +76,14 @@ public class Send implements Serializable {
 
 	public void setReceiver_number(int receiver_number) {
 		this.receiver_number = receiver_number;
+	}
+	
+	public String getSender_name() {
+	    return sender_name;
+	}
+
+	public void setSender_name(String sender_name) {
+	    this.sender_name = sender_name;
 	}
 	
 	
