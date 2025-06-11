@@ -55,12 +55,13 @@ public class UsersDao {
                     + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                     "root", "password");
 
-            String sql = "INSERT INTO users (regist_number, mail, name, company, password) VALUES (0, ?, ?, ?, '')";
+            String sql = "INSERT INTO users (regist_number, mail, name, company, password) VALUES (0, ?, ?, ?, ?)";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
             pStmt.setString(1, card.getMail() != null ? card.getMail() : "");
             pStmt.setString(2, card.getName() != null ? card.getName() : "");
             pStmt.setString(3, card.getCompany() != null ? card.getCompany() : "");
+            pStmt.setString(4, card.getPassword() != null ? card.getPassword() : "");
 
             if (pStmt.executeUpdate() == 1) {
                 result = true;
@@ -74,35 +75,6 @@ public class UsersDao {
         return result;
     }
 
-    // パスワード登録（更新）
-    public boolean ps_regist(User card) {
-        Connection conn = null;
-        boolean result = false;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/e6?"
-                    + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-                    "root", "password");
-
-            String sql = "UPDATE users SET password = ? WHERE mail = ?";
-            PreparedStatement pStmt = conn.prepareStatement(sql);
-
-            pStmt.setString(1, card.getPassword() != null ? card.getPassword() : "");
-            pStmt.setString(2, card.getMail() != null ? card.getMail() : "");
-
-            if (pStmt.executeUpdate() == 1) {
-                result = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
-        }
-
-        return result;
-    }
 
     // ユーザー情報の表示
     public boolean user_data(User card) {
