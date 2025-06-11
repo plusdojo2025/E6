@@ -3,23 +3,37 @@ package dto;
 import java.io.Serializable;
 
 public class Send implements Serializable {
-	private int regist_number; // 登録番号
-	private int hold_coin; //所持コイン
-	private int receive_coin; //
-	private int ranking_coin; //氏名
-
-	public Send(int regist_number,int hold_coin,int receive_coin,int ranking_coin){
-		this.regist_number= regist_number;
-		this.hold_coin=hold_coin;
-		this.receive_coin=receive_coin;
-		this.ranking_coin=ranking_coin;
+	private int id;
+	private int regist_number; 
+	private String send_date;
+	private String comment;
+	private int send_coin;
+	private int receiver_number;
+	
+	public Send(int id,int regist_number,String send_date,String comment,int send_coin,int receiver_coin) {
+		this.id=id; //ID
+		this.regist_number= regist_number; //登録番号
+		this.send_date=send_date; //送信日時
+		this.comment=comment; //コメント
+		this.send_coin=send_coin; //送信コイン
+		this.receiver_number=receiver_number; //受信者番号
 	}
 	
 	public Send() {
-		this.regist_number = 0;
-		this.hold_coin=0;
-		this.receive_coin=0;
-		this.ranking_coin=0;
+		this.id=0;
+		this.regist_number=0;
+		this.send_date="";
+		this.comment="";
+		this.send_coin=0;
+		this.receiver_number=0;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getRegist_number() {
@@ -30,30 +44,37 @@ public class Send implements Serializable {
 		this.regist_number = regist_number;
 	}
 
-	public int getHold_coin() {
-		return hold_coin;
+	public String getSend_date() {
+		return send_date;
 	}
 
-	public void setHold_coin(int hold_coin) {
-		this.hold_coin = hold_coin;
+	public void setSend_date(String send_date) {
+		this.send_date = send_date;
 	}
 
-	public int getReceive_coin() {
-		return receive_coin;
+	public String getComment() {
+		return comment;
 	}
 
-	public void setReceive_coin(int receive_coin) {
-		this.receive_coin = receive_coin;
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
-	public int getRanking_coin() {
-		return ranking_coin;
+	public int getSend_coin() {
+		return send_coin;
 	}
 
-	public void setRanking_coin(int ranking_coin) {
-		this.ranking_coin = ranking_coin;
+	public void setSend_coin(int send_coin) {
+		this.send_coin = send_coin;
+	}
+
+	public int getReceiver_number() {
+		return receiver_number;
+	}
+
+	public void setReceiver_number(int receiver_number) {
+		this.receiver_number = receiver_number;
 	}
 	
 	
-
 }

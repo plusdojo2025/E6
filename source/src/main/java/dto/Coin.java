@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Coin implements Serializable {
 	private int regist_number; // 登録番号
 	private int hold_coin; //所持コイン
-	private int receive_coin; //
-	private int ranking_coin; //氏名
+	private int receive_coin; //受け取りコイン
+	private int ranking_coin; //ランキングコイン
 
 	public Coin(int regist_number,int hold_coin,int receive_coin,int ranking_coin){
 		this.regist_number= regist_number;

@@ -10,7 +10,7 @@ public class User implements Serializable {
 	private String company; //会社名
 
 	public User(int number, String mail, String password,String name, String company, int regist_number) {
-	this.regist_number= regist_number;
+	
 	this.mail= mail;
 	this.password = password;
 	this.name= name;
