@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.Coin;
 import dto.User;
 
 public class CoinDao {
@@ -73,9 +74,10 @@ public class CoinDao {
 
             while (rs.next()) {
                 User user = new User();
+                Coin coin = new Coin();
                 user.setRegist_number(rs.getInt("regist_number"));
                 user.setName(rs.getString("name"));
-                user.setReceive_coin(rs.getInt("recive_coin")); // DTOに必要なら追加
+                coin.setReceive_coin(rs.getInt("recive_coin")); // DTOに必要なら追加
                 topUsers.add(user);
             }
 

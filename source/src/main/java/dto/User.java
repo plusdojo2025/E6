@@ -3,7 +3,7 @@ package dto;
 import java.io.Serializable;
 
 public class User implements Serializable {
-	private int regist_number; // 登録番号
+	private Integer regist_number; // 登録番号
 	private String mail; //メールアドレス
 	private String password; //パスワード
 	private String name; //氏名
@@ -25,11 +25,11 @@ public class User implements Serializable {
 		this.company = "";
 	}
 
-	public int getRegist_number() {
+	public Integer getRegist_number() {
 		return regist_number;
 	}
 
-	public void setRegist_number(int regist_number) {
+	public void setRegist_number(Integer regist_number) {
 		this.regist_number = regist_number;
 	}
 
