@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDao;
+
 
 
 @WebServlet("/UpdateDeleteServlet")
@@ -22,8 +24,36 @@ public class UpdateDeleteServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/webappAns/LoginServlet");
+			response.sendRedirect("/E6/LoginServlet");
 			return;
 		}
+	
+
+		//リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		int number = Integer.parseInt(request.getParameter("number"));
+		String mail = request.getParameter("mail");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String company = request.getParameter("company");
+		
+
+		// 更新または削除を行う
+		UsersDao bDao = new UsersDao();
+		if (request.getParameter("submit").equals("更新")) {
+			if (bDao.update(new Users(regist_number, mail,  password, name, company))) { // 更新成功
+				
+			} else { // 更新失敗
+				
+			}
+		} else {
+			if (bDao.delete(new Users(regist_number, mail,  password, name, company))) { // 削除成功
+				
+			} else { // 削除失敗
+				
+			}
+		}
+	
 	}
 }
+
