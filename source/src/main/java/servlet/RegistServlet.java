@@ -35,13 +35,14 @@ public class RegistServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String company = request.getParameter("company");
-		String department = request.getParameter("name");
-		String position = request.getParameter("mail");
+		String name = request.getParameter("name");
+		String mail = request.getParameter("mail");
+		String password = request.getParameter("password");
 
 
 		// 登録処理を行う
 		UsersDao bDao = new UsersDao();
-		if (bDao.insert(new Users(0, company, name, mail))) { // 登録成功
+		if (bDao.insert(new Users(0, company, name, mail , password))) { // 登録成功
 		} else { // 登録失敗
 
 		}
