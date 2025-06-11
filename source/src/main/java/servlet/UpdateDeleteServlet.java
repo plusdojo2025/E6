@@ -46,12 +46,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 			} else { // 更新失敗
 				
 			}
-		} else {
-			if (bDao.delete(new Users(regist_number, mail,  password, name, company))) { // 削除成功
-				
-			} else { // 削除失敗
-				
-			}
+		
 		}
 	
 	}
