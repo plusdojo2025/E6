@@ -30,15 +30,14 @@ public class CoinSendServlet extends HttpServlet {
 		}
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
-				String company = request.getParameter("name");
+				String company = request.getParameter("");
 				String department = request.getParameter("");
 				String position = request.getParameter("");
 			
 
 				// 登録処理を行う
-				BcDAO bDao = new BcDAO();
-				if (bDao.insert(new Bc(0, company,  department, position, name, zipcode, address, 
-						phone, fax, email, remarks))) { // 登録成功
+				Dao bDao = new BcDAO();
+				if (bDao.insert(new Bc(0, , ))) { // 登録成功
 				
 				} else { // 登録失敗
 					
