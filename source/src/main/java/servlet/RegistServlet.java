@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDao;
+import dto.User;
 
 
 @WebServlet("/RegistServlet")
@@ -42,7 +43,7 @@ public class RegistServlet extends HttpServlet {
 
 		// 登録処理を行う
 		UsersDao bDao = new UsersDao();
-		if (bDao.insert(new Users(0, company, name, mail , password))) { // 登録成功
+		if (bDao.new_regist(new User(0, company, name, mail, password))) { // 登録成功
 		} else { // 登録失敗
 
 		}

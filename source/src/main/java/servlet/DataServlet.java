@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CoinDao;
 import dao.UsersDao;
+import dto.Coin;
+import dto.User;
 
 
 
@@ -35,19 +38,21 @@ public class DataServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String name = request.getParameter("name");
 		String company = request.getParameter("company");
-	}
+		String password = request.getParameter("password");
+	
 	// 削除を行う 
 	UsersDao bDao = new UsersDao();
-	if (bDao.delete(new Users(mail, password, name, company))) {
+	if (bDao.user_data_del(new User(mail, password, name, company))) {
 
 	    // セッションから regist_number を取得
-	    HttpSession session = request.getSession();
 	    Integer registNumber = (Integer) session.getAttribute("regist_number");
 
 	    if (registNumber != null) {
 	        // coinテーブルも削除（regist_number指定）
-	        CoinDao cDao = new CoinDao();
-	        cDao.deleteByRegistNumber(registNumber);
+	    	CoinDao cDao = new CoinDao();
+	    	Coin coin = new Coin();
+	    	coin.setRegist_number(registNumber);
+	        cDao.coin_data_del(coin);  // coin_data_delはCoin型を引数に取る想定
 	    }
 
 	    // セッション破棄（ログアウト）
