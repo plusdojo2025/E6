@@ -26,26 +26,29 @@ public class LoginServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String mail = request.getParameter("mail");
-		String pw = request.getParameter("pw");
+		String password = request.getParameter("password");
 
 
 	// ログイン処理を行う
 			UsersDao iDao = new UsersDao();
 
 
-			if (iDao.isLoginOK(new User(mail, pw))) { // ログイン成功
-				// セッションスコープにIDを格納する
-				HttpSession session = request.getSession();
-				session.setAttribute("mail", new User(mail));
+			if (iDao.isLoginOK(new User(mail, password))) {
+			    System.out.println("ログイン成功");
+			    HttpSession session = request.getSession();
+			    session.setAttribute("mail", new User(mail));
 
+			    String contextPath = request.getContextPath();
+			    System.out.println("リダイレクト先: " + contextPath + "/webapp/looding.html");
 
-				// ローディング画面にリダイレクトする
-				response.sendRedirect("/E6/looding.html");
-			} 
+			    response.sendRedirect(contextPath + "/html/looding.html");
+			} else {
+			    System.out.println("ログイン失敗");
 
-				
+			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			    dispatcher.forward(request, response);
 			}
-		}
-	
+	}
+}
 
 
