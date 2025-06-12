@@ -95,6 +95,82 @@ public class SendDao {
         return userList;
     }
 	
+	// 同じ会社のユーザーをページャーで取得（新規メソッド）
+	public List<User> getUsersInSameCompanyWithPagination(String loginUserRegistNumber, int page, int pageSize) {
+	    List<User> userList = new ArrayList<>();
+	    Connection conn = null;
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	            "root", "password"
+	        );
+
+	        String sql = 
+	            "SELECT regist_number, name " +
+	            "FROM users " +
+	            "WHERE company = (SELECT company FROM users WHERE regist_number = ?) " +
+	            "LIMIT ? OFFSET ?";
+
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setString(1, loginUserRegistNumber);
+	        pStmt.setInt(2, pageSize);
+	        pStmt.setInt(3, (page - 1) * pageSize);
+
+	        ResultSet rs = pStmt.executeQuery();
+
+	        while (rs.next()) {
+	            User user = new User();
+	            user.setRegist_number(rs.getInt("regist_number"));
+	            user.setName(rs.getString("name"));
+	            userList.add(user);
+	        }
+
+	    } catch (ClassNotFoundException | SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+	    }
+
+	    return userList;
+	}
+	
+	// 同じ会社のユーザーの総数を取得
+	public int getTotalUsersInSameCompany(String loginUserRegistNumber) {
+	    int total = 0;
+	    Connection conn = null;
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	            "root", "password"
+	        );
+
+	        String sql = 
+	            "SELECT COUNT(*) FROM users " +
+	            "WHERE company = (SELECT company FROM users WHERE regist_number = ?)";
+
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setString(1, loginUserRegistNumber);
+
+	        ResultSet rs = pStmt.executeQuery();
+	        if (rs.next()) {
+	            total = rs.getInt(1);
+	        }
+
+	    } catch (ClassNotFoundException | SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+	    }
+
+	    return total;
+	}
+	
 	//送信情報登録
 	public boolean insertSend(Send send) {
         Connection conn = null;

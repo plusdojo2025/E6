@@ -19,7 +19,7 @@
    			</ul>
    		<h2>ランキング</h2>
    </header>
-<script src="js/ranking.js">
-</script>
+<script src="js/common.js"></script>
+<script src="js/ranking.js"></script>
 </body>
 </html>

@@ -33,7 +33,7 @@
     </div>
   </c:forEach>
 </div>
-
+<script src="js/common.js"></script>
 <script src="js/receive.js"></script>
 </body>
 </html>
