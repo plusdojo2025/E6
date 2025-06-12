@@ -42,13 +42,13 @@
   <!-- <div class="info-row">
       <span class="info-label">パスワード：</span>
       <input type="password" name="password" value="${user.password}" required>
-    </div>
+    </div>-->
     
     <div class="button-group">
       <button type="submit" name="submit" value="更新">更新</button>
       <button type="submit" name="submit" value="削除">アカウント削除</button>
     </div>
--->
+
 
   </form>
 </div>
