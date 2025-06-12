@@ -30,10 +30,10 @@ public class LoginServlet extends HttpServlet {
 
 	// ログイン処理を行う
 			UsersDao iDao = new UsersDao();
-			if (iDao.isLoginOK(new User(id, pw))) { // ログイン成功
+			if (iDao.isLoginOK(new Users(mail, password))) { // ログイン成功
 				// セッションスコープにIDを格納する
 				HttpSession session = request.getSession();
-				session.setAttribute("id", new User(id));
+				session.setAttribute("id", new Users(id));
 
 				// ローディング画面にリダイレクトする
 				response.sendRedirect("/E6/looding.html");
