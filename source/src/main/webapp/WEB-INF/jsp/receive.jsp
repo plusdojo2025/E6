@@ -27,9 +27,9 @@
   <c:forEach var="send" items="${receivedList}">
     <div class="card">
       <p><strong>日時：</strong> ${send.date}</p>
-      <p><strong>送信者：</strong> ${send.senderName}</p>
+      <p><strong>送信者：</strong> ${send.Name}</p>
       <p><strong>コメント：</strong> ${send.comment}</p>
-      <p><strong>コイン枚数：</strong> ${send.coinAmount} 枚</p>
+      <p><strong>コイン枚数：</strong> ${send.coin} 枚</p>
     </div>
   </c:forEach>
 </div>
