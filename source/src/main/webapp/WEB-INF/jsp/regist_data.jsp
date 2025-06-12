@@ -11,7 +11,7 @@
 <body>
 <div class="wrapper">
 	<!-- ヘッダー -->
-	<form id="regist_form" action="/webapp/" method="post">
+	<form id="regist_form" action="RegistServlet" method="post">
 		<table class="form-table">
         <tr>
           <th>会社名</th>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <td><input type="text" name="email" id="email" placeholder="メールアドレス" required></td>
+          <td><input type="text" name="mail" id="mail" placeholder="メールアドレス" required></td>
         </tr>
         <tr>
           <th>パスワード</th>
@@ -45,7 +45,7 @@
 	<!-- メイン（ここまで） -->
     <!-- フッター（ここから） -->
 </div>
-<script src="js/regist_data.js">
-</script>
+<script src="js/common.js"></script>
+<script src="js/regist_data.js"></script>
 </body>
 </html>
