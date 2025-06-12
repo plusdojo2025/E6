@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/reset")
-public class ResetServlet extends HttpServlet {
+public class MonthResetServlet extends HttpServlet {
 
     // DB接続情報
     private static final String DB_URL = "jdbc:mysql://localhost:3306/testdb";
