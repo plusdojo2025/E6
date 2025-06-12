@@ -1,6 +1,7 @@
 package servlet;
  
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,34 +19,29 @@ import dto.Send;
 public class CoinReceiveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 登録ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/Webapp/jsp/receive.jsp");
-				dispatcher.forward(request, response);
-			}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("mail") == null) {
 			response.sendRedirect("/E6/LoginServlet");
 			return;
 		}
-		// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				String send_date = request.getParameter("send_date");
-				String name = request.getParameter("name");
-				String comment = request.getParameter("comment");
-				String receive_coin = request.getParameter("receive_coin");
 
-				// 登録処理を行う
-				SendDao sDao = new SendDao();
-				if (sDao.select(new Send(send_date, name, comment, receive_coin))) { // 登録成功
-				
-				} else { // 登録失敗
-					
-				}
+		// regist_number（ログインユーザー）を取得
+		String registNumber = session.getAttribute("regist_number").toString();
+
+		// SendDaoを使って受信履歴を取得
+		SendDao sDao = new SendDao();
+		List<Send> receivedList = sDao.getRecentReceivedMessages(registNumber);
+
+		// リクエストスコープに格納
+		request.setAttribute("receivedList", receivedList);
+
+		// JSPにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Webapp/jsp/receive.jsp");
+		dispatcher.forward(request, response);
 	}
 }
 	
