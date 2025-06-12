@@ -19,7 +19,18 @@
     <li><a href="/webapp/LogoutServlet">ログアウト</a></li>    
 </ul>
 <h2>受信履歴</h2>
+<div class="card-container">
+    <c:forEach var="send" items="${receivedList}">
+        <div class="card">
+            <p><strong>日時：</strong> ${send.date}</p>
+            <p><strong>送信者：</strong> ${send.senderName}</p>
+            <p><strong>コメント：</strong> ${send.comment}</p>
+            <p><strong>コイン枚数：</strong> ${send.coinAmount} 枚</p>
+        </div>
+    </c:forEach>
+</div>
 <script src="js/receive.js">
 </script>
+
 </body>
 </html>
