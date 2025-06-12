@@ -40,7 +40,7 @@ public class CoinReceiveServlet extends HttpServlet {
 		request.setAttribute("receivedList", receivedList);
 
 		// JSPにフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Webapp/jsp/receive.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/receive.jsp");
 		dispatcher.forward(request, response);
 	}
 }

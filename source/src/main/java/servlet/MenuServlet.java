@@ -32,7 +32,7 @@ public class MenuServlet extends HttpServlet {
         coinDao.resetAndRankCoinsIfNeeded();
 
 		// メニューページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/webapp/jsp/menu.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/menu.jsp");
 		dispatcher.forward(request, response);
 	}
 }

@@ -39,7 +39,7 @@ public class CoinSendServlet extends HttpServlet {
 		request.setAttribute("userList", userList);
 
 		// send.jsp へフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Webapp/jsp/send.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/send.jsp");
 		dispatcher.forward(request, response);
 	}
 
