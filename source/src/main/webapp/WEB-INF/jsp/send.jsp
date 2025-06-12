@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>
-      <a><img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="613px" height="1283px" alt="Arico"></a>
+      <a><img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
 </h1>
 <ul id="nav">
     <li><a href="/webapp/DataServlet">アカウント情報</a></li>
