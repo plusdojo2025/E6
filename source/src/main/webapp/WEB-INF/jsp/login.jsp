@@ -9,13 +9,13 @@
 <body>
 <div style="text-align: center;">
 <h1>
-      <a><img src="${pageContext.request.contextPath}/img/arico_logo.png" width="300" height="300" alt="ログイン"></a>
+      <a><img src="img/arico_logo.png" width="300" height="300" alt="ログイン"></a>
 </h1>
 </div>
 
 <div style="text-align: center;" class="login">
       <h2 id="log_title">Sign In</h2>
-      <form style="margin: 0 auto; width: fit-content;" id="login_form" method="POST" action=${pageContext.request.contextPath}/LoginServlet>
+      <form style="margin: 0 auto; width: fit-content;" id="login_form" method="POST" action="${pageContext.request.contextPath}/LoginServlet">
         <table>
           <tr>
             <td>
