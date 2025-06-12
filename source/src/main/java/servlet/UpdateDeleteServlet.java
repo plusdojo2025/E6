@@ -31,7 +31,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 		int registNumber = (int) session.getAttribute("regist_number");
 
 		UsersDao dao = new UsersDao();
-		User user = dao.findById(registNumber); // ユーザー取得
+		User user = dao.user_data(registNumber); // ユーザー取得
 
 		request.setAttribute("user", user);
 
