@@ -45,7 +45,7 @@
 	<!-- メイン（ここまで） -->
     <!-- フッター（ここから） -->
 </div>
-<script src="js/regist_data.js">
-</script>
+<script src="js/common.js"></script>
+<script src="js/regist_data.js"></script>
 </body>
 </html>
