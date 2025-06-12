@@ -21,6 +21,8 @@ public class Coin implements Serializable {
 		this.receive_coin=0;
 		this.ranking_coin=0;
 	}
+	
+
 
 	public int getRegist_number() {
 		return regist_number;

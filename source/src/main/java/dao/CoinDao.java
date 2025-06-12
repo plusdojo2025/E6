@@ -174,4 +174,38 @@ public class CoinDao {
 
         return topUsers;
     }
+	
+	
+	// ユーザー削除
+    public boolean coin_data_del(Coin card) {
+        Connection conn = null;
+        boolean result = false;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/e6?"
+                    + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+                    "root", "password");
+
+            String sql = "DELETE FROM coin WHERE regist_number=?";
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+
+            if (card.getRegist_number() != 0) {
+                pStmt.setInt(1, card.getRegist_number());
+            } else {
+                pStmt.setNull(1, java.sql.Types.INTEGER);
+            }
+
+            if (pStmt.executeUpdate() == 1) {
+                result = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
+
+        return result;
+    }
 }

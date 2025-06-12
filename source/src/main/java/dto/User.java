@@ -9,21 +9,31 @@ public class User implements Serializable {
 	private String name; //氏名
 	private String company; //会社名
 
-	public User(int number, String mail, String password,String name, String company, int regist_number) {
-	
-	this.mail= mail;
-	this.password = password;
-	this.name= name;
-	this.company= company;
-}
-	
-	public User() {
-		this.regist_number = 0;
-		this.mail="";
-		this.password = "";
-		this.name = "";
-		this.company = "";
-	}
+	public User(String mail, String password) {
+        this.mail = mail;
+        this.password = password;
+    }
+
+    public User(String mail) {
+        this.mail = mail;
+    }
+
+    public User() {}
+    
+    public User(Integer regist_number, String company, String name, String mail, String password) {
+        this.regist_number = regist_number;
+        this.company = company;
+        this.name = name;
+        this.mail = mail;
+        this.password = password;
+    }
+    
+    public User(String mail, String password, String name, String company) {
+        this.mail = mail;
+        this.password = password;
+        this.name = name;
+        this.company = company;
+    }
 
 	public Integer getRegist_number() {
 		return regist_number;
