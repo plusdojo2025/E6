@@ -35,10 +35,27 @@ public class CoinReceiveServlet extends HttpServlet {
 		// SendDaoを使って受信履歴を取得
 		SendDao sDao = new SendDao();
 		List<Send> receivedList = sDao.getRecentReceivedMessages(registNumber);
-
+		
+		
 		// リクエストスコープに格納
 		request.setAttribute("receivedList", receivedList);
+		
+		int page = 1;
+		int pageSize = 10;
+		String pageParam = request.getParameter("page");
+		if (pageParam != null && pageParam.matches("\\d+")) {
+			page = Integer.parseInt(pageParam);
+		}
 
+		List<Send> companySendList = sDao.getCompanySendHistoryWithPagination(registNumber, page, pageSize);
+		int totalCompanySendCount = sDao.getCompanySendHistoryCount(registNumber);
+		int totalPages = (int) Math.ceil((double) totalCompanySendCount / pageSize);
+
+		request.setAttribute("companySendList", companySendList);
+		request.setAttribute("currentPage", page);
+		request.setAttribute("totalPages", totalPages);
+
+		
 		// JSPにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/receive.jsp");
 		dispatcher.forward(request, response);

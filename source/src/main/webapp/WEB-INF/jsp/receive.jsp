@@ -33,6 +33,18 @@
     </div>
   </c:forEach>
 </div>
+<!-- ページャー -->
+<div style="margin-top: 20px; text-align: center;">
+  <c:if test="${currentPage > 1}">
+    <a href="CoinReceiveServlet?page=${currentPage - 1}">← 前のページ</a>
+  </c:if>
+
+  <span>ページ ${currentPage} / ${totalPages}</span>
+
+  <c:if test="${currentPage < totalPages}">
+    <a href="CoinReceiveServlet?page=${currentPage + 1}">次のページ →</a>
+  </c:if>
+</div>
 <script src="js/common.js"></script>
 <script src="js/receive.js"></script>
 </body>

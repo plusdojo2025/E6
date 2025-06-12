@@ -95,23 +95,24 @@ public class SendDao {
         return userList;
     }
 	
-	// 同じ会社のユーザーをページャーで取得（新規メソッド）
-	public List<User> getUsersInSameCompanyWithPagination(String loginUserRegistNumber, int page, int pageSize) {
-	    List<User> userList = new ArrayList<>();
+	// 同じ会社の送信履歴をページャーで取得
+	public List<Send> getCompanySendHistoryWithPagination(String loginUserRegistNumber, int page, int pageSize) {
+	    List<Send> sendList = new ArrayList<>();
 	    Connection conn = null;
 
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
-
 	        conn = DriverManager.getConnection(
 	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
 	            "root", "password"
 	        );
 
-	        String sql = 
-	            "SELECT regist_number, name " +
-	            "FROM users " +
-	            "WHERE company = (SELECT company FROM users WHERE regist_number = ?) " +
+	        String sql =
+	            "SELECT s.comment, s.send_coin, s.send_date, u.name " +
+	            "FROM send s " +
+	            "JOIN users u ON s.regist_number = u.regist_number " +
+	            "WHERE u.company = (SELECT company FROM users WHERE regist_number = ?) " +
+	            "ORDER BY s.send_date DESC " +
 	            "LIMIT ? OFFSET ?";
 
 	        PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -122,10 +123,12 @@ public class SendDao {
 	        ResultSet rs = pStmt.executeQuery();
 
 	        while (rs.next()) {
-	            User user = new User();
-	            user.setRegist_number(rs.getInt("regist_number"));
-	            user.setName(rs.getString("name"));
-	            userList.add(user);
+	            Send send = new Send();
+	            send.setComment(rs.getString("comment"));
+	            send.setSend_coin(rs.getInt("send_coin"));
+	            send.setSend_date(rs.getTimestamp("send_date"));
+	            send.setSender_name(rs.getString("name"));
+	            sendList.add(send);
 	        }
 
 	    } catch (ClassNotFoundException | SQLException e) {
@@ -134,25 +137,26 @@ public class SendDao {
 	        try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
 	    }
 
-	    return userList;
+	    return sendList;
 	}
-	
-	// 同じ会社のユーザーの総数を取得
-	public int getTotalUsersInSameCompany(String loginUserRegistNumber) {
+
+	// 同じ会社の送信履歴の総数を取得
+	public int getCompanySendHistoryCount(String loginUserRegistNumber) {
 	    int total = 0;
 	    Connection conn = null;
 
 	    try {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
-
 	        conn = DriverManager.getConnection(
 	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
 	            "root", "password"
 	        );
 
-	        String sql = 
-	            "SELECT COUNT(*) FROM users " +
-	            "WHERE company = (SELECT company FROM users WHERE regist_number = ?)";
+	        String sql =
+	            "SELECT COUNT(*) " +
+	            "FROM send s " +
+	            "JOIN users u ON s.regist_number = u.regist_number " +
+	            "WHERE u.company = (SELECT company FROM users WHERE regist_number = ?)";
 
 	        PreparedStatement pStmt = conn.prepareStatement(sql);
 	        pStmt.setString(1, loginUserRegistNumber);
