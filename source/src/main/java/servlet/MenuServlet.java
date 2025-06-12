@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CoinDao;
+
 
 @WebServlet("/MenuServlet")
 public class MenuServlet extends HttpServlet {
@@ -24,6 +26,10 @@ public class MenuServlet extends HttpServlet {
 			response.sendRedirect("/E6/LoginServlet");
 			return;
 		}
+		
+		// 月初処理を試みる（DAO内部で月初＆未実行時のみ処理される）
+        CoinDao coinDao = new CoinDao();
+        coinDao.resetAndRankCoinsIfNeeded();
 
 		// メニューページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/webapp/jsp/menu.jsp");
