@@ -26,6 +26,15 @@
           <td><input type="text" name="email" id="email" placeholder="メールアドレス" required></td>
         </tr>
         <tr>
+          <th>パスワード</th>
+          <td><input type="text" name="password" id="password" placeholder="パスワード" required></td>
+        </tr>
+        <tr>
+          <td>
+           <p><small>※8~20文字以内の半角英数字の組み合わせでパスワードを設定してください。</small></p>
+           </td>
+           </tr>
+        <tr>
           <td colspan="2">
             <input type="submit" id="regist" name="submit" value="登録">
             <input type="button" value="前のページに戻る" onclick="location.href=`login.jsp`">
