@@ -36,13 +36,24 @@ public class DataServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String company = request.getParameter("company");
 	}
-	// 削除を行う
-			UsersDao bDao = new UsersDao();
-		if (bDao.delete(new Users(mail,  password, name, company, , ))) { // 削除成功
-			
-		} else { // 削除失敗
-			
-		}
-}
-}
+	// 削除を行う 
+	UsersDao bDao = new UsersDao();
+	if (bDao.delete(new Users(mail, password, name, company))) {
 
+	    // セッションから regist_number を取得
+	    HttpSession session = request.getSession();
+	    Integer registNumber = (Integer) session.getAttribute("regist_number");
+
+	    if (registNumber != null) {
+	        // coinテーブルも削除（regist_number指定）
+	        CoinDao cDao = new CoinDao();
+	        cDao.deleteByRegistNumber(registNumber);
+	    }
+
+	    // セッション破棄（ログアウト）
+	    session.invalidate();
+
+	   
+	}
+}
+}
