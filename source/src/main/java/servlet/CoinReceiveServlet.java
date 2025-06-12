@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.SendDao;
+import dto.Send;
+
+
 @WebServlet("/CoinReceiveServlet")
-public class CoinSendServlet extends HttpServlet {
+public class CoinReceiveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,14 +34,14 @@ public class CoinSendServlet extends HttpServlet {
 		}
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
-				String company = request.getParameter("");
-				String department = request.getParameter("");
-				String position = request.getParameter("");
-				String position = request.getParameter("");
+				String send_date = request.getParameter("send_date");
+				String name = request.getParameter("name");
+				String comment = request.getParameter("comment");
+				String receive_coin = request.getParameter("receive_coin");
 
 				// 登録処理を行う
-				Dao bDao = new DAO();
-				if (bDao.insert(new Bc(0, , ))) { // 登録成功
+				SendDao sDao = new SendDao();
+				if (sDao.select(new Send(send_date, name, comment, receive_coin))) { // 登録成功
 				
 				} else { // 登録失敗
 					

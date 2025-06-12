@@ -39,7 +39,6 @@ public class UpdateDeleteServlet extends HttpServlet {
 		String company = request.getParameter("company");
 		
 
-		// 更新または削除を行う
 		UsersDao bDao = new UsersDao();
 		if (request.getParameter("submit").equals("更新")) {
 			if (bDao.user_data_up(new User(regist_number, mail,  password, name, company))) { // 更新成功
