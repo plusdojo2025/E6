@@ -54,6 +54,14 @@ CREATE TABLE send (
 
 );
 
+/*コインリセット用日時記録*/
+CREATE TABLE monthly_reset_log (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    reset_year INT NOT NULL,
+    reset_month INT NOT NULL,
+    reset_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 /*usersに入った登録番号をcoinにも入れるトリガー*/
 
 DELIMITER $$
