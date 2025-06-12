@@ -15,7 +15,7 @@
 
 <div style="text-align: center;" class="login">
       <h2 id="log_title">Sign In</h2>
-      <form style="margin: 0 auto; width: fit-content;" id="login_form" method="POST" action="${pageContext.request.contextPath}/LoginServlet">
+      <form style="margin: 0 auto; width: fit-content;" id="login_form" method="POST" action="/E6/LoginServlet">
         <table>
           <tr>
             <td>
@@ -40,7 +40,7 @@
             <td colspan="2">
               <input class="sub_botun" type="submit" name="submit" value="ログイン">
               <span id="error_message"></span>
-            <td>
+            </td>
           </tr>
         </table>
       </form>
