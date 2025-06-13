@@ -45,7 +45,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 
 		request.setAttribute("user", user);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/account.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/E6/jsp/account.jsp");
 		dispatcher.forward(request, response);
 	}
 	// 【2】更新処理（POSTメソッド）

@@ -13,7 +13,7 @@
 		<ul id="nav">
 			<li><img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico" " width="600" height="600"
 				alt="Arico"></li>
-			<li><a href="/build/classes/servlet/MenuServlet">アカウント情報</a></li>
+			<li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
 			<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
 			<li><a href="/build/classes/servlet/webapp/CoinReceiveServlet">受信履歴</a></li>
 			<li><a href="/build/classes/servlet/webapp/RankingServlet">ランキング</a></li>
@@ -43,7 +43,7 @@
 		<p>感謝の伝える機会が増えることで、社員同士の信頼関係が深まり、円滑な仕事の進行や前向きな環境の形成につながります！</p>
 	</div>
 
-	<script src="/webapp/js/common.js"></script>
-	<script src="/webapp/js/menu.js"></script>
+	<script src="/E6/js/common.js"></script>
+	<script src="/E6/js/menu.js"></script>
 </body>
 </html>

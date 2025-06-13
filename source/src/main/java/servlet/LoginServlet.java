@@ -30,24 +30,28 @@ public class LoginServlet extends HttpServlet {
 
 
 	// ログイン処理を行う
-			UsersDao iDao = new UsersDao();
+		UsersDao iDao = new UsersDao();
+        User loginUser = new User(mail, password); // このオブジェクトを使いまわす
 
-			User loginUser = new User(mail, password);
-			if (iDao.isLoginOK(new User(mail, password))) {
-			    System.out.println("ログイン成功");
-			    HttpSession session = request.getSession();
-			    session.setAttribute("regist_number", loginUser.getRegist_number());
+        if (iDao.isLoginOK(loginUser)) {
+            System.out.println("ログイン成功");
 
-			    String contextPath = request.getContextPath();
-			    System.out.println("リダイレクト先: " + contextPath + "/html/looding.html");
+            // セッションにログイン情報を保持
+            HttpSession session = request.getSession();
+            session.setAttribute("regist_number", loginUser.getRegist_number());
 
-			    response.sendRedirect(contextPath + "/html/looding.html");
-			} else {
-			    System.out.println("ログイン失敗");
+            // ローディングページへリダイレクト
+            String contextPath = request.getContextPath();
+            System.out.println("リダイレクト先: " + contextPath + "/html/looding.html");
+            response.sendRedirect(contextPath + "/html/looding.html");
 
-			    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			    dispatcher.forward(request, response);
-			}
+        } else {
+            System.out.println("ログイン失敗");
+
+            // ログイン失敗時はログイン画面に戻る
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+            dispatcher.forward(request, response);
+        }
 	}
 }
 
