@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<style>
+    .error {
+      border: 2px solid red;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <body>
 <div style="text-align: center;">
@@ -15,20 +25,22 @@
 
 <div style="text-align: center;" class="login">
       <h2 id="log_title">Sign In</h2>
-      <form style="margin: 0 auto; width: fit-content;" id="login_form" method="POST" action="/E6/LoginServlet">
+      <form id="loginForm" style="margin: 0 auto; width: fit-content;" id="login_form" method="POST" action="/E6/LoginServlet">
         <table>
           <tr>
             <td>
-              <label>メールアドレス<br>
-              <input style="margin: auto; width: 220px;" type="text" name="mail" placeholder="✉Mailadress">
+              <label for="mail">メールアドレス<br>
+              <input style="margin: auto; width: 220px;" type="text" id=mail name="mail" placeholder="✉Mailadress">
               </label>
+              <div id="mailError" class="error-message"></div>
             </td>
           </tr>
           <tr>
             <td>
-              <label>パスワード<br>
-              <input style="margin: auto; width: 220px;" type="password" name="password" placeholder="🔒Password">
+              <label for="password">パスワード<br>
+              <input style="margin: auto; width: 220px;" type="password" id="password" name="password" placeholder="🔒Password">
               </label>
+              <div id="passwordError" class="error-message"></div>
             </td>
           </tr>
           <tr>
@@ -46,7 +58,7 @@
       </form>
     </div>
 
-	<script src="/webapp/js/common.js"></script>
-	<script src="/webapp/js/login.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/login.js"></script>
 </body>
 </html>
