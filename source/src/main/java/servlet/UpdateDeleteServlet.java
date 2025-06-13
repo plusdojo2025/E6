@@ -22,16 +22,26 @@ public class UpdateDeleteServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("mail") == null) {
 			response.sendRedirect("/E6/LoginServlet");
 			return;
 		}
 
 		
-		int registNumber = (int) session.getAttribute("regist_number");
+		// regist_number をセッションから取得
+				int registNumber = (int) session.getAttribute("regist_number");
 
-		UsersDao dao = new UsersDao();
-		User user = dao.user_data(registNumber); // ユーザー取得
+				// Userオブジェクトを作成して、regist_number をセット
+				User user = new User();
+				user.setRegist_number(registNumber);
+
+				// ユーザー情報をデータベースから取得して user にセット
+				UsersDao dao = new UsersDao();
+				boolean result = dao.user_data(user);
+
+				if (!result) {
+					request.setAttribute("error", "ユーザー情報の取得に失敗しました");
+				}
 
 		request.setAttribute("user", user);
 
