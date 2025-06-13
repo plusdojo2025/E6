@@ -7,35 +7,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const mailError = document.getElementById("mailError");
     const passwordError = document.getElementById("passwordError");
 
-    // 初期化
+     // 初期化（前回のエラー状態をクリア）
     let isValid = true;
     mail.classList.remove("error");
     password.classList.remove("error");
     mailError.textContent = "";
     passwordError.textContent = "";
 
-    // メールアドレスのバリデーション
-    if (!mail.value) {
+    // メールが空かどうかだけチェック
+    if (!mail.value.trim()) {
       mail.classList.add("error");
       mailError.textContent = "メールアドレスを入力してください。";
       isValid = false;
-    } else if (!validateEmail(mail.value)) {
-      mail.classList.add("error");
-      mailError.textContent = "正しいメールアドレスを入力してください。";
-      isValid = false;
     }
 
-    // パスワードのバリデーション
-    if (!password.value) {
+    // パスワードが空かどうかだけチェック
+    if (!password.value.trim()) {
       password.classList.add("error");
       passwordError.textContent = "パスワードを入力してください。";
       isValid = false;
     }
 
-    // isValid が false の場合、送信を止める
+    // エラーがあれば送信中止
     if (!isValid) {
       e.preventDefault();
     }
   });
 });
-
