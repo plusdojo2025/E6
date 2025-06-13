@@ -24,7 +24,7 @@ public class RankingServlet extends HttpServlet {
 		
 		// セッションからログインユーザーのIDを取得
 		HttpSession session = request.getSession();
-		Integer registNumber = (Integer) session.getAttribute("id");
+		Integer registNumber = (Integer) session.getAttribute("regist_number");
 
 		if (registNumber == null) {
 			// ログインしていない場合、ログインページにリダイレクト
