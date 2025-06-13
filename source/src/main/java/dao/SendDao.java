@@ -177,44 +177,62 @@ public class SendDao {
 	
 	//送信情報登録
 	public boolean insertSend(Send send) {
-        Connection conn = null;
-        boolean result = false;
+	    Connection conn = null;
+	    boolean result = false;
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+	    try {
+	    	Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	            "root", "password"
+	        );
+	        conn.setAutoCommit(false);
 
-            conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
-                "root", "password"
-            );
+	        // 1. sendテーブルに挿入
+	        String sql = "INSERT INTO send (regist_number, comment, send_coin, receiver_number) VALUES (?, ?, ?, ?)";
+	        try (PreparedStatement pStmt = conn.prepareStatement(sql)) {
+	            pStmt.setInt(1, send.getRegist_number());
+	            pStmt.setString(2, send.getComment());
+	            pStmt.setInt(3, send.getSend_coin());
+	            pStmt.setInt(4, send.getReceiver_number());
+	            pStmt.executeUpdate();
+	        }
 
-            String sql = 
-                "INSERT INTO send (regist_number, comment, send_coin, receiver_number) " +
-                "VALUES (?, ?, ?, ?)";
+	        // 2. 送信者のhold_coinを減らす
+	        String updateSenderSql = "UPDATE coin SET hold_coin = hold_coin - ? WHERE regist_number = ?";
+	        try (PreparedStatement pStmt = conn.prepareStatement(updateSenderSql)) {
+	            pStmt.setInt(1, send.getSend_coin());
+	            pStmt.setInt(2, send.getRegist_number());
+	            pStmt.executeUpdate();
+	        }
 
-            PreparedStatement pStmt = conn.prepareStatement(sql);
+	        // 3. 受信者のreceive_coinを増やす
+	        String updateReceiverSql = "UPDATE coin SET receive_coin = receive_coin + ? WHERE regist_number = ?";
+	        try (PreparedStatement pStmt = conn.prepareStatement(updateReceiverSql)) {
+	            pStmt.setInt(1, send.getSend_coin());
+	            pStmt.setInt(2, send.getReceiver_number());
+	            pStmt.executeUpdate();
+	        }
 
-            // 送信者登録番号
-            pStmt.setInt(1, send.getRegist_number());
+	        conn.commit();  // トランザクション成功
+	        result = true;
 
-            // コメント
-            pStmt.setString(2, send.getComment());
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        try {
+	            if (conn != null) conn.rollback();  // エラー時ロールバック
+	        } catch (SQLException rollbackEx) {
+	            rollbackEx.printStackTrace();
+	        }
+	    } finally {
+	        try {
+	            if (conn != null) conn.setAutoCommit(true);
+	            if (conn != null) conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
 
-            // 送るコイン数
-            pStmt.setInt(3, send.getSend_coin());
-
-            // 受信者登録番号
-            pStmt.setInt(4, send.getReceiver_number());
-
-            int rows = pStmt.executeUpdate();
-            result = (rows == 1);
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
-        }
-
-        return result;
-    }
+	    return result;
+	}
 }
