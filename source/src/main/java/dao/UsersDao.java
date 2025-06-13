@@ -165,15 +165,21 @@ public class UsersDao {
             String sql = "DELETE FROM users WHERE regist_number=?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
-            if (card.getRegist_number() != null) {
-                pStmt.setInt(1, card.getRegist_number());
+            Integer registNumber = card.getRegist_number();
+            if (registNumber != null && registNumber != 0) {
+                pStmt.setInt(1, registNumber);
             } else {
                 pStmt.setNull(1, java.sql.Types.INTEGER);
             }
 
-            if (pStmt.executeUpdate() == 1) {
+            int count = pStmt.executeUpdate();
+            System.out.println("削除対象件数: " + count);
+            if (count == 1) {
                 result = true;
+            } else {
+                System.out.println("削除対象が見つかりませんでした");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

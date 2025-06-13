@@ -8,7 +8,7 @@
 <!-- 共通CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <!-- この画面用CSS（例: account.css） -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/account.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/updata_delete.css">
 
 <style>
 
@@ -47,6 +47,10 @@
 </style>
 </head>
 <body>
+
+System.out.println(">>> submit: " + request.getParameter("submit"));
+System.out.println(">>> regist_number: " + request.getParameter("regist_number"));
+System.out.println(">>> password: " + request.getParameter("password"));
 
 <header>
   <a href="menu.jsp">
@@ -108,6 +112,7 @@
     <p>本当にアカウントを削除しますか？この操作は元に戻せません。</p>
     <form action="${pageContext.request.contextPath}/UpdateDeleteServlet" method="post">
       <input type="hidden" name="regist_number" value="${user.regist_number}">
+      <input type="hidden" name="password" value="${user.password}">
       <div class="modal-buttons">
         <button type="button" id="cancelDelete">キャンセル</button>
         <button type="submit" name="submit" value="削除" style="background-color: #f66; color: white;">削除</button>

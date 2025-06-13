@@ -29,7 +29,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 
 		
 		// regist_number をセッションから取得
-				int registNumber = (int) session.getAttribute("regist_number");
+				Integer registNumber = (Integer) session.getAttribute("regist_number");
 
 				// Userオブジェクトを作成して、regist_number をセット
 				User user = new User();
@@ -75,16 +75,24 @@ public class UpdateDeleteServlet extends HttpServlet {
 		user.setCompany(company);
 
 		UsersDao dao = new UsersDao();
+		
+		String action = request.getParameter("submit");
 
-		if ("更新".equals(request.getParameter("submit"))) {
-			if (dao.user_data_up(user)) {
-                // 更新成功 → 表示画面にリダイレクト
-                response.sendRedirect("UpdateDeleteServlet");
-            } else {
-                // 更新失敗 → エラーメッセージをセットして表示
-                request.setAttribute("error", "更新に失敗しました");
-                doGet(request, response);
-            }
-		}
+		 if ("更新".equals(action)) {
+		        if (dao.user_data_up(user)) {
+		            response.sendRedirect("UpdateDeleteServlet");
+		        } else {
+		            request.setAttribute("error", "更新に失敗しました");
+		            doGet(request, response);
+		        }
+		    } else if ("削除".equals(action)) {
+		        if (dao.user_data_del(user)) {
+		            session.invalidate(); // ログアウト
+		            response.sendRedirect("LoginServlet");
+		        } else {
+		            request.setAttribute("error", "アカウント削除に失敗しました");
+		            doGet(request, response);
+		        }
+		    }
 	}
 }
