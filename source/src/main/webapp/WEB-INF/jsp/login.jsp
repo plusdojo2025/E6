@@ -46,5 +46,7 @@
       </form>
     </div>
 
+	<script src="/webapp/js/common.js"></script>
+	<script src="/webapp/js/login.js"></script>
 </body>
 </html>
