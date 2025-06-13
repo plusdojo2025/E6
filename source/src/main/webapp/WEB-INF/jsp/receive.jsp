@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>受信履歴 | Arico</title>
-<link rel="stylesheet" href="css/receive.css">
-<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/receive.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
 <h1>
@@ -23,16 +23,15 @@
 
 <h2>受信履歴</h2>
 
-<div class="card-container">
-  <c:forEach var="send" items="${receivedList}">
-    <div class="card">
-      <p><strong>日時：</strong> ${send.date}</p>
-      <p><strong>送信者：</strong> ${send.Name}</p>
-      <p><strong>コメント：</strong> ${send.comment}</p>
-      <p><strong>コイン枚数：</strong> ${send.coin} 枚</p>
-    </div>
-  </c:forEach>
-</div>
+<c:forEach var="send" items="${receivedList}">
+  <div class="card">
+    <p><strong>日時：</strong> ${send.date}</p>
+    <p><strong>送信者：</strong> ${send.Name}</p>
+    <p><strong>コメント：</strong> ${send.comment}</p>
+    <p><strong>コイン枚数：</strong> ${send.coin} 枚</p>
+  </div>
+</c:forEach>
+  
 <!-- ページャー -->
 <div style="margin-top: 20px; text-align: center;">
   <c:if test="${currentPage > 1}">
@@ -45,7 +44,7 @@
     <a href="CoinReceiveServlet?page=${currentPage + 1}">次のページ →</a>
   </c:if>
 </div>
-<script src="js/common.js"></script>
-<script src="js/receive.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/js/receive.js"></script>
 </body>
 </html>
