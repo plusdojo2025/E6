@@ -14,10 +14,10 @@
 			<li><img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico" " width="600" height="600"
 				alt="Arico"></li>
 			<li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-			<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
-			<li><a href="/build/classes/servlet/webapp/CoinReceiveServlet">受信履歴</a></li>
-			<li><a href="/build/classes/servlet/webapp/RankingServlet">ランキング</a></li>
-			<li><a href="/build/classes/servlet/webapp/LogoutServlet">ログアウト</a></li>
+			<li><a href="/E6/CoinSendServlet">送信</a></li>
+			<li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
+			<li><a href="/E6/RankingServlet">ランキング</a></li>
+			<li><a href="/E6/LogoutServlet">ログアウト</a></li>
 		</ul>
 	</div>
 	<h2>ホーム画面</h2>
