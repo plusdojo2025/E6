@@ -27,7 +27,7 @@
 		<ul>
 			<c:forEach var="message" items="${recentMessages}">
 			<li>
-				${message.sender_name}さんからコインを受信しました(${messeage.send_date})
+				${message.sender_name}さんからコインを受信しました
 			</li>
 			</c:forEach>
 			<c:if test="${empty recentMessages}">
