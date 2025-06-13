@@ -23,7 +23,7 @@
 	<h2>ホーム画面</h2>
 	<div>
 		<p>Topics</p>
-		<ul>
+		<ul id="notificationList">
 			<li></li>
 		</ul>
 	</div>
