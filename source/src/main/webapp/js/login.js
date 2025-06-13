@@ -1,8 +1,7 @@
 /**
- * 
+ * 入力が間違っていた時の処理だよ
  */
- /*入力が間違っていた時の処理だよ */
- document.getElementById("loginForm").addEventListener("submit", function(e) {
+document.getElementById("loginForm").addEventListener("submit", function(e) {
   e.preventDefault(); // フォーム送信を一旦止める
 
   // 入力フィールドとエラーメッセージ要素の取得
@@ -36,7 +35,13 @@
     isValid = false;
   }
 
-// メールアドレスの簡易的な正規表現チェック
+  // バリデーションOKならフォーム送信
+  if (isValid) {
+    this.submit(); // 明示的に送信（必要ならここをコメントアウト可）
+  }
+});
+
+// メールアドレスの簡易的な正規表現チェック関数（関数スコープ外に置く）
 function validateEmail(mail) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(mail);
