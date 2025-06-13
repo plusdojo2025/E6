@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,14 @@
 	<div>
 		<p>Topics</p>
 		<ul>
-			<li></li>
+			<c:forEach var="message" items="${recentMessages}">
+			<li>
+				${message.sender_name}さんからコインを受信しました
+			</li>
+			</c:forEach>
+			<c:if test="${empty recentMessages}">
+				<li>新着受信履歴はありません。</li>
+			</c:if>
 		</ul>
 	</div>
 	<div>
