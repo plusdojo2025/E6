@@ -11,11 +11,11 @@
    <header>
     	<a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
     		<ul>
-	   			<li><a href="/build/classes/servlet/webapp/DataServlet">アカウント情報</a></li>
-					<li><a href="/build/classes/servlet/webapp/CoinSendServlet">送信</a></li>
-					<li><a href="/build/classes/servlet/webapp/CoinReceiveServlet">受信履歴</a></li>
-					<li><a href="/build/classes/servlet/webapp/MenuServlet">メニュー</a></li>
-					<li><a href="/build/classes/servlet/webapp/LogoutServlet">ログアウト</a></li>
+	   			<li><a href="/E6/DataServlet">アカウント情報</a></li>
+					<li><a href="/E6/CoinSendServlet">送信</a></li>
+					<li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
+					<li><a href="/E6/MenuServlet">メニュー</a></li>
+					<li><a href="/E6/LogoutServlet">ログアウト</a></li>
    			</ul>
    		<h2>ランキング</h2>
    </header>
