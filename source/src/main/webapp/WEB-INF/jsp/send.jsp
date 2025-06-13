@@ -12,11 +12,11 @@
       <a><img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
 </h1>
 <ul id="nav">
-    <li><a href="/webapp/DataServlet">アカウント情報</a></li>
-    <li><a href="/webapp/MenuServlet">メニュー</a></li>
-    <li><a href="/webapp/CoinReceiveServlet">受信履歴</a></li>
-    <li><a href="/webapp/RankingServlet">ランキング</a></li>
-    <li><a href="/webapp/LogoutServlet">ログアウト</a></li>    
+    <li><a href="/build/classes/servlet/webapp/DataServlet">アカウント情報</a></li>
+    <li><a href="/build/classes/servlet/webapp/MenuServlet">メニュー</a></li>
+    <li><a href="/build/classes/servlet/webapp/CoinReceiveServlet">受信履歴</a></li>
+    <li><a href="/build/classes/servlet/webapp/RankingServlet">ランキング</a></li>
+    <li><a href="/build/classes/servlet/webapp/LogoutServlet">ログアウト</a></li>    
 </ul>
 <h2>コイン送信</h2>
 
