@@ -39,7 +39,3 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function validateEmail(mail) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(mail);
-}
