@@ -24,7 +24,7 @@ public class CoinReceiveServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("mail") == null) {
+		if (session.getAttribute("regist_number") == null) {
 			response.sendRedirect("/E6/LoginServlet");
 			return;
 		}
