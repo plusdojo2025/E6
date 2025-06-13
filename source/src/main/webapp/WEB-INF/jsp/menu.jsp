@@ -24,16 +24,21 @@
 	<h2>ホーム画面</h2>
 	<div>
 		<p>Topics</p>
-		<ul>
-			<c:forEach var="message" items="${recentMessages}">
-			<li>
-				${message.sender_name}さんからコインを受信しました
-			</li>
-			</c:forEach>
-			<c:if test="${empty recentMessages}">
-				<li>新着受信履歴はありません。</li>
-			</c:if>
-		</ul>
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+	<ul>
+  		<c:forEach var="message" items="${recentMessages}">
+    <li>
+  <strong><fmt:formatDate value="${message.send_date}" pattern="yyyy-MM-dd HH:mm:ss" /></strong>
+  <span style="color:darkblue;">${message.sender_name}</span>さんから
+  <span style="color:green; font-weight:bold;">${message.send_coin}枚</span>のコインを受け取りました！
+</li>
+  		</c:forEach>
+
+  	<c:if test="${empty recentMessages}">
+    	<li>新着受信履歴はありません。</li>
+  	</c:if>
+	</ul>
 	</div>
 	<div>
 		<img>
