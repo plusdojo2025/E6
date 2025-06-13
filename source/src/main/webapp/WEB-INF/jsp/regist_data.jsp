@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録画面</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/send.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}css/send.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}css/common.css">
 </head>
 <body>
 <div class="wrapper">
