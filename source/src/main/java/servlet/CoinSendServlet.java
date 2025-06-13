@@ -17,75 +17,85 @@ import dto.User;
 
 @WebServlet("/CoinSendServlet")
 public class CoinSendServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    // GET：メニューからの遷移などで送信画面を表示する
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-		if (session.getAttribute("regist_number") == null) {
-			response.sendRedirect("/E6/LoginServlet");
-			return;
-		}
+        HttpSession session = request.getSession();
+        if (session.getAttribute("regist_number") == null) {
+            response.sendRedirect("/E6/LoginServlet");
+            return;
+        }
 
-		// ログインユーザーの登録番号を取得
-		Integer registNumber = (Integer) session.getAttribute("regist_number");
+        Integer registNumber = (Integer) session.getAttribute("regist_number");
 
-		// 同じ会社のユーザー一覧を取得（自分を除く）
-		SendDao sDao = new SendDao();
-		List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
-		userList.removeIf(user -> user.getRegist_number() == registNumber); // 自分を除く
+        SendDao sDao = new SendDao();
+        List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
+        userList.removeIf(user -> user.getRegist_number() == registNumber);
 
-		request.setAttribute("userList", userList);
+        request.setAttribute("userList", userList);
 
-		// send.jsp へフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/send.jsp");
-		dispatcher.forward(request, response);
-	}
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/send.jsp");
+        dispatcher.forward(request, response);
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    // POST：コイン送信処理
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/E6/LoginServlet");
-			return;
-		}
+        HttpSession session = request.getSession();
+        if (session.getAttribute("regist_number") == null) {
+            response.sendRedirect("/E6/LoginServlet");
+            return;
+        }
 
-		request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
-		// フォームから送信された情報を取得
-		String comment = request.getParameter("comment");
-		int sendCoin = Integer.parseInt(request.getParameter("send_coin"));
-		int receiverNumber = Integer.parseInt(request.getParameter("receiver_number"));
+        try {
+            String comment = request.getParameter("comment");
+            int sendCoin = Integer.parseInt(request.getParameter("send_coin"));
+            int receiverNumber = Integer.parseInt(request.getParameter("receiver_number"));
 
-		// セッションから送信者の登録番号を取得
-		Integer registNumber = (Integer) session.getAttribute("regist_number");
+            Integer registNumber = (Integer) session.getAttribute("regist_number");
 
-		// Send DTO を作成
-		Send send = new Send();
-		send.setRegist_number(registNumber);
-		send.setComment(comment);
-		send.setSend_coin(sendCoin);
-		send.setReceiver_number(receiverNumber);
+            Send send = new Send();
+            send.setRegist_number(registNumber);
+            send.setComment(comment);
+            send.setSend_coin(sendCoin);
+            send.setReceiver_number(receiverNumber);
 
-		// 登録処理
-		SendDao sDao = new SendDao();
-		boolean result = sDao.insertSend(send);
+            SendDao sDao = new SendDao();
+            boolean result = sDao.insertSend(send);
 
-		if (result) {
-			request.setAttribute("message", "コインを送信しました。");
-		} else {
-			request.setAttribute("error", "送信に失敗しました。");
-		}
+            if (result) {
+                request.setAttribute("message", "コインを送信しました。");
+            } else {
+                request.setAttribute("error", "送信に失敗しました。");
+            }
 
-		// 送信後もリストを表示させるため再取得
-		List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
-		userList.removeIf(user -> user.getRegist_number() == registNumber);
+            // 再度ユーザー一覧を取得し、送信画面に戻る
+            List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
+            userList.removeIf(user -> user.getRegist_number() == registNumber);
+            request.setAttribute("userList", userList);
 
-		request.setAttribute("userList", userList);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/send.jsp");
+            dispatcher.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("error", "入力内容に誤りがあります。");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Webapp/jsp/send.jsp");
-		dispatcher.forward(request, response);
-	}
+            Integer registNumber = (Integer) session.getAttribute("regist_number");
+            SendDao sDao = new SendDao();
+            List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
+            userList.removeIf(user -> user.getRegist_number() == registNumber);
+            request.setAttribute("userList", userList);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/send.jsp");
+            dispatcher.forward(request, response);
+        }
+    }
 }

@@ -12,7 +12,7 @@ public class Send implements Serializable {
 	private int receiver_number;
 	private String sender_name;
 	
-	public Send(int id,int regist_number,Timestamp send_date,String comment,int send_coin,int receiver_coin) {
+	public Send(int id,int regist_number,Timestamp send_date,String comment,int send_coin,int receiver_number) {
 		this.id=id; //ID
 		this.regist_number= regist_number; //登録番号
 		this.send_date=send_date; //送信日時
