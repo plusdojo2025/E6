@@ -2,3 +2,21 @@
 body{
   background-color: #fef4f4;
 }
+
+@font-face {
+  font-family: "GenJyuu";
+  src: url("../fonts/GenJyuuGothicX-Normal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "myfont";
+  src: url("../fonts/GenJyuuGothicX-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+h2, h3, p, a {
+  font-family: "myfont", sans-serif;
+}
