@@ -14,7 +14,7 @@
 </h1>
 
 <ul id="nav">
-  <li><a href="/E6/DataServlet">アカウント情報</a></li>
+  <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
   <li><a href="/E6/CoinSendServlet">送信</a></li>
   <li><a href="/E6/MenuServlet">メニュー</a></li>
   <li><a href="/E6/RankingServlet">ランキング</a></li>

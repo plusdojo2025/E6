@@ -12,7 +12,7 @@
     	    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico">
     	</a>
     	<ul>
-   			<li><a href="${pageContext.request.contextPath}/DataServlet">アカウント情報</a></li>
+   			<li><a href="${pageContext.request.contextPath}/UpdateDeleteServlet">アカウント情報</a></li>
 			<li><a href="${pageContext.request.contextPath}/CoinSendServlet">送信</a></li>
 			<li><a href="${pageContext.request.contextPath}/CoinReceiveServlet">受信履歴</a></li>
 			<li><a href="${pageContext.request.contextPath}/MenuServlet">メニュー</a></li>
