@@ -58,7 +58,7 @@
         <tr>
             <td><label>メッセージ</label></td>
             <td>
-                <textarea name="comment" rows="4" placeholder="感謝の気持ちを入力してください" required></textarea>
+                <textarea name="comment" rows="4" placeholder="感謝の気持ちを入力してください"></textarea>
             </td>
         </tr>
     </table>
