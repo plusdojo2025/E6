@@ -19,15 +19,15 @@ public class RegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	// 登録ページ表示（GET）
+	//登録ページ表示（GET）
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // ログインチェック
         HttpSession session = request.getSession();
-        if (session.getAttribute("regist_number") == null) {
+        /*if (session.getAttribute("regist_number") == null) {
             response.sendRedirect("/E6/LoginServlet");
             return;
-        }
+        }*/
 
         // 登録ページへフォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
