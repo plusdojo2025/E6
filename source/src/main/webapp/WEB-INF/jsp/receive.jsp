@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>受信履歴 | Arico</title>
-<link rel="stylesheet" href="css/receive.css">
-<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/receive.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
 <h1>
@@ -23,16 +23,96 @@
 
 <h2>受信履歴</h2>
 
-<div class="card-container">
-  <c:forEach var="send" items="${receivedList}">
-    <div class="card">
-      <p><strong>日時：</strong> ${send.date}</p>
-      <p><strong>送信者：</strong> ${send.Name}</p>
-      <p><strong>コメント：</strong> ${send.comment}</p>
-      <p><strong>コイン枚数：</strong> ${send.coin} 枚</p>
-    </div>
-  </c:forEach>
+  <div class="card">
+    <p><strong>日時：</strong> 2025-06-13 10:00</p>
+    <p><strong>送信者：</strong> テスト太郎</p>
+    <p><strong>コメント：</strong> お疲れさまです！</p>
+    <p><strong>コイン枚数：</strong> 5 枚</p>
+  </div>
+
+  <div class="card">
+    <p><strong>日時：</strong> 2025-06-13 11:30</p>
+    <p><strong>送信者：</strong> テスト花子</p>
+    <p><strong>コメント：</strong> ありがとう！</p>
+    <p><strong>コイン枚数：</strong> 3 枚</p>
+  </div>
+
+  <div class="card">
+    <p><strong>日時：</strong> 2025-06-13 12:15</p>
+    <p><strong>送信者：</strong> サンプル一郎</p>
+    <p><strong>コメント：</strong> 助かりました！</p>
+    <p><strong>コイン枚数：</strong> 7 枚</p>
+  </div>
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 13:00</p>
+  <p><strong>送信者：</strong> 開発次郎</p>
+  <p><strong>コメント：</strong> 今日もありがとう！</p>
+  <p><strong>コイン枚数：</strong> 2 枚</p>
 </div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 13:15</p>
+  <p><strong>送信者：</strong> 山田三郎</p>
+  <p><strong>コメント：</strong> 助かりました！</p>
+  <p><strong>コイン枚数：</strong> 4 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 13:30</p>
+  <p><strong>送信者：</strong> テスト四郎</p>
+  <p><strong>コメント：</strong> ナイスフォロー！</p>
+  <p><strong>コイン枚数：</strong> 1 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 14:00</p>
+  <p><strong>送信者：</strong> 佐藤五郎</p>
+  <p><strong>コメント：</strong> またよろしくね</p>
+  <p><strong>コイン枚数：</strong> 6 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 14:20</p>
+  <p><strong>送信者：</strong> 林六子</p>
+  <p><strong>コメント：</strong> とても助かりました！</p>
+  <p><strong>コイン枚数：</strong> 5 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 14:45</p>
+  <p><strong>送信者：</strong> 中村七海</p>
+  <p><strong>コメント：</strong> お疲れさまでした！</p>
+  <p><strong>コイン枚数：</strong> 3 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 15:00</p>
+  <p><strong>送信者：</strong> 渡辺八郎</p>
+  <p><strong>コメント：</strong> ありがとう！</p>
+  <p><strong>コイン枚数：</strong> 2 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 15:15</p>
+  <p><strong>送信者：</strong> 高橋九美</p>
+  <p><strong>コメント：</strong> グッジョブ！</p>
+  <p><strong>コイン枚数：</strong> 4 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 15:30</p>
+  <p><strong>送信者：</strong> 鈴木十郎</p>
+  <p><strong>コメント：</strong> 助かった！</p>
+  <p><strong>コイン枚数：</strong> 3 枚</p>
+</div>
+
+<div class="card">
+  <p><strong>日時：</strong> 2025-06-13 15:45</p>
+  <p><strong>送信者：</strong> 松本十一</p>
+  <p><strong>コメント：</strong> 素晴らしいです！</p>
+  <p><strong>コイン枚数：</strong> 6 枚</p>
+</div>
+  
 <!-- ページャー -->
 <div style="margin-top: 20px; text-align: center;">
   <c:if test="${currentPage > 1}">
@@ -45,7 +125,7 @@
     <a href="CoinReceiveServlet?page=${currentPage + 1}">次のページ →</a>
   </c:if>
 </div>
-<script src="js/common.js"></script>
-<script src="js/receive.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/js/receive.js"></script>
 </body>
 </html>
