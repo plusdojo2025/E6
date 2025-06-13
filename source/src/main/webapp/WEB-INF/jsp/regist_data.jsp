@@ -37,7 +37,7 @@
         <tr>
           <td colspan="2">
             <input type="submit" id="regist" name="submit" value="登録">
-            <input type="button" value="前のページに戻る" onclick="location.href=`login.jsp`">
+            <input type="button" value="前のページに戻る" onclick="location.href=`/E6/LoginServlet`">
           </td>
         </tr>
       </table>
