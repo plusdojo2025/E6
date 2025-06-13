@@ -65,19 +65,26 @@ public class UpdateDeleteServlet extends HttpServlet {
 		String password = request.getParameter("password");  // ← 今は未使用？
 		String name = request.getParameter("name");
 		String company = request.getParameter("company");
+		
+		
+		User user = new User();
+		user.setRegist_number(regist_number);
+		user.setMail(mail);
+		user.setPassword(password);
+		user.setName(name);
+		user.setCompany(company);
 
-		UsersDao bDao = new UsersDao();
+		UsersDao dao = new UsersDao();
 
 		if ("更新".equals(request.getParameter("submit"))) {
-			if (bDao.user_data_up(new User(regist_number, mail, password, name, company))) {
-				
-				// 更新成功 → 表示画面にリダイレクト
-				response.sendRedirect("UpdateDeleteServlet");  // GETで再読み込み
-			} else {
-				// 更新失敗 → エラーメッセージをセットして表示
-				request.setAttribute("error", "更新に失敗しました");
-				doGet(request, response);
-			}
+			if (dao.user_data_up(user)) {
+                // 更新成功 → 表示画面にリダイレクト
+                response.sendRedirect("UpdateDeleteServlet");
+            } else {
+                // 更新失敗 → エラーメッセージをセットして表示
+                request.setAttribute("error", "更新に失敗しました");
+                doGet(request, response);
+            }
 		}
 	}
 }
