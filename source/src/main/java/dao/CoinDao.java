@@ -187,6 +187,7 @@ public class CoinDao {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/e6?"
                     + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                     "root", "password");
+            
 
             String sql = "DELETE FROM coin WHERE regist_number=?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
