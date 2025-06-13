@@ -25,7 +25,7 @@ public class SendDao {
             );
 
             String sql = 
-                "SELECT s.id, s.send_date, s.regist_number, s.send_coin, u.name " +
+                "SELECT s.id, s.send_date, s.regist_number, u.name " +
                 "FROM send s " +
                 "JOIN users u ON s.regist_number = u.regist_number " +
                 "WHERE s.receiver_number = ? " +
@@ -42,8 +42,7 @@ public class SendDao {
                 send.setId(rs.getInt("id"));
                 send.setSend_date(rs.getTimestamp("send_date"));
                 send.setRegist_number(rs.getInt("regist_number"));
-                send.setSend_coin(rs.getInt("send_coin")); // ← 追加・修正
-                send.setSender_name(rs.getString("name"));
+                send.setSender_name(rs.getString("name")); // DTOに追加が必要
                 sendList.add(send);
             }
 
