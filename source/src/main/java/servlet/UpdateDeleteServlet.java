@@ -70,6 +70,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 
 		if ("更新".equals(request.getParameter("submit"))) {
 			if (bDao.user_data_up(new User(regist_number, mail, password, name, company))) {
+				
 				// 更新成功 → 表示画面にリダイレクト
 				response.sendRedirect("UpdateDeleteServlet");  // GETで再読み込み
 			} else {
