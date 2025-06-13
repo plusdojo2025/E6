@@ -19,34 +19,46 @@ public class RegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("regist_number") == null) {
-			response.sendRedirect("/E6/LoginServlet");
-			return;
-		}
+	// 登録ページ表示（GET）
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // ログインチェック
+        HttpSession session = request.getSession();
+        if (session.getAttribute("regist_number") == null) {
+            response.sendRedirect("/E6/LoginServlet");
+            return;
+        }
 
-		// 登録ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
-		dispatcher.forward(request, response);
-	
+        // 登録ページへフォワード
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+        dispatcher.forward(request, response);
+    }
 
-		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String company = request.getParameter("company");
-		String name = request.getParameter("name");
-		String mail = request.getParameter("mail");
-		String password = request.getParameter("password");
+    // 登録処理（POST）
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // 文字コード設定
+        request.setCharacterEncoding("UTF-8");
 
+        // パラメータ取得
+        String company = request.getParameter("company");
+        String name = request.getParameter("name");
+        String mail = request.getParameter("mail");
+        String password = request.getParameter("password");
 
-		// 登録処理を行う
-		UsersDao bDao = new UsersDao();
-		if (bDao.new_regist(new User(0, company, name, mail, password))) { // 登録成功
-		} else { // 登録失敗
+        // 新規ユーザー登録処理
+        UsersDao bDao = new UsersDao();
+        boolean result = bDao.new_regist(new User(0, company, name, mail, password));
 
-		}
+        if (result) {
+            // 登録成功 → メニュー画面などにリダイレクト
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+        } else {
+            // 登録失敗 → エラーメッセージを表示（例：登録画面に戻す）
+            request.setAttribute("errorMessage", "登録に失敗しました。もう一度お試しください。");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+            dispatcher.forward(request, response);
+        }
 
 		
 	}

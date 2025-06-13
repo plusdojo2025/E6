@@ -33,7 +33,7 @@
           </tr>
           <tr>
           <td>
-           <p>登録していない方は<a href="java/servlet/RegistServlet" style="color: blue;">こちら</a></p>
+           <p>登録していない方は<a href="/E6/RegistServlet" style="color: blue;">こちら</a></p>
            </td>
            </tr>
           <tr>
