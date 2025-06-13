@@ -22,7 +22,7 @@
 </ul>
 
 <h2>受信履歴</h2>
-<c:forEach var="send" items="${receivedList}">
+<c:forEach var="send" items="${companySendList}">
   <div class="card">
     <p><strong>日時：</strong> ${send.send_date}</p>
     <p><strong>送信者：</strong> ${send.sender_name}</p>
