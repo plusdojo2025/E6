@@ -14,11 +14,11 @@
 </h1>
 
 <ul id="nav">
-  <li><a href="/webapp/DataServlet">アカウント情報</a></li>
-  <li><a href="/webapp/CoinSendServlet">送信</a></li>
-  <li><a href="/webapp/MenuServlet">メニュー</a></li>
-  <li><a href="/webapp/RankingServlet">ランキング</a></li>
-  <li><a href="/webapp/LogoutServlet">ログアウト</a></li>    
+  <li><a href="/E6/DataServlet">アカウント情報</a></li>
+  <li><a href="/E6/CoinSendServlet">送信</a></li>
+  <li><a href="/E6/MenuServlet">メニュー</a></li>
+  <li><a href="/E6/RankingServlet">ランキング</a></li>
+  <li><a href="/E6/LogoutServlet">ログアウト</a></li>    
 </ul>
 
 <h2>受信履歴</h2>
