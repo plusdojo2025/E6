@@ -24,10 +24,10 @@
 <h2>受信履歴</h2>
 <c:forEach var="send" items="${receivedList}">
   <div class="card">
-    <p><strong>日時：</strong> ${send.date}</p>
-    <p><strong>送信者：</strong> ${send.Name}</p>
+    <p><strong>日時：</strong> ${send.send_date}</p>
+    <p><strong>送信者：</strong> ${send.sender_name}</p>
     <p><strong>コメント：</strong> ${send.comment}</p>
-    <p><strong>コイン枚数：</strong> ${send.coin} 枚</p>
+    <p><strong>コイン枚数：</strong> ${send.send_coin} 枚</p>
   </div>
 </c:forEach>
   
