@@ -32,7 +32,7 @@
           <tr>
             <td>
               <label for="mail">メールアドレス<br>
-              <input style="margin: auto; width: 220px;" type="text" id=mail name="mail" placeholder="✉Mailadress">
+              <input style="margin: auto; width: 220px;" type="text" id="mail" name="mail" placeholder="✉Mailadress">
               </label>
               <div id="mailError" class="error-message"></div>
             </td>
