@@ -22,7 +22,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		if (session.getAttribute("mail") == null) {
+		if (session.getAttribute("regist_number") == null) {
 			response.sendRedirect("/E6/LoginServlet");
 			return;
 		}

@@ -32,14 +32,14 @@ public class LoginServlet extends HttpServlet {
 	// ログイン処理を行う
 			UsersDao iDao = new UsersDao();
 
-
+			User loginUser = new User(mail, password);
 			if (iDao.isLoginOK(new User(mail, password))) {
 			    System.out.println("ログイン成功");
 			    HttpSession session = request.getSession();
-			    session.setAttribute("mail", new User(mail));
+			    session.setAttribute("regist_number", loginUser.getRegist_number());
 
 			    String contextPath = request.getContextPath();
-			    System.out.println("リダイレクト先: " + contextPath + "/webapp/looding.html");
+			    System.out.println("リダイレクト先: " + contextPath + "/html/looding.html");
 
 			    response.sendRedirect(contextPath + "/html/looding.html");
 			} else {
