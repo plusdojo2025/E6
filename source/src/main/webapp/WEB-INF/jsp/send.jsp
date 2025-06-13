@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>コイン送信画面</title>
-<link rel="stylesheet" href="css/send.css" href='css/common.css'>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/send.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>

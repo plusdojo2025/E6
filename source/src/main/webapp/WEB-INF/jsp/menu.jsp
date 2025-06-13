@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>メニュー</title>
-<link rel="stylesheet" href="/webapp/css/menu.css"
-	href="/webapp/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/send.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
 	<div>
