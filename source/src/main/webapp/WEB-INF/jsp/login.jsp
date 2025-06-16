@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/send.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <style>
     .error {

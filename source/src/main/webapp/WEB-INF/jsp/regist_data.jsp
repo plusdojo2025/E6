@@ -5,8 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録画面</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}css/send.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}css/common.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/regist_data.css">
+<style>
+  /*  .error {
+      border: 2px solid red;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }*/
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -15,23 +25,38 @@
 		<table class="form-table">
         <tr>
           <th>会社名</th>
-          <td><input type="text" name="company" id="company" placeholder="会社名" required></td>
+          <td>
+          	<input type="text" name="company" id="company" placeholder="会社名">
+          	<div id="companyError" class="error-message"></div>
+          </td>
         </tr>
         <tr>
           <th>氏名</th>
-          <td><input type="text" name="name" id="name" placeholder="氏名" required></td>
+          <td>
+          	<input type="text" name="name" id="name" placeholder="氏名">
+          	<div id="nameError" class="error-message"></div>
+          </td>
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <td><input type="email" name="mail" id="mail" placeholder="メールアドレス" required></td>
+          <td>
+          	<input type="email" name="mail" id="mail" placeholder="メールアドレス">
+          	<div id="mailError" class="error-message"></div>
+          </td>
         </tr>
         <tr>
           <th>パスワード</th>
-          <td><input type="text" name="password" id="password" placeholder="パスワード" maxlength="20" minlength="8" pattern="^[a-zA-Z0-9]+$" required></td>
+          <td>
+          	<input type="text" name="password" id="password" placeholder="パスワード" maxlength="20" minlength="8" pattern="^[a-zA-Z0-9]+$">
+          	<div id="passwordError" class="error-message"></div>
+          </td>
         </tr>
         <tr>
           <th>パスワード再入力</th>
-          <td><input type="text" name="password2" id="password2" placeholder="パスワード再入力" pattern="^[a-zA-Z0-9]+$" required></td>
+          <td>
+          	<input type="text" name="password2" id="password2" placeholder="パスワード再入力" pattern="^[a-zA-Z0-9]+$">
+          	<div id="password2Error" class="error-message"></div>
+          </td>
         </tr>
         <tr>
           <td>
@@ -41,6 +66,7 @@
         <tr>
           <td colspan="2">
             <input type="submit" id="regist" name="submit" value="登録">
+            <span id="error_message"></span>
             <input type="button" value="前のページに戻る" onclick="location.href=`/E6/LoginServlet`">
           </td>
         </tr>
