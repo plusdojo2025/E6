@@ -24,7 +24,7 @@
   </ul>
 </nav>
    		<h2>ランキング</h2>
-   </header>
+   
    
 
 <script src="js/common.js"></script>
