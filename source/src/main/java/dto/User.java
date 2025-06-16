@@ -8,6 +8,8 @@ public class User implements Serializable {
 	private String password; //パスワード
 	private String name; //氏名
 	private String company; //会社名
+	private int receive_coin;
+	private int ranking_coin;
 
 	public User(String mail, String password) {
         this.mail = mail;
@@ -75,5 +77,19 @@ public class User implements Serializable {
 		this.company = company;
 	}
 	
+	public int getReceive_coin() {
+	    return receive_coin;
+	}
+
+	public void setReceive_coin(int receive_coin) {
+	    this.receive_coin = receive_coin;
+	}
 	
+	public int getRanking_coin() {
+	    return ranking_coin;
+	}
+
+	public void setRanking_coin(int ranking_coin) {
+	    this.ranking_coin = ranking_coin;
+	}
 }
