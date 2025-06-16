@@ -22,6 +22,7 @@
 </ul>
 
 <h2>受信履歴</h2>
+<div class="card-container">
 <c:forEach var="send" items="${companySendList}">
   <div class="card">
     <p><strong>日時：</strong> ${send.send_date}</p>
@@ -30,7 +31,7 @@
     <p><strong>コイン枚数：</strong> ${send.send_coin} 枚</p>
   </div>
 </c:forEach>
-  
+ </div> 
   
 <!-- ページャー -->
 <div style="margin-top: 20px; text-align: center;">

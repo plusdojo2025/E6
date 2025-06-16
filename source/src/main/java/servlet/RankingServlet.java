@@ -35,9 +35,11 @@ public class RankingServlet extends HttpServlet {
 		// CoinDao を使用してランキング取得
 		CoinDao coinDao = new CoinDao();
 		List<User> rankingList = coinDao.getRanking(String.valueOf(registNumber));
+		String companyName = coinDao.getCompanyNameByRegistNumber(registNumber);
 
 		// リクエストにランキングリストを設定
 		request.setAttribute("rankingList", rankingList);
+		request.setAttribute("companyName", companyName);
 
 		// JSP へフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/ranking.jsp");

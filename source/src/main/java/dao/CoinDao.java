@@ -145,12 +145,12 @@ public class CoinDao {
             );
 
             String sql = 
-                "SELECT c.regist_number, u.name, c.recive_coin " +
-                "FROM coin c " +
-                "JOIN users u ON c.regist_number = u.regist_number " +
-                "WHERE u.company = (SELECT company FROM users WHERE regist_number = ?) " +
-                "ORDER BY c.recive_coin DESC " +
-                "LIMIT 5";
+            		"SELECT c.regist_number, u.name, c.ranking_coin " +
+            			    "FROM coin c " +
+            			    "JOIN users u ON c.regist_number = u.regist_number " +
+            			    "WHERE u.company = (SELECT company FROM users WHERE regist_number = ?) " +
+            			    "ORDER BY c.ranking_coin DESC " +
+            			    "LIMIT 5";
 
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, registNumber);
@@ -159,10 +159,9 @@ public class CoinDao {
 
             while (rs.next()) {
                 User user = new User();
-                Coin coin = new Coin();
                 user.setRegist_number(rs.getInt("regist_number"));
                 user.setName(rs.getString("name"));
-                coin.setReceive_coin(rs.getInt("recive_coin")); // DTOに必要なら追加
+                user.setRanking_coin(rs.getInt("ranking_coin"));  // ranking_coinフィールドにセットする
                 topUsers.add(user);
             }
 
@@ -208,6 +207,25 @@ public class CoinDao {
         }
 
         return result;
+    }
+    
+    
+    public String getCompanyNameByRegistNumber(int registNumber) {
+        String companyName = "";
+        try (
+            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement stmt = conn.prepareStatement("SELECT company FROM users WHERE regist_number = ?");
+        ) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            stmt.setInt(1, registNumber);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                companyName = rs.getString("company");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return companyName;
     }
 }
 
