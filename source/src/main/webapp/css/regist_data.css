@@ -55,13 +55,25 @@
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 180%;
+  width: 100%;
+  max-width: 300px;
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
   box-sizing: border-box;
   text-align: left;
+  margin: 0 auto;
+  display: block;
+}
+
+.form-table td[colspan="2"] {
+  text-align: center;
+}
+
+input[type="submit"],
+input[type="button"] {
+  display: inline-block;
 }
 
 /* ボタンの色を淡く */
