@@ -6,21 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>メニュー</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/send.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
-	<div>
-		<ul id="nav">
-			<li><img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico"></li>
-			<li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-			<li><a href="/E6/CoinSendServlet">送信</a></li>
-			<li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
-			<li><a href="/E6/RankingServlet">ランキング</a></li>
-			<li><a href="/E6/LogoutServlet">ログアウト</a></li>
-		</ul>
-	</div>
-	<div style="margin-top: 100px;">
+<nav id="nav">
+  <div class="logo">
+    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico">
+  </div>
+  <ul class="nav-links">
+    <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
+    <li><a href="/E6/CoinSendServlet">送信</a></li>
+    <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
+    <li><a href="/E6/RankingServlet">ランキング</a></li>
+    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
+  </ul>
+</nav>
 	<h2>ホーム画面</h2>
 	<div>
 		<p>Topics</p>
@@ -58,6 +59,5 @@
 
 	<script src="/E6/js/common.js"></script>
 	<script src="/E6/js/menu.js"></script>
-</div>
 </body>
 </html>
