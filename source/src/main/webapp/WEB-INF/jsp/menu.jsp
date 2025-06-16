@@ -19,7 +19,7 @@
     <li><a href="/E6/CoinSendServlet">送信</a></li>
     <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
     <li><a href="/E6/RankingServlet">ランキング</a></li>
-    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
+    <li><a href="/E6/LogoutServlet" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
 	<h2>ホーム画面</h2>

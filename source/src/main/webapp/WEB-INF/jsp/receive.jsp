@@ -11,14 +11,14 @@
 <body>
 <nav id="nav">
   <div class="logo">
-    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico">
+     <a href="/E6/MenuServlet"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico"></a>
   </div>
   <ul class="nav-links">
     <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
     <li><a href="/E6/CoinSendServlet">送信</a></li>
     <li><a href="/E6/MenuServlet">メニュー</a></li>
     <li><a href="/E6/RankingServlet">ランキング</a></li>
-    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
+    <li><a href="/E6/LogoutServlet" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
 
