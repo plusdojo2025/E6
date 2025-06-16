@@ -79,6 +79,10 @@
       opacity: 0.7;
     }
   }
+  
+  .input-wrapper.error {
+  border: 2px solid red;
+}
 </style>
 </head>
 <body>
