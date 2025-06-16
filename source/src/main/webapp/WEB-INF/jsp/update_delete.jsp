@@ -107,37 +107,22 @@
     <h3>アカウント削除確認</h3>
     <p>本当にアカウントを削除しますか？この操作は元に戻せません。</p>
     <form action="${pageContext.request.contextPath}/UpdateDeleteServlet" method="post">
-      <input type="hidden" name="regist_number" value="${user.regist_number}">
-      <input type="hidden" name="password" value="${user.password}">
-      <div class="modal-buttons">
-        <button type="button" id="cancelDelete">キャンセル</button>
-        <button type="submit" name="submit" value="削除" style="background-color: #f66; color: white;">削除</button>
+  <input type="hidden" name="regist_number" value="${user.regist_number}">
+  <input type="hidden" name="mail" value="${user.mail}">
+  <input type="hidden" name="password" value="${user.password}">
+  <input type="hidden" name="name" value="${user.name}">
+  <input type="hidden" name="company" value="${user.company}">
+  <div class="modal-buttons">
+    <button type="button" id="cancelDelete">キャンセル</button>
+    <button type="submit" name="submit" value="削除" style="background-color: #f66; color: white;">削除</button>
       </div>
     </form>
   </div>
 </div>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-	  const editBtn = document.getElementById("editButton");
-	  const deleteBtn = document.getElementById("deleteButton");
-	  const editModal = document.getElementById("editModal");
-	  const deleteModal = document.getElementById("deleteModal");
-	  const cancelEdit = document.getElementById("cancelEdit");
-	  const cancelDelete = document.getElementById("cancelDelete");
+<script src="js/common.js"></script>
+<script src="js/update_delete.js"></script>
 
-	  editBtn.addEventListener("click", () => editModal.style.display = "flex");
-	  cancelEdit.addEventListener("click", () => editModal.style.display = "none");
-
-	  deleteBtn.addEventListener("click", () => deleteModal.style.display = "flex");
-	  cancelDelete.addEventListener("click", () => deleteModal.style.display = "none");
-
-	  window.addEventListener("click", (e) => {
-	    if (e.target === editModal) editModal.style.display = "none";
-	    if (e.target === deleteModal) deleteModal.style.display = "none";
-	  });
-	});
-</script>
 </body>
 </html>
