@@ -70,7 +70,6 @@
 
   <div class="button-group">
     <button id="editButton">編集</button>
-    <button id="deleteButton" style="background-color: #f88;">アカウント削除</button>
   </div>
 </div>
 
