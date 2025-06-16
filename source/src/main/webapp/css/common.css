@@ -52,3 +52,20 @@ h2, h3, p, a {
   margin: 0;
   padding: 0;
 }
+
+.logout-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid #e60073;
+  border-radius: 20px;
+  background-color: #e60073;
+  color: white !important;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: #e60073 !important;
+}
