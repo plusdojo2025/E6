@@ -12,7 +12,9 @@
 
 <!-- モーダルのスタイル（ここに残す） -->
 <style>
-
+body {
+  margin-top: 140px; /* ヘッダー分の高さ + 余白 */
+}
 /* タイトル中央寄せ */
 h2 {
   text-align: center;
@@ -131,22 +133,53 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+/* ヘッダーの固定 */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* 少し高さを広げる */
+  background-color: #EDD7D5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.logo img {
+  height: 150px; /* 高さ制限を入れる */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 </style>
 </head>
 <body>
 
-<header>
-  <a href="menu.jsp">
-    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico">
-  </a>
-  <ul>
-    <li><a href="${pageContext.request.contextPath}/MenuServlet">メニュー</a></li>
-    <li><a href="${pageContext.request.contextPath}/CoinSendServlet">送信</a></li>
-    <li><a href="${pageContext.request.contextPath}/CoinReceiveServlet">受信履歴</a></li>
-    <li><a href="${pageContext.request.contextPath}/RankingServlet">ランキング</a></li>
-    <li><a href="${pageContext.request.contextPath}/LogoutServlet">ログアウト</a></li>
+<nav id="nav">
+  <div class="logo">
+    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico">
+  </div>
+  <ul class="nav-links">
+    <li><a href="/E6/MenuServlet">メニュー</a></li>
+    <li><a href="/E6/CoinSendServlet">送信</a></li>
+    <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
+    <li><a href="/E6/RankingServlet">ランキング</a></li>
+    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
   </ul>
-</header>
+</nav>
 
 <h2>アカウント情報</h2>
 

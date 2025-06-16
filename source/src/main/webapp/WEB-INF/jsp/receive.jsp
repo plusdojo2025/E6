@@ -9,17 +9,18 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
-<h1>
-  <a><img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300px" height="150px" alt="Arico"></a>
-</h1>
-
-<ul id="nav">
-  <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-  <li><a href="/E6/CoinSendServlet">送信</a></li>
-  <li><a href="/E6/MenuServlet">メニュー</a></li>
-  <li><a href="/E6/RankingServlet">ランキング</a></li>
-  <li><a href="/E6/LogoutServlet">ログアウト</a></li>    
-</ul>
+<nav id="nav">
+  <div class="logo">
+    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico">
+  </div>
+  <ul class="nav-links">
+    <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
+    <li><a href="/E6/CoinSendServlet">送信</a></li>
+    <li><a href="/E6/MenuServlet">メニュー</a></li>
+    <li><a href="/E6/RankingServlet">ランキング</a></li>
+    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
+  </ul>
+</nav>
 
 <h2>受信履歴</h2>
 <div class="card-container">

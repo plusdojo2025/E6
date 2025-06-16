@@ -11,17 +11,20 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-   <header>
-    	<a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
-    		<ul>
-	   			<li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-			<li><a href="/E6/CoinSendServlet">送信</a></li>
-			<li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
-					<li><a href="/E6/MenuServlet">メニュー</a></li>
-					<li><a href="/E6/LogoutServlet">ログアウト</a></li>
-   			</ul>
+   <nav id="nav">
+  <div class="logo">
+    <a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
+    <li><a href="/E6/CoinSendServlet">送信</a></li>
+    <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
+    <li><a href="/E6/MenuServlet">メニュー</a></li>
+    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
+  </ul>
+</nav>
    		<h2>ランキング</h2>
-   </header>
+   
    
 
 <script src="js/common.js"></script>
