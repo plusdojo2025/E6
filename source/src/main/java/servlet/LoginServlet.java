@@ -47,6 +47,10 @@ public class LoginServlet extends HttpServlet {
 
         } else {
             System.out.println("ログイン失敗");
+            
+            // エラーメッセージと入力情報をリクエストにセット
+            request.setAttribute("loginError", "メールアドレスまたはパスワードが間違っています。");
+            request.setAttribute("enteredMail", mail);
 
             // ログイン失敗時はログイン画面に戻る
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
