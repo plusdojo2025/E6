@@ -7,16 +7,6 @@
 <title>新規登録画面</title>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/regist_data.css">
-<style>
-  /*  .error {
-      border: 2px solid red;
-    }
-    .error-message {
-      color: red;
-      font-size: 0.9em;
-      margin-top: 4px;
-    }*/
-</style>
 </head>
 <body>
 <div class="wrapper">
