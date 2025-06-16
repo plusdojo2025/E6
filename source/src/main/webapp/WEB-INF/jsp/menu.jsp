@@ -8,11 +8,53 @@
 <title>メニュー</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<style>
+#nav {
+  display: flex;
+  align-items: center;     /* 高さを中央に揃える */
+  padding: 0 20px;
+  background-color: #fef4f4;
+  height: 100px;
+}
+
+/* ロゴの余白を削減 */
+#nav .logo {
+  margin-right: 0; /* デフォルトの余白をリセット */
+}
+
+/* ロゴの余白調整 */
+#nav .logo img {
+  height: 80px;            /* 高さを統一し見栄えよく */
+  width: auto;
+  display: block;
+}
+
+/* ナビゲーションリスト横並び */
+#nav .nav-links {
+  display: flex;
+  gap: 200px;
+  list-style: none;
+  margin-left: 5px;       /* ロゴとナビゲーションの間 */
+  padding: 0;
+}
+
+/* ナビゲーションリンクのスタイル */
+#nav .nav-links li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+}
+
+#nav .nav-links li a:hover {
+  text-decoration: underline;
+}
+
+</style>
 </head>
 <body>
 <nav id="nav">
   <div class="logo">
-    <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico">
+    <a href="/E6/MenuServlet"><img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
   </div>
   <ul class="nav-links">
     <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
