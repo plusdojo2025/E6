@@ -12,57 +12,6 @@
 
 <!-- モーダルのスタイル（ここに残す） -->
 <style>
-body {
-  margin-top: 140px; /* ヘッダー分の高さ + 余白 */
-}
-/* タイトル中央寄せ */
-h2 {
-  text-align: center;
-  margin-top: 30px;
-  font-family: "メイリオ", Meiryo, sans-serif;
-}
-
-/* アカウント情報カードを中央に配置するコンテナ */
-.account-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-/* アカウント情報をカード風に装飾 */
-.account-card {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  font-family: "メイリオ", Meiryo, sans-serif;
-}
-
-/* 各情報の行 */
-.info-row {
-  margin: 15px 0;
-  font-size: 16px;
-}
-
-/* ボタン共通デザイン */
-.green-button {
-  background-color: #28a745;
-  color: white;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-  display: inline-block;
-}
-
-.green-button:hover {
-  background-color: #218838;
-}
 
 /* モーダル背景 */
 .modal-overlay {
@@ -132,6 +81,58 @@ h2 {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
+}
+
+body {
+  margin-top: 140px; /* ヘッダー分の高さ + 余白 */
+}
+/* タイトル中央寄せ */
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "メイリオ", Meiryo, sans-serif;
+}
+
+/* アカウント情報カードを中央に配置するコンテナ */
+.account-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* アカウント情報をカード風に装飾 */
+.account-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  font-family: "メイリオ", Meiryo, sans-serif;
+}
+
+/* 各情報の行 */
+.info-row {
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+/* ボタン共通デザイン */
+.green-button {
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.green-button:hover {
+  background-color: #218838;
 }
 
 /* ヘッダーの固定 */
