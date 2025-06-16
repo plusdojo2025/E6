@@ -13,7 +13,7 @@
 <body>
    <nav id="nav">
   <div class="logo">
-    <a href="menu.jsp"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
+    <a href="/E6/MenuServlet"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
   </div>
   <ul class="nav-links">
     <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
