@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.UsersDao;
 import dto.User;
+import util.HashUtil;
 
 
 @WebServlet("/RegistServlet")
@@ -45,6 +46,8 @@ public class RegistServlet extends HttpServlet {
         String name = request.getParameter("name");
         String mail = request.getParameter("mail");
         String password = request.getParameter("password");
+        
+        String hashedPassword = HashUtil.sha256(password);
 
         // 新規ユーザー登録処理
         UsersDao bDao = new UsersDao();
