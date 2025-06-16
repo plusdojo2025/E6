@@ -62,7 +62,7 @@ h2 {
     <li><a href="/E6/MenuServlet">メニュー</a></li>
     <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
     <li><a href="/E6/RankingServlet">ランキング</a></li>
-    <li><a href="/E6/LogoutServlet">ログアウト</a></li>
+    <li><a href="/E6/LogoutServlet" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
 <h2>コイン送信</h2>

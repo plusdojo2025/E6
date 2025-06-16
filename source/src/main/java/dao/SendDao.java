@@ -112,7 +112,7 @@ public class SendDao {
 	            "SELECT s.comment, s.send_coin, s.send_date, u.name " +
 	            "FROM send s " +
 	            "JOIN users u ON s.regist_number = u.regist_number " +
-	            "WHERE u.company = (SELECT company FROM users WHERE regist_number = ?) " +
+	            "WHERE s.receiver_number = ?" +
 	            "ORDER BY s.send_date DESC " +
 	            "LIMIT ? OFFSET ?";
 
@@ -157,7 +157,7 @@ public class SendDao {
 	            "SELECT COUNT(*) " +
 	            "FROM send s " +
 	            "JOIN users u ON s.regist_number = u.regist_number " +
-	            "WHERE u.company = (SELECT company FROM users WHERE regist_number = ?)";
+	            "WHERE s.receiver_number = ?";
 
 	        PreparedStatement pStmt = conn.prepareStatement(sql);
 	        pStmt.setString(1, loginUserRegistNumber);
