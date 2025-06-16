@@ -33,6 +33,7 @@
 
 <form method="POST" action="CoinSendServlet">
     <h3>ありがとう送信✉</h3>
+    <div class="account-container">
     <table>
         <tr>
             <td><label>送りたい相手</label></td>
@@ -63,6 +64,7 @@
             </td>
         </tr>
     </table>
+    </div>
     <input type="submit" value="送信" class="submit-btn">
 </form>
 <script src="js/send.js">

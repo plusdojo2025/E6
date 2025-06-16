@@ -12,37 +12,7 @@
 
 <!-- モーダルのスタイル（ここに残す） -->
 <style>
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
 
-.modal-content {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  text-align: left;
-}
-
-.modal-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.button-group button {
-  margin: 5px;
-}
 /* タイトル中央寄せ */
 h2 {
   text-align: center;
