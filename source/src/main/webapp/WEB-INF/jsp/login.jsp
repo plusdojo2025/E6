@@ -32,7 +32,9 @@
           <tr>
             <td>
               <label for="mail">メールアドレス<br>
-              <input style="margin: auto; width: 220px;" type="text" id="mail" name="mail" placeholder="✉Mailadress">
+              <input style="margin: auto; width: 220px;" type="text" id="mail" name="mail" placeholder="✉Mailadress"
+              value="<%= request.getAttribute("enteredMail") != null ? request.getAttribute("enteredMail") : "" %>"
+       class="<%= request.getAttribute("loginError") != null ? "error" : "" %>">
               </label>
               <div id="mailError" class="error-message"></div>
             </td>
@@ -40,7 +42,9 @@
           <tr>
             <td>
               <label for="password">パスワード<br>
-              <input style="margin: auto; width: 220px;" type="password" id="password" name="password" placeholder="🔒Password">
+              <input style="margin: auto; width: 220px;" type="password" id="password" name="password" placeholder="🔒Password"
+              class="<%= request.getAttribute("loginError") != null ? "error" : "" %>"
+              >
               </label>
               <div id="passwordError" class="error-message"></div>
             </td>
@@ -54,6 +58,11 @@
             <td colspan="2">
               <input class="sub_botun" type="submit" name="submit" value="ログイン">
               <span id="error_message"></span>
+              <% if (request.getAttribute("loginError") != null) { %>
+  <div class="error-message" style="color:red; font-weight:bold; text-align:center; margin-top:10px;">
+    <%= request.getAttribute("loginError") %>
+  </div>
+<% } %>
             </td>
           </tr>
         </table>
