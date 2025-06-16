@@ -48,10 +48,6 @@
 </head>
 <body>
 
-System.out.println(">>> submit: " + request.getParameter("submit"));
-System.out.println(">>> regist_number: " + request.getParameter("regist_number"));
-System.out.println(">>> password: " + request.getParameter("password"));
-
 <header>
   <a href="menu.jsp">
     <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico">

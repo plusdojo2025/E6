@@ -94,5 +94,9 @@ public class UpdateDeleteServlet extends HttpServlet {
 		            doGet(request, response);
 		        }
 		    }
+		 
+		 System.out.println(">>> submit: " + request.getParameter("submit"));
+		 System.out.println(">>> regist_number: " + request.getParameter("regist_number"));
+		 System.out.println(">>> password: " + request.getParameter("password"));
 	}
 }
