@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
             // ログイン失敗時はログイン画面に戻る
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
-        }
+       }
 	}
 }
 
