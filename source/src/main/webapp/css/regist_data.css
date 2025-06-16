@@ -1,26 +1,26 @@
 @charset "UTF-8";
 /* 入力間違えたら赤くなるよ */
- .error {
-      border: 2px solid red;
-    }
-    .error-message {
-      color: red;
-      font-size: 0.9em;
-      margin-top: 4px;
-    }
-    
+.error {
+  border: 2px solid red;
+}
+.error-message {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
 /* 全体の中央配置 */
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* 画面の高さに合わせる */
-  padding: 20px;
+  min-height: 100vh;
+  padding: 50px;
   box-sizing: border-box;
 }
 
-/* カード風フォーム */
-#regist_form {
+/* カード風全体 */
+.card {
   background-color: #ffffff;
   padding: 40px;
   border-radius: 20px;
@@ -28,54 +28,87 @@
   width: 100%;
   max-width: 500px;
   box-sizing: border-box;
+  text-align: center; /* 中央揃え */
+}
+
+/* フォームタイトル */
+.form-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
 }
 
 /* テーブル調整 */
 .form-table {
   width: 100%;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
-.form-table th {
-  text-align: left;
-  padding: 10px 0;
-  width: 30%;
-}
-
+.form-table th,
 .form-table td {
   padding: 10px 0;
+  text-align: center; /* ← テキストボックスの中央揃え */
 }
 
+/* テキストボックス */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
+  max-width: 300px;
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
   box-sizing: border-box;
+  text-align: left;
+  margin: 0 auto;
+  display: block;
+}
+
+.form-table td[colspan="2"] {
+  text-align: center;
 }
 
 input[type="submit"],
 input[type="button"] {
-  padding: 10px 20px;
-  margin-top: 10px;
-  border: none;
-  background-color: #E57373;
+  display: inline-block;
+}
+
+/* ボタンの色を淡く */
+input[type="submit"] {
+  background-color: #ee827c; 
   color: white;
   font-weight: bold;
+  border: none;
   border-radius: 8px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background-color: #D32F2F;
+input[type="submit"]:hover {
+  background-color: #ed665f; /* 少し濃い赤 */
 }
 
-.error-message {
-  color: red;
-  font-size: 0.85em;
-  margin-top: 4px;
+input[type="button"] {
+  background-color: #38b48b; 
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #2f9976; /* 少し濃い緑 */
+}
+
+/* 注意文も中央に */
+.form-table small {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }

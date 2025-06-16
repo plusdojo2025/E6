@@ -10,7 +10,9 @@
 </head>
 <body>
 <div class="wrapper">
+<div class="card">
 	<!-- ヘッダー -->
+	<h2 class="form-title">新規登録</h2>
 	<form id="regist_form" action="RegistServlet" method="post">
 		<table class="form-table">
         <tr>
@@ -64,6 +66,7 @@
 	</form>
 	<!-- メイン（ここまで） -->
     <!-- フッター（ここから） -->
+    </div>
 </div>
 <script src="js/common.js"></script>
 <script src="js/regist_data.js"></script>
