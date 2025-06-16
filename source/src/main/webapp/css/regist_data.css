@@ -55,7 +55,7 @@
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 90%;
+  width: 180%;
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -66,7 +66,7 @@ input[type="password"] {
 
 /* ボタンの色を淡く */
 input[type="submit"] {
-  background-color: #f8bdbd; /* 淡い赤 */
+  background-color: #ee827c; 
   color: white;
   font-weight: bold;
   border: none;
@@ -76,11 +76,11 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #f28b8b; /* 少し濃い赤 */
+  background-color: #ed665f; /* 少し濃い赤 */
 }
 
 input[type="button"] {
-  background-color: #c8e6c9; /* 淡い緑 */
+  background-color: #38b48b; 
   color: white;
   font-weight: bold;
   border: none;
@@ -91,7 +91,7 @@ input[type="button"] {
 }
 
 input[type="button"]:hover {
-  background-color: #a5d6a7; /* 少し濃い緑 */
+  background-color: #2f9976; /* 少し濃い緑 */
 }
 
 /* 注意文も中央に */
