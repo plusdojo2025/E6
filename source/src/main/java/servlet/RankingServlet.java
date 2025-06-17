@@ -28,7 +28,7 @@ public class RankingServlet extends HttpServlet {
 
 		if (registNumber == null) {
 			// ログインしていない場合、ログインページにリダイレクト
-			response.sendRedirect("/E6/LoginServlet");
+			response.sendRedirect(request.getContextPath() + "/LoginServlet");
 			return;
 		}
 

@@ -26,7 +26,7 @@ public class CoinSendServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("regist_number") == null) {
-            response.sendRedirect("/E6/LoginServlet");
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
             return;
         }
 
@@ -52,7 +52,7 @@ public class CoinSendServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("regist_number") == null) {
-            response.sendRedirect("/E6/LoginServlet");
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
             return;
         }
 

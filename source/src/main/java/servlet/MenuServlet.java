@@ -26,7 +26,7 @@ public class MenuServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Integer registNumber = (Integer) session.getAttribute("regist_number");
         if (registNumber == null) {
-            response.sendRedirect("/E6/LoginServlet");
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
             return;
         }
 
