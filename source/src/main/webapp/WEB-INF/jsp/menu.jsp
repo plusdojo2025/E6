@@ -103,7 +103,7 @@
 
 <div class="feature-section">
   <div class="feature-card">
-    <div class="feature-image"></div>
+    <img src="${pageContext.request.contextPath}/img/arico_menulogo1.png" width="200" height="200" alt="Thankyou">
     <div class="feature-text">
       <h3>感謝をコインで気軽に可視化して伝える仕組み</h3>
       <p>仕事中に直接「ありがとう」を伝えられない場面でも、オンライン上でコインとメッセージを使って、誰でも簡単に、立場や時間にとらわれずに感謝を届けられます！</p>
