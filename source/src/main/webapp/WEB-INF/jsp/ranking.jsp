@@ -21,7 +21,7 @@
     <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
     <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
     <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
-    <li><a href="<c:url value='/SendCoinServlet' />">送信</a></li>
+    <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
     <li><a href="<c:url value='/LogoutServlet' />" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
