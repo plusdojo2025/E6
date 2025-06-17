@@ -111,7 +111,7 @@
   </div>
 
   <div class="feature-card">
-    <div class="feature-image"></div>
+  <img src="${pageContext.request.contextPath}/img/arico_menulogo2.png" width="200" height="200" alt="Thankyou">
     <div class="feature-text">
       <h3>見えにくい気配りや助け合いを評価可能に</h3>
       <p>業務の中で小さな配慮や支援は見過ごされがちですが、Aricoはコイン送信やランキング機能によって、”見える化”し、社内での信頼や評価につながります！</p>
@@ -119,7 +119,7 @@
   </div>
 
   <div class="feature-card">
-    <div class="feature-image"></div>
+   <img src="${pageContext.request.contextPath}/img/arico_menulogo3.png" width="200" height="200" alt="Thankyou">
     <div class="feature-text">
       <h3>社内のコミュニケーション活性化と働き甲斐の向上</h3>
       <p>感謝の伝える機会が増えることで、社員同士の信頼関係が深まり、円滑な仕事の進行や前向きな環境の形成につながります！</p>
