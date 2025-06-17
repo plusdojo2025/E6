@@ -88,7 +88,7 @@ public class UpdateDeleteServlet extends HttpServlet {
 		    } else if ("削除".equals(action)) {
 		        if (dao.user_data_del(user)) {
 		            session.invalidate(); // ログアウト
-		            response.sendRedirect("/E6/LoginServlet");
+		            response.sendRedirect(request.getContextPath() + "/LoginServlet");
 		        } else {
 		            request.setAttribute("error", "アカウント削除に失敗しました");
 		            doGet(request, response);
