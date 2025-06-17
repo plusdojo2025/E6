@@ -2,3 +2,4 @@
 setTimeout(function() {
 	window.location.href = "/E6/MenuServlet";
 }, 3000);
+
