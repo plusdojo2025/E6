@@ -79,6 +79,7 @@ h2 {
   <div class="account-container">
     <div class="account-card">
       <h3 style="text-align:center;">ありがとう送信✉</h3>
+      <p style="text-align:center;">現在のあなたの所持コイン：<strong>${holdCoin}</strong> 枚</p>
       <table>
         <tr>
           <td><label>送りたい相手</label></td>

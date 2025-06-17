@@ -236,4 +236,33 @@ public class SendDao {
 
 	    return result;
 	}
+	
+	public int getHoldCoin(int registNumber) {
+	    int holdCoin = 0;
+	    Connection conn = null;
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	            "root", "password"
+	        );
+
+	        String sql = "SELECT hold_coin FROM coin WHERE regist_number = ?";
+	        PreparedStatement stmt = conn.prepareStatement(sql);
+	        stmt.setInt(1, registNumber);
+
+	        ResultSet rs = stmt.executeQuery();
+	        if (rs.next()) {
+	            holdCoin = rs.getInt("hold_coin");
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+	    }
+
+	    return holdCoin;
+	}
 }

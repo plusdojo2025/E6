@@ -35,8 +35,11 @@ public class CoinSendServlet extends HttpServlet {
         SendDao sDao = new SendDao();
         List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
         userList.removeIf(user -> user.getRegist_number() == registNumber);
-
         request.setAttribute("userList", userList);
+        
+        SendDao cDao = new SendDao();
+        int holdCoin = cDao.getHoldCoin(registNumber);
+        request.setAttribute("holdCoin", holdCoin);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/send.jsp");
         dispatcher.forward(request, response);
@@ -59,26 +62,33 @@ public class CoinSendServlet extends HttpServlet {
             String comment = request.getParameter("comment");
             int sendCoin = Integer.parseInt(request.getParameter("send_coin"));
             int receiverNumber = Integer.parseInt(request.getParameter("receiver_number"));
-
             Integer registNumber = (Integer) session.getAttribute("regist_number");
 
-            Send send = new Send();
-            send.setRegist_number(registNumber);
-            send.setComment(comment);
-            send.setSend_coin(sendCoin);
-            send.setReceiver_number(receiverNumber);
+            SendDao cDao = new SendDao();
+            int holdCoin = cDao.getHoldCoin(registNumber);
 
-            SendDao sDao = new SendDao();
-            boolean result = sDao.insertSend(send);
-
-            if (result) {
-                request.setAttribute("message", "コインを送信しました。");
+            if (sendCoin > holdCoin) {
+                request.setAttribute("error", "保有コインが不足しています。送信できません。");
             } else {
-                request.setAttribute("error", "送信に失敗しました。");
+                Send send = new Send();
+                send.setRegist_number(registNumber);
+                send.setComment(comment);
+                send.setSend_coin(sendCoin);
+                send.setReceiver_number(receiverNumber);
+
+                SendDao sDao = new SendDao();
+                boolean result = sDao.insertSend(send);
+
+                if (result) {
+                    request.setAttribute("message", "コインを送信しました。");
+                } else {
+                    request.setAttribute("error", "送信に失敗しました。");
+                }
             }
 
             // 再度ユーザー一覧を取得し、送信画面に戻る
-            List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
+            SendDao seDao = new SendDao();
+            List<User> userList = seDao.getUsersInSameCompany(String.valueOf(registNumber));
             userList.removeIf(user -> user.getRegist_number() == registNumber);
             request.setAttribute("userList", userList);
 
@@ -89,10 +99,15 @@ public class CoinSendServlet extends HttpServlet {
             request.setAttribute("error", "入力内容に誤りがあります。");
 
             Integer registNumber = (Integer) session.getAttribute("regist_number");
+
             SendDao sDao = new SendDao();
             List<User> userList = sDao.getUsersInSameCompany(String.valueOf(registNumber));
             userList.removeIf(user -> user.getRegist_number() == registNumber);
             request.setAttribute("userList", userList);
+
+            SendDao cDao = new SendDao();
+            int holdCoin = cDao.getHoldCoin(registNumber);
+            request.setAttribute("holdCoin", holdCoin);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/send.jsp");
             dispatcher.forward(request, response);
