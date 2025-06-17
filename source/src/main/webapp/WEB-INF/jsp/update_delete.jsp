@@ -6,9 +6,9 @@
 <title>アカウント情報画面</title>
 
 <!-- 共通CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="/E6/css/common.css">
 <!-- この画面用CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/updata_delete.css">
+<link rel="stylesheet" href="/E6/css/updata_delete.css">
 
 <!-- モーダルのスタイル（ここに残す） -->
 <style>

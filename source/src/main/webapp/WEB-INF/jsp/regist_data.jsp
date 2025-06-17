@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録画面</title>
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/regist_data.css">
+<link rel="stylesheet" href="/E6/css/common.css">
+<link rel="stylesheet" href="/E6/css/regist_data.css">
 </head>
 <body>
 <div class="wrapper">
