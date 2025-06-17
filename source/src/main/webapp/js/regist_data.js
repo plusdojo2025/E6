@@ -60,6 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
       password2Error.textContent = "パスワードを再入力してください。";
       isValid = false;
     }
+		//パスワードと再入力パスワードが合っているか確認
+    if (password.value.trim() && password2.value.trim() && password.value !== password2.value) {
+      password.classList.add("error");
+      password2.classList.add("error");
+      password2Error.textContent = "パスワードが一致しません。";
+      isValid = false;
+    }
 
     // エラーがあれば送信中止
     if (!isValid) {
