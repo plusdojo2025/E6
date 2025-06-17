@@ -68,7 +68,8 @@ public class CoinSendServlet extends HttpServlet {
             int holdCoin = cDao.getHoldCoin(registNumber);
 
             if (sendCoin > holdCoin) {
-                request.setAttribute("error", "保有コインが不足しています。送信できません。");
+                request.setAttribute("error", "所持コインが不足しています。送信できません。");
+                request.setAttribute("holdCoin", holdCoin);
             } else {
                 Send send = new Send();
                 send.setRegist_number(registNumber);
