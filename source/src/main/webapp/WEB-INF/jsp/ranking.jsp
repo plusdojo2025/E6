@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ranking</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/ranking.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="/E6/css/ranking.css">
+<link rel="stylesheet" href="/E6/css/common.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>

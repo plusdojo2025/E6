@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+<link rel="stylesheet" href="/E6/css/common.css">
+<link rel="stylesheet" href="/E6/css/login.css">
 <style>
+@charset "UTF-8";
 /* 入力間違えたら赤くなるよ */
+
+ 
  .error {
       border: 2px solid red;
     }
@@ -25,6 +28,7 @@
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 50px; 
   }
 
   .input-wrapper {
