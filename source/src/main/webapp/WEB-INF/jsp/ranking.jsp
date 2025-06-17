@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>ranking</title>
-<link rel="stylesheet" href="/E6/css/ranking.css">
-<link rel="stylesheet" href="/E6/css/common.css">
+<link rel="stylesheet" href="<c:url value='/css/common.css' />">
+<link rel="stylesheet" href="<c:url value='/css/ranking.css' />">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
    <nav id="nav">
   <div class="logo">
-    <a href="/E6/MenuServlet"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
+    <a href="<c:url value='/RankingServlet'/>"><img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico"></a>
   </div>
   <ul class="nav-links">
     <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
@@ -27,8 +27,8 @@
    
    
 
-<script src="js/common.js"></script>
-<script src="js/ranking.js"></script>
+<script src="<c:url value='/js/common.js' />"></script>
+<script src="<c:url value='/js/ranking.js' />"></script>
 
 <div style="display: flex; gap: 20px; align-items: flex-start; width: 90%; margin: auto;">
 

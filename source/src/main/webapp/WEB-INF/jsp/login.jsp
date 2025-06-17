@@ -5,13 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel="stylesheet" href="/E6/css/common.css">
-<link rel="stylesheet" href="/E6/css/login.css">
+<link rel="stylesheet" href="<c:url value='/css/common.css' />">
+<link rel="stylesheet" href="<c:url value='/css/login.css' />">
 <style>
 @charset "UTF-8";
-/* 入力間違えたら赤くなるよ */
-
- 
+/* 入力間違えたら赤くなるよ */ 
  .error {
       border: 2px solid red;
     }
@@ -91,12 +89,12 @@
 </head>
 <body>
   <div style="text-align: center;">
-    <h1><a><img src="img/arico_logo.png" width="300" height="300" alt="ログイン"></a></h1>
+    <h1><a><img src="<c:url value='/img/arico_logo.png'/>" width="300" height="300" alt="ログイン"></a></h1>
   </div>
 
   <div class="login login-card">
     <h2 id="log_title" style="text-align: center;">Sign In</h2>
-    <form id="loginForm" method="POST" action="/E6/LoginServlet">
+    <form id="loginForm" method="POST" action="<c:url value='/LoginServlet'/>">
       <table style="margin: 0 auto;">
 <tr>
   <td>
@@ -120,7 +118,7 @@
 </tr>
         <tr>
           <td>
-            <p>登録していない方は<a href="/E6/RegistServlet" style="color: blue;">こちら</a></p>
+            <p>登録していない方は<a href="<c:url value='/RegistServlet'/>" style="color: blue;">こちら</a></p>
           </td>
         </tr>
         <tr>
@@ -148,7 +146,7 @@
       passwordToggle.classList.toggle('is-visible');
     });
   </script>
- <script src="js/common.js"></script>
-<script src="js/login.js"></script>
+<script src="<c:url value='/js/common.js'/>"></script>
+<script src="<c:url value='/js/login.js'/>"></script>
 </body>
 </html>
