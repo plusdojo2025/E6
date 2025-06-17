@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `coin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- テーブル e6.coin: ~8 rows (約) のデータをダンプしています
-REPLACE INTO `coin` (`regist_number`, `hold_coin`, `receive_coin`, `ranking_coin`) VALUES
+INSERT INTO `coin` (`regist_number`, `hold_coin`, `receive_coin`, `ranking_coin`) VALUES
 	(1, 50, 73, 0),
 	(2, 50, 15, 0),
 	(3, -23, 0, 0),
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `send` (
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- テーブル e6.send: ~28 rows (約) のデータをダンプしています
-REPLACE INTO `send` (`id`, `regist_number`, `send_date`, `comment`, `send_coin`, `receiver_number`) VALUES
+INSERT INTO `send` (`id`, `regist_number`, `send_date`, `comment`, `send_coin`, `receiver_number`) VALUES
 	(1, 1, '2025-06-13 13:21:24', '7', 7, 1),
 	(2, 3, '2025-06-13 14:52:03', 'a', 1, 1),
 	(3, 3, '2025-06-13 14:52:14', 'aqdcc', 7, 1),
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- テーブル e6.users: ~8 rows (約) のデータをダンプしています
-REPLACE INTO `users` (`regist_number`, `mail`, `password`, `name`, `company`) VALUES
+INSERT INTO `users` (`regist_number`, `mail`, `password`, `name`, `company`) VALUES
 	(1, 'taro@example.com', 'password123', '山田 太郎', '株式会社テスト'),
 	(2, 'a', 'a', '福山雅治', '株式会社SEプラス'),
 	(3, '123', '123', '永吉嵐', '株式会社テスト'),
