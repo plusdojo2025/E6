@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>コイン送信画面</title>
-<link rel="stylesheet" href="/E6/css/send.css">
-<link rel="stylesheet" href="/E6/css/common.css">
+<link rel="stylesheet" href="<c:url value='/css/send.css' />">
+<link rel="stylesheet" href="<c:url value='/css/common.css' />">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <style>
@@ -55,14 +56,14 @@ h2 {
 <body>
 <nav id="nav">
   <div class="logo">
-    <a href="/E6/MenuServlet"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" width="300" height="150" alt="Arico"></a>
+    <a href="<c:url value='/UpdateDeleteServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico"></a>
   </div>
   <ul class="nav-links">
-    <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-    <li><a href="/E6/MenuServlet">メニュー</a></li>
-    <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
-    <li><a href="/E6/RankingServlet">ランキング</a></li>
-    <li><a href="/E6/LogoutServlet" class="logout-button">ログアウト</a></li>
+    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
+    <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
+    <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
+    <li><a href="<c:url value='/RankingServlet' />">ランキング</a></li>
+    <li><a href="<c:url value='/LogoutServlet' />" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
 <h2>コイン送信</h2>
@@ -117,7 +118,7 @@ h2 {
   </div>
 </form>
 
-<script src="js/send.js">
-</script>
+<script src="<c:url value='/js/common.js' />"></script>
+<script src="<c:url value='/js/send.js' />"></script>
 </body>
 </html>

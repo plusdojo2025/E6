@@ -5,20 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>受信履歴 | Arico</title>
-<link rel="stylesheet" href="/E6/css/receive.css">
-<link rel="stylesheet" href="/E6/css/common.css">
+<link rel="stylesheet" href="<c:url value='css/receive.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/common.css' />">
 </head>
 <body>
 <nav id="nav">
   <div class="logo">
-     <a href="/E6/MenuServlet"> <img src="${pageContext.request.contextPath}/img/arico_logo2.png" alt="Arico"></a>
+     <a href="<c:url value='/UpdateDeleteServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" alt="Arico"></a>
   </div>
   <ul class="nav-links">
-    <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-    <li><a href="/E6/CoinSendServlet">送信</a></li>
-    <li><a href="/E6/MenuServlet">メニュー</a></li>
-    <li><a href="/E6/RankingServlet">ランキング</a></li>
-    <li><a href="/E6/LogoutServlet" class="logout-button">ログアウト</a></li>
+    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
+    <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
+    <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
+    <li><a href="<c:url value='/RankingServlet' />">ランキング</a></li>
+    <li><a href=<c:url value='/LogoutServlet' /> class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
 
@@ -46,7 +46,7 @@
     <a href="CoinReceiveServlet?page=${currentPage + 1}">次のページ →</a>
   </c:if>
 </div>
-<script src="${pageContext.request.contextPath}/js/common.js"></script>
-<script src="${pageContext.request.contextPath}/js/receive.js"></script>
+<script src="<c:url value='/js/common.js' />"></script>
+<script src="<c:url value='/js/receive.js' />"></script>
 </body>
 </html>

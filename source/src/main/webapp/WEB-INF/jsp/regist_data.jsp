@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>新規登録画面</title>
-<link rel="stylesheet" href="/E6/css/common.css">
-<link rel="stylesheet" href="/E6/css/regist_data.css">
+<link rel="stylesheet" href="<c:url value='/css/common.css' />">
+<link rel="stylesheet" href="<c:url value='/css/regist_data.css' />">
 </head>
 <body>
 <div class="wrapper">
@@ -68,7 +68,7 @@
     <!-- フッター（ここから） -->
     </div>
 </div>
-<script src="js/common.js"></script>
-<script src="js/regist_data.js"></script>
+<script src="<c:url value='/js/common.js' />"></script>
+<script src="<c:url value='/js/regist_data.js' />"></script>
 </body>
 </html>
