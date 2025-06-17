@@ -48,16 +48,15 @@
 .form-table th,
 .form-table td {
   padding: 10px 0;
-  text-align: center; /* ← テキストボックスの中央揃え */
 }
 
 /* テキストボックス */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%;
+  width: 250px;
   max-width: 300px;
-  padding: 8px 100px;
+  padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -65,10 +64,6 @@ input[type="password"] {
   text-align: left;
   margin: 0 auto;
   display: block;
-}
-
-.form-table td[colspan="2"] {
-  text-align: center;
 }
 
 input[type="submit"],
@@ -106,9 +101,14 @@ input[type="button"]:hover {
   background-color: #2f9976; /* 少し濃い緑 */
 }
 
-/* 注意文も中央に */
+ /* 注意文も中央に */
+.form-table td p {
+  margin: 0;
+  padding: 0;
+  text-align: center; /* これが必要 */
+}
+
 .form-table small {
-  display: block;
+  display: inline-block;
   text-align: center;
-  margin-top: 10px;
 }

@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>受信履歴 | Arico</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/receive.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="/E6/css/receive.css">
+<link rel="stylesheet" href="/E6/css/common.css">
 </head>
 <body>
 <nav id="nav">
