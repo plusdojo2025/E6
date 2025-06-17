@@ -13,14 +13,16 @@
 <body>
    <nav id="nav">
   <div class="logo">
-    <a href="<c:url value='/RankingServlet'/>"><img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico"></a>
+    <a href="<c:url value='/UpdateDeleteServlet' />">
+      <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico">
+    </a>
   </div>
   <ul class="nav-links">
-    <li><a href="/E6/UpdateDeleteServlet">アカウント情報</a></li>
-    <li><a href="/E6/CoinSendServlet">送信</a></li>
-    <li><a href="/E6/CoinReceiveServlet">受信履歴</a></li>
-    <li><a href="/E6/MenuServlet">メニュー</a></li>
-    <li><a href="/E6/LogoutServlet" class="logout-button">ログアウト</a></li>
+    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
+    <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
+    <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
+    <li><a href="<c:url value='/SendCoinServlet' />">送信</a></li>
+    <li><a href="<c:url value='/LogoutServlet' />" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
    		<h2>ランキング</h2>
@@ -45,7 +47,7 @@
   line-height: 1.6;
   color: #333;
 ">
-  <h3>ランキング</h3>
+  <h3>先月のTOP5</h3>
   <ol style="list-style: none; padding: 0;">
     <c:forEach var="user" items="${rankingList}" varStatus="status">
       <li style="
