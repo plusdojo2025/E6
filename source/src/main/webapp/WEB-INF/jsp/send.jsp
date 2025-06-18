@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>コイン送信画面 | Arico</title>
 <link rel="stylesheet" href="<c:url value='/css/send.css' />">
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
