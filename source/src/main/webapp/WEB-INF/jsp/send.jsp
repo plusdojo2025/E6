@@ -86,10 +86,11 @@ table td {
     <a href="<c:url value='/UpdateDeleteServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico"></a>
   </div>
   <ul class="nav-links">
-    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
     <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
+    <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
     <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
     <li><a href="<c:url value='/RankingServlet' />">ランキング</a></li>
+    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
     <li><a href="<c:url value='/LogoutServlet' />" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
