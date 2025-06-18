@@ -1,1 +1,54 @@
 @charset "UTF-8";
+#chart_div {
+  flex: 1;
+  min-width: 400px;
+  background-color: #fef4f4;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#ranking_text {
+  flex: 1;
+  min-width: 300px;
+  background-color: #ffffff;
+  border: 2px solid #e0c0c0;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1.2em;
+}
+
+/* ランキング全体のレイアウト（PC） */
+.ranking-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 95%;
+  margin: 40px auto;
+  box-sizing: border-box;
+}
+
+/* スマホ表示（縦並び＋余白調整） */
+@media screen and (max-width: 768px) {
+  .ranking-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #chart_div,
+  #ranking_text {
+    width: 95%;
+    margin: 10px auto;
+    position: relative;
+    min-width: unset;
+  }
+
+  #chart_div {
+    height: auto; /* ← 高さを固定せず、グラフに任せる */
+  }
+
+  #ranking_text {
+    font-size: 1em;
+  }
+}

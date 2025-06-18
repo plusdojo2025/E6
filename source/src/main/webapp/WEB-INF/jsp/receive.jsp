@@ -14,7 +14,11 @@
   <div class="logo">
      <a href="<c:url value='/MenuServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" alt="Arico"></a>
   </div>
-  <ul class="nav-links">
+  
+  <!-- ▼ 追加：ハンバーガーアイコン -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  
+  <ul class="nav-links" id="nav-links">
   	<li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
   	<li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
   	<li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
@@ -50,5 +54,17 @@
 </div>
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/receive.js' />"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	  const hamburger = document.getElementById("hamburger");
+	  const navLinks = document.getElementById("nav-links");
+
+	  if (hamburger && navLinks) {
+	    hamburger.addEventListener("click", function () {
+	      navLinks.classList.toggle("active");
+	    });
+	  }
+	});
+</script>
 </body>
 </html>

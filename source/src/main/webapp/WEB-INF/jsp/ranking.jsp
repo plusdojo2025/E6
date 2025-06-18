@@ -18,7 +18,11 @@
       <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico">
     </a>
   </div>
-  <ul class="nav-links">
+  
+  <!-- ▼ 追加：ハンバーガーアイコン -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  
+  <ul class="nav-links" id="nav-links">
   	<li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
   	<li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
     <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
@@ -34,38 +38,28 @@
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/ranking.js' />"></script>
 
-<div style="display: flex; gap: 20px; align-items: flex-start; width: 90%; margin: auto;">
+<div class="ranking-container">
 
-<div id="chart_div" style="width: 50%; height: 500px; background-color: #fef4f4;"></div>
+<div id="chart_div" style="background-color: #fef4f4;"></div>
 
 <!-- ランキング文章の領域 -->
-  <div id="ranking_text" style="
-  width: 65%;
-  background-color: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  font-size: 1.1em;
-  line-height: 1.6;
-  color: #333;
-">
+  <div id="ranking_text">
   <h3>先月のTOP5</h3>
   <ol style="list-style: none; padding: 0;">
-    <c:forEach var="user" items="${rankingList}" varStatus="status">
-      <li style="
-        <c:choose>
-          <c:when test='${status.index == 0}'>color: #ffd700; font-weight: bold;</c:when>
-          <c:when test='${status.index == 1}'>color: #c0c0c0; font-weight: bold;</c:when>
-          <c:when test='${status.index == 2}'>color: #cd7f32; font-weight: bold;</c:when>
-        </c:choose>
-      ">
-        ${status.index + 1}位　${user.name}　${user.ranking_coin}枚
-      </li>
-    </c:forEach>
-  </ol>
-</div>
-  
+      <c:forEach var="user" items="${rankingList}" varStatus="status">
+        <li style="
+          <c:choose>
+            <c:when test='${status.index == 0}'>color: #ffd700; font-weight: bold;</c:when>
+            <c:when test='${status.index == 1}'>color: #c0c0c0; font-weight: bold;</c:when>
+            <c:when test='${status.index == 2}'>color: #cd7f32; font-weight: bold;</c:when>
+          </c:choose>
+        ">
+          ${status.index + 1}位　${user.name}　${user.ranking_coin}枚
+        </li>
+      </c:forEach>
+    </ol>
   </div>
+</div>
 
 
 <script type="text/javascript">
@@ -100,6 +94,31 @@
     var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
     chart.draw(data, options);
   }
+</script>
+
+<script>
+function adjustBodyPadding() {
+    const nav = document.getElementById('nav');
+    if (nav) {
+      const navHeight = nav.offsetHeight;
+      document.body.style.paddingTop = navHeight + 'px';
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', adjustBodyPadding);
+  window.addEventListener('resize', adjustBodyPadding);
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	  const hamburger = document.getElementById("hamburger");
+	  const navLinks = document.getElementById("nav-links");
+
+	  if (hamburger && navLinks) {
+	    hamburger.addEventListener("click", function () {
+	      navLinks.classList.toggle("active");
+	    });
+	  }
+	});
 </script>
 </body>
 </html>
