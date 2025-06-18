@@ -79,3 +79,31 @@ h2, h3, p, a {
   position: relative;
   top: 1px;
 }
+
+
+/*スマホ画面用*/
+@media (max-width: 768px) {
+  #nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo img {
+    height: 100px;
+  }
+
+  h2#log_title {
+    font-size: 1.5em;
+  }
+
+  .login-card {
+    padding: 0 10px;
+  }
+}
+
