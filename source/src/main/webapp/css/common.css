@@ -24,6 +24,7 @@ h2, h3, p, a {
   font-family: "myfont", sans-serif;
 }
 
+/* ヘッダーの固定 */
 #nav {
   position: fixed;
   top: 0;
