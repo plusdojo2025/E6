@@ -31,3 +31,14 @@ loadNotifications();
 
 // 10秒ごとに自動更新
 setInterval(loadNotifications, 10000);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+    });
+  }
+});
