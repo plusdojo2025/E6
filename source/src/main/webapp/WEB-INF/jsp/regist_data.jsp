@@ -60,7 +60,7 @@
           <td colspan="2">
             <input type="submit" id="regist" name="submit" value="登録">
             <span id="error_message"></span>
-            <input type="button" value="前のページに戻る" onclick="location.href=`/E6/LoginServlet`">
+            <input type="button" value="前のページに戻る" onclick="location.href=`/e6/LoginServlet`">
           </td>
         </tr>
       </table>
