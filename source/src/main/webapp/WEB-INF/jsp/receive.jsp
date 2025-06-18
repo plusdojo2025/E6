@@ -12,7 +12,7 @@
 <body>
 <nav id="nav">
   <div class="logo">
-     <a href="<c:url value='/UpdateDeleteServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" alt="Arico"></a>
+     <a href="<c:url value='/MenuServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" alt="Arico"></a>
   </div>
   <ul class="nav-links">
   	<li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
