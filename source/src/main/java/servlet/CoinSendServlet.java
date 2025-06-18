@@ -85,6 +85,8 @@ public class CoinSendServlet extends HttpServlet {
                 } else {
                     request.setAttribute("error", "送信に失敗しました。");
                 }
+                
+                request.setAttribute("holdCoin", cDao.getHoldCoin(registNumber));
             }
 
             // 再度ユーザー一覧を取得し、送信画面に戻る

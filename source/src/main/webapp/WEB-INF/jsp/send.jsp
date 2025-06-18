@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>コイン送信画面</title>
+<title>コイン送信画面 | Arico</title>
 <link rel="stylesheet" href="<c:url value='/css/send.css' />">
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <style>
 /* タイトル中央寄せ */
@@ -52,6 +51,34 @@ h2 {
 .green-button:hover {
   background-color: #218838;
 }
+
+/* セレクトボックスの装飾 */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px; /* 丸角 */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* テキストエリアの装飾 */
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px; /* 丸角 */
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* テーブルの中のテキストを少し余裕ある配置に */
+table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
 </style>
 <body>
 <nav id="nav">
