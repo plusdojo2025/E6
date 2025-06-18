@@ -76,6 +76,10 @@
      <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico">
     </a>
   </div>
+  
+  <!-- ▼ 追加：ハンバーガーアイコン -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  
   <ul class="nav-links">
     <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
     <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
