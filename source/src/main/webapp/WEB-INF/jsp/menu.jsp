@@ -80,7 +80,7 @@
   <!-- ▼ 追加：ハンバーガーアイコン -->
   <div class="hamburger" id="hamburger">&#9776;</div>
   
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
     <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
     <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
