@@ -31,3 +31,4 @@ loadNotifications();
 
 // 10秒ごとに自動更新
 setInterval(loadNotifications, 10000);
+
