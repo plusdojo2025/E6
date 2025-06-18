@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>コイン送信画面</title>
+<title>コイン送信画面 | Arico</title>
 <link rel="stylesheet" href="<c:url value='/css/send.css' />">
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
 </head>
