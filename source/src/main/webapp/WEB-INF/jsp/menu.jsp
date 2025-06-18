@@ -135,5 +135,17 @@
 
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/menu.js' />"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	  const hamburger = document.getElementById("hamburger");
+	  const navLinks = document.getElementById("nav-links");
+
+	  if (hamburger && navLinks) {
+	    hamburger.addEventListener("click", function () {
+	      navLinks.classList.toggle("active");
+	    });
+	  }
+	});
+</script>
 </body>
 </html>
