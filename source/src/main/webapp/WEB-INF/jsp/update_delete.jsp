@@ -165,6 +165,7 @@ h2 {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: none;
 }
 
 </style>
@@ -173,7 +174,7 @@ h2 {
 
 <nav id="nav">
   <div class="logo">
-   <a href="<c:url value='/MenuServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" alt="Arico"></a>
+   <a href="<c:url value='/MenuServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico"></a>
   </div>
   
   <!-- ▼ 追加：ハンバーガーアイコン -->
