@@ -7,7 +7,6 @@
 <title>コイン送信画面</title>
 <link rel="stylesheet" href="<c:url value='/css/send.css' />">
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <style>
 /* タイトル中央寄せ */
