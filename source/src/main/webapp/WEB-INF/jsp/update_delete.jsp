@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>アカウント情報画面 | Arico</title>
 
 <!-- 共通CSS -->
