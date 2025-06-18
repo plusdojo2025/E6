@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>アカウント情報画面</title>
+<title>アカウント情報画面 | Arico</title>
 
 <!-- 共通CSS -->
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
@@ -179,6 +179,7 @@ h2 {
     <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
     <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
     <li><a href="<c:url value='/RankingServlet' />">ランキング</a></li>
+    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
     <li><a href="<c:url value='/LogoutServlet' />"  class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
