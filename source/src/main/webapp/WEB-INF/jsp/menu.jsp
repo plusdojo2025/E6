@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>メニュー</title>
+<title>メニュー | Arico</title>
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
 <link rel="stylesheet" href="<c:url value='/css/menu.css' />">
 <style>
@@ -76,10 +76,11 @@
     </a>
   </div>
   <ul class="nav-links">
-    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
+    <li><a href="<c:url value='/MenuServlet' />">メニュー</a></li>
     <li><a href="<c:url value='/CoinSendServlet' />">送信</a></li>
     <li><a href="<c:url value='/CoinReceiveServlet' />">受信履歴</a></li>
     <li><a href="<c:url value='/RankingServlet' />">ランキング</a></li>
+    <li><a href="<c:url value='/UpdateDeleteServlet' />">アカウント情報</a></li>
     <li><a href="<c:url value='/LogoutServlet' />" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
