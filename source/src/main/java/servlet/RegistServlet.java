@@ -38,52 +38,53 @@ public class RegistServlet extends HttpServlet {
     // 登録処理（POST）
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // 文字コード設定
-        request.setCharacterEncoding("UTF-8");
+    	// 文字コード設定
+    	request.setCharacterEncoding("UTF-8");
 
-        // パラメータ取得
-        String company = request.getParameter("company");
-        String name = request.getParameter("name");
-        String mail = request.getParameter("mail");
-        String password = request.getParameter("password");
-        
-        String hashedPassword = HashUtil.sha256(password);
+    	// パラメータ取得
+    	String company = request.getParameter("company");
+    	String name = request.getParameter("name");
+    	String mail = request.getParameter("mail");
+    	String password = request.getParameter("password");
+    	String password2 = request.getParameter("password2");
 
-        // 新規ユーザー登録処理
-        UsersDao bDao = new UsersDao();
-        
-     // 【追加】メールアドレスの重複チェック
-        if (bDao.isEmailRegistered(mail)) {
-            request.setAttribute("errorMessage", "このメールアドレスは登録済みです");
-            // 入力値を再表示用にセット
-            request.setAttribute("company", company);
-            request.setAttribute("name", name);
-            request.setAttribute("mail", mail);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
-            dispatcher.forward(request, response);
-            return;
-        }
-        
-        boolean result = bDao.new_regist(new User(0, company, name, mail, password));
+    	// パスワード一致確認
+    	if (!password.equals(password2)) {
+    	    request.setAttribute("errorMessage2", "パスワードが一致しません");
+    	    request.setAttribute("company", company);
+    	    request.setAttribute("name", name);
+    	    request.setAttribute("mail", mail);
+    	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+    	    dispatcher.forward(request, response);
+    	    return;
+    	}
 
-        if (result) {
-            // 登録成功 → メニュー画面などにリダイレクト
-            response.sendRedirect(request.getContextPath() + "/LoginServlet");
-        } else {
-            // 登録失敗 → エラーメッセージを表示（例：登録画面に戻す）
-            request.setAttribute("errorMessage2", "登録に失敗しました。もう一度お試しください。");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
-            dispatcher.forward(request, response);
-        }
+    	String hashedPassword = HashUtil.sha256(password);
 
-            // 入力値を再表示用にセット
-            request.setAttribute("company", company);
-            request.setAttribute("name", name);
-            request.setAttribute("mail", mail);
+    	// 重複チェック
+    	UsersDao bDao = new UsersDao();
+    	if (bDao.isEmailRegistered(mail)) {
+    	    request.setAttribute("errorMessage", "このメールアドレスは登録済みです");
+    	    request.setAttribute("company", company);
+    	    request.setAttribute("name", name);
+    	    request.setAttribute("mail", mail);
+    	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+    	    dispatcher.forward(request, response);
+    	    return;
+    	}
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
-            dispatcher.forward(request, response);
-        }
+    	// 新規登録処理
+    	boolean result = bDao.new_regist(new User(0, company, name, mail, hashedPassword));
 
-		
-	}
+    	if (result) {
+    	    response.sendRedirect(request.getContextPath() + "/LoginServlet");
+    	} else {
+    	    request.setAttribute("errorMessage2", "登録に失敗しました。もう一度お試しください。");
+    	    request.setAttribute("company", company);
+    	    request.setAttribute("name", name);
+    	    request.setAttribute("mail", mail);
+    	    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+    	    dispatcher.forward(request, response);
+    	}
+    }
+}
