@@ -73,10 +73,11 @@ public class SendDao {
             String sql = 
                 "SELECT regist_number, name " +
                 "FROM users " +
-                "WHERE company = (SELECT company FROM users WHERE regist_number = ?)";
+                "WHERE regist_number != ? AND company = (SELECT company FROM users WHERE regist_number = ?)";
 
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, loginUserRegistNumber);
+            pStmt.setString(2, loginUserRegistNumber);
 
             ResultSet rs = pStmt.executeQuery();
 
