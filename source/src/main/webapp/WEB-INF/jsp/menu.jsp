@@ -90,7 +90,7 @@
   </ul>
 </nav>
 
-<h2>ホーム画面</h2>
+
 
 <div class="topics-section">
   <h2>Topics</h2>

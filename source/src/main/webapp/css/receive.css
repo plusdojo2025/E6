@@ -24,3 +24,9 @@
   line-height: 1.4;
 }
 
+/* タイトル中央寄せ */
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "メイリオ", Meiryo, sans-serif;
+}
