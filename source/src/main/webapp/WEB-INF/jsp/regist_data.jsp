@@ -168,7 +168,7 @@ input[type="button"]:hover {
 					<div class="input-wrapper">
 						<input type="password" name="password" id="password"
 							placeholder="パスワード" maxlength="20" minlength="8"
-							pattern="^[a-zA-Z0-9]+$">
+							pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+" >
 						<button type="button" class="password__toggle"
 							data-target="password"></button>
 					</div>
@@ -179,7 +179,7 @@ input[type="button"]:hover {
 					<label for="password2">パスワード再入力</label>
 					<div class="input-wrapper">
 						<input type="password" name="password2" id="password2"
-							placeholder="パスワード再入力" pattern="^[a-zA-Z0-9]+$">
+							placeholder="パスワード再入力" pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+" >
 						<button type="button" class="password__toggle"
 							data-target="password2"></button>
 					</div>
