@@ -25,13 +25,13 @@ body {
 }
 
 .tweets {
-	 position: absolute;
-  top: 70%; /* ハートより下に調整（必要に応じて増減） */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1;
-  max-width: 80%;
+	position: absolute;
+	top: 70%; /* ハートより下に調整（必要に応じて増減） */
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 1;
+	max-width: 80%;
 }
 
 .mentions {
@@ -41,48 +41,50 @@ body {
 	padding-left: 5px;
 }
 
- body {
-      margin: 0;
-      padding: 0;
-      font-family: "Times New Roman", sans-serif;
-      background-color: #fffdf9;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Times New Roman", sans-serif;
+	background-color: #fffdf9;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-    .container {
-      text-align: center;
-      width: 70px;
-    }
+.container {
+	text-align: center;
+	max-width: 90vw;
+	width: 100%;
+}
 
-    .quote {
-      font-size: 30px;
-      font-weight: bold;
-      color: #222;
-      margin-bottom: 20px;
-      line-height: 1.5;
-       word-break: break-word;
-    }
+.quote {
+	font-size: 30px;
+	font-weight: bold;
+	color: #222;
+	margin-bottom: 20px;
+	line-height: 1.5;
+	word-break: break-word;
+}
 
-    .author {
-       font-size: 18px;
-  color: #555;
-  text-align: right;
-  padding-right: 10%;
-  margin-top: 5px;
-    }
+.author {
+	font-size: 18px;
+	color: #555;
+	text-align: right;
+	padding-right: 10%;
+	margin-top: 5px;
+}
 
-    @media (max-width: 200px) {
-      .quote {
-        font-size: 5px;
-      }
+@media screen and (max-width: 480px) {
+  .quote {
+    font-size: 16px;
+    line-height: 1.4;
+  }
 
-      .author {
-        font-size: 5px;
-      }
-    }
+  .author {
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 <body>
