@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="<c:url value='/css/login.css' />">
 <style>
 @charset "UTF-8";
+body{
+	padding-top: 0px;
+}
 /* 入力間違えたら赤くなるよ */ 
  .error {
       border: 2px solid red;
