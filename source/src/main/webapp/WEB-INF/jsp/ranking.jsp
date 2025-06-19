@@ -31,9 +31,8 @@
     <li><a href="<c:url value='/LogoutServlet' />" class="logout-button">ログアウト</a></li>
   </ul>
 </nav>
-   		<h2>ランキング</h2>
-   
-   
+<h2 style="text-align: center; margin-top: 30px; font-family: 'メイリオ', Meiryo, sans-serif;">ランキング</h2>
+
 
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/ranking.js' />"></script>
