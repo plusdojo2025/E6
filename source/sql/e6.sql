@@ -26,7 +26,7 @@ CREATE TABLE coin (
 
     regist_number INT PRIMARY KEY,
 
-    hold_coin INT DEFAULT 50,
+    hold_coin INT DEFAULT 50,/*100にする*/
 
     receive_coin INT DEFAULT 0,
 
@@ -35,6 +35,9 @@ CREATE TABLE coin (
     FOREIGN KEY (regist_number) REFERENCES users(regist_number)
 
 );
+
+/*初期値100にするための文*/
+ALTER TABLE coin ALTER COLUMN hold_coin SET DEFAULT 100;
 
 /*sendテーブル作成*/
 
