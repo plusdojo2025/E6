@@ -71,11 +71,19 @@ public class RegistServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/LoginServlet");
         } else {
             // 登録失敗 → エラーメッセージを表示（例：登録画面に戻す）
-            request.setAttribute("errorMessage", "登録に失敗しました。もう一度お試しください。");
+            request.setAttribute("errorMessage2", "登録に失敗しました。もう一度お試しください。");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+            dispatcher.forward(request, response);
+        }
+
+            // 入力値を再表示用にセット
+            request.setAttribute("company", company);
+            request.setAttribute("name", name);
+            request.setAttribute("mail", mail);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
             dispatcher.forward(request, response);
         }
 
 		
 	}
-}
