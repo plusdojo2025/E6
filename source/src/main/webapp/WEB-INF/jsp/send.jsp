@@ -103,12 +103,13 @@ table td {
 
 <% String error = (String) request.getAttribute("error"); %>
 <% String message = (String) request.getAttribute("message"); %>
+<div style="text-align: center; margin-top: 20px;">
 <% if (error != null) { %>
     <p style="color:red;"><%= error %></p>
 <% } else if (message != null) { %>
     <p style="color:green;"><%= message %></p>
 <% } %>
-
+</div>
 <form method="POST" action="CoinSendServlet">
   <div class="account-container">
     <div class="account-card">
