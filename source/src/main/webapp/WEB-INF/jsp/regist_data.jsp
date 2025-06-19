@@ -144,19 +144,19 @@ input[type="button"]:hover {
 			<form id="regist_form" action="RegistServlet" method="post">
 				<div class="form-group">
 					<label for="company">会社名</label> <input type="text" name="company"
-						id="company"  value="${company}" placeholder="会社名">
+						id="company" value="${company}" placeholder="会社名">
 					<div id="companyError" class="error-message"></div>
 				</div>
 
 				<div class="form-group">
 					<label for="name">氏名</label> <input type="text" name="name"
-						id="name"  value="${name}" placeholder="氏名">
+						id="name" value="${name}" placeholder="氏名">
 					<div id="nameError" class="error-message"></div>
 				</div>
 
 				<div class="form-group">
 					<label for="mail">メールアドレス</label> <input type="email" name="mail"
-						id="mail"  value="${mail}" placeholder="メールアドレス">
+						id="mail" value="${mail}" placeholder="メールアドレス">
 					<div id="mailError" class="error-message"></div>
 					<c:if test="${not empty errorMessage}">
 						<p class="error-message">${errorMessage}</p>
@@ -168,7 +168,7 @@ input[type="button"]:hover {
 					<div class="input-wrapper">
 						<input type="password" name="password" id="password"
 							placeholder="パスワード" maxlength="20" minlength="8"
-							pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+" >
+							pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+">
 						<button type="button" class="password__toggle"
 							data-target="password"></button>
 					</div>
@@ -179,7 +179,8 @@ input[type="button"]:hover {
 					<label for="password2">パスワード再入力</label>
 					<div class="input-wrapper">
 						<input type="password" name="password2" id="password2"
-							placeholder="パスワード再入力" pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+" >
+							placeholder="パスワード再入力"
+							pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+">
 						<button type="button" class="password__toggle"
 							data-target="password2"></button>
 					</div>
@@ -189,6 +190,11 @@ input[type="button"]:hover {
 				<div class="note">
 					<small>※8~20文字以内の半角英数字の組み合わせでパスワードを設定してください。</small>
 				</div>
+
+				<!-- ★ 登録ボタンの上に表示されるエラー（登録失敗など） -->
+				<c:if test="${not empty errorMessage2}">
+					<p class="error-message">${errorMessage2}</p>
+				</c:if>
 
 				<div class="form-actions">
 					<input type="submit" id="regist" name="submit" value="登録">
