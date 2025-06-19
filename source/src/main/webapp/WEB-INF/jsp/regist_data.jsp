@@ -9,73 +9,94 @@
   <link rel="stylesheet" href="<c:url value='/css/common.css' />">
   <link rel="stylesheet" href="<c:url value='/css/regist_data.css' />">
   <style>
-/* 入力間違えたら赤くなるよ */
-.error {
-  border: 2px solid red;
-}
-.error-message {
-  color: red;
-  font-size: 0.85em;
-  margin-top: 4px;
-}
-
+  /* 入力間違えたら赤くなるよ */
+    .error {
+      border: 2px solid red;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.85em;
+      margin-top: 4px;
+    }
 /* 全体の中央配置 */
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 50px;
-  box-sizing: border-box;
-}
-
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 50px;
+      box-sizing: border-box;
+    }
 /* カード風全体 */
-.card {
-  background-color: #ffffff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
+    .card {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+      text-align: center;
+    }
 /* フォームタイトル */
-.form-title {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-}
-
+    .form-title {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
 /* テーブル調整 */
-.form-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-.form-table th,
-.form-table td {
-  padding: 10px 0;
-}
-
+    .form-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
 /* テキストボックス（共通） */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  display: block;
-  margin: 0 auto;
-  text-align: left;
-}
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      display: block;
+      margin: 0 auto;
+      text-align: left;
+    }
 
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding-right: 40px;
+    }
+
+    .password__toggle {
+      position: absolute;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path d='M24 31.5q3.55 0 6.025-2.475Q32.5 26.55 32.5 23q0-3.55-2.475-6.025Q27.55 14.5 24 14.5q-3.55 0-6.025 2.475Q15.5 19.45 15.5 23q0 3.55 2.475 6.025Q20.45 31.5 24 31.5Zm0-2.9q-2.35 0-3.975-1.625T18.4 23q0-2.35 1.625-3.975T24 17.4q2.35 0 3.975 1.625T29.6 23q0 2.35-1.625 3.975T24 28.6Zm0 9.4q-7.3 0-13.2-4.15Q4.9 29.7 2 23q2.9-6.7 8.8-10.85Q16.7 8 24 8q7.3 0 13.2 4.15Q43.1 16.3 46 23q-2.9 6.7-8.8 10.85Q31.3 38 24 38Z'/></svg>") no-repeat center center;
+      background-size: 24px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .password__toggle.is-visible {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='48' width='48'><path d='m31.45 27.05-2.2-2.2q1.3-3.55-1.35-5.9-2.65-2.35-5.75-1.2l-2.2-2.2q.85-.55 1.9-.8 1.05-.25 2.15-.25 3.55 0 6.025 2.475Q32.5 19.45 32.5 23q0 1.1-.275 2.175-.275 1.075-.775 1.875Zm6.45 6.45-2-2q2.45-1.8 4.275-4.025Q42 25.25 42.85 23q-2.5-5.55-7.5-8.775Q30.35 11 24.5 11q-2.1 0-4.3.4-2.2.4-3.45.95L14.45 10q1.75-.8 4.475-1.4Q21.65 8 24.25 8q7.15 0 13.075 4.075Q43.25 16.15 46 23q-1.3 3.2-3.35 5.85-2.05 2.65-4.75 4.65Zm2.9 11.3-8.4-8.25q-1.75.7-3.95 1.075T24 38q-7.3 0-13.25-4.075T2 23q1-2.6 2.775-5.075T9.1 13.2L2.8 6.9l2.1-2.15L42.75 42.6ZM11.15 15.3q-1.85 1.35-3.575 3.55Q5.85 21.05 5.1 23q2.55 5.55 7.675 8.775Q17.9 35 24.4 35q1.65 0 3.25-.2t2.4-.6l-3.2-3.2q-.55.25-1.35.375T24 31.5q-3.5 0-6-2.45T15.5 23q0-.75.125-1.5T16 20.15Z'/></svg>");
+    }
+    
 /* ボタン共通 */
 input[type="submit"],
 input[type="button"] {
@@ -88,46 +109,28 @@ input[type="button"] {
 }
 
 /* 登録ボタン */
-input[type="submit"] {
-  background-color: #ee827c;
-  color: white;
-}
-input[type="submit"]:hover {
-  background-color: #ed665f;
-}
-
+    input[type="submit"] {
+      background-color: #ee827c;
+      color: white;
+    }
+    input[type="submit"]:hover {
+      background-color: #ed665f;
+    }
 /* 戻るボタン */
-input[type="button"] {
-  background-color: #38b48b;
-  color: white;
-  margin-left: 10px;
-}
-input[type="button"]:hover {
-  background-color: #2f9976;
-}
+    input[type="button"] {
+      background-color: #38b48b;
+      color: white;
+      margin-left: 10px;
+    }
+    input[type="button"]:hover {
+      background-color: #2f9976;
+    }
 
-/* 注意文も中央に */
-.form-table td p {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-.form-table small {
-  display: inline-block;
-  text-align: center;
-}
-
-/* スマホ対応 */
-@media screen and (max-width: 480px) {
-  .card {
-    padding: 20px;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    font-size: 16px;
-  }
-}
+    @media screen and (max-width: 480px) {
+      .card {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -155,13 +158,19 @@ input[type="button"]:hover {
 
       <div class="form-group">
         <label for="password">パスワード</label>
-        <input type="password" name="password" id="password" placeholder="パスワード" maxlength="20" minlength="8" pattern="^[a-zA-Z0-9]+$">
+        <div class="input-wrapper">
+          <input type="password" name="password" id="password" placeholder="パスワード" maxlength="20" minlength="8" pattern="^[a-zA-Z0-9]+$">
+          <button type="button" class="password__toggle" data-target="password"></button>
+        </div>
         <div id="passwordError" class="error-message"></div>
       </div>
 
       <div class="form-group">
         <label for="password2">パスワード再入力</label>
-        <input type="password" name="password2" id="password2" placeholder="パスワード再入力" pattern="^[a-zA-Z0-9]+$">
+        <div class="input-wrapper">
+          <input type="password" name="password2" id="password2" placeholder="パスワード再入力" pattern="^[a-zA-Z0-9]+$">
+          <button type="button" class="password__toggle" data-target="password2"></button>
+        </div>
         <div id="password2Error" class="error-message"></div>
       </div>
 
@@ -176,6 +185,20 @@ input[type="button"]:hover {
     </form>
   </div>
 </div>
+
+<script>
+  // 目玉ボタンでパスワード表示切り替え
+  document.querySelectorAll('.password__toggle').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const inputId = this.getAttribute('data-target');
+      const input = document.getElementById(inputId);
+      const isPassword = input.getAttribute('type') === 'password';
+      input.setAttribute('type', isPassword ? 'text' : 'password');
+      this.classList.toggle('is-visible', isPassword);
+    });
+  });
+</script>
+
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/regist_data.js' />"></script>
 </body>
