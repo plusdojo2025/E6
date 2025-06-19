@@ -189,4 +189,33 @@ public class UsersDao {
 
         return result;
     }
+
+//UsersDao.java に追加
+public boolean isEmailRegistered(String mail) {
+ Connection conn = null;
+ boolean exists = false;
+
+ try {
+     Class.forName("com.mysql.cj.jdbc.Driver");
+
+     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/e6?"
+             + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+             "root", "password");
+
+     String sql = "SELECT COUNT(*) FROM users WHERE mail = ?";
+     PreparedStatement pStmt = conn.prepareStatement(sql);
+     pStmt.setString(1, mail);
+     ResultSet rs = pStmt.executeQuery();
+
+     if (rs.next()) {
+         exists = rs.getInt(1) > 0;
+     }
+ } catch (Exception e) {
+     e.printStackTrace();
+ } finally {
+     try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+ }
+
+ return exists;
+}
 }

@@ -51,6 +51,19 @@ public class RegistServlet extends HttpServlet {
 
         // 新規ユーザー登録処理
         UsersDao bDao = new UsersDao();
+        
+     // 【追加】メールアドレスの重複チェック
+        if (bDao.isEmailRegistered(mail)) {
+            request.setAttribute("errorMessage", "このメールアドレスは登録済みです");
+            // 入力値を再表示用にセット
+            request.setAttribute("company", company);
+            request.setAttribute("name", name);
+            request.setAttribute("mail", mail);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/regist_data.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+        
         boolean result = bDao.new_regist(new User(0, company, name, mail, password));
 
         if (result) {
