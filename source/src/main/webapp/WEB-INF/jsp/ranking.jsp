@@ -35,7 +35,6 @@
 
 
 <script src="<c:url value='/js/common.js' />"></script>
-<script src="<c:url value='/js/ranking.js' />"></script>
 
 <div class="ranking-container">
 
