@@ -62,7 +62,7 @@ public class UsersDao {
             pStmt.setString(1, card.getMail() != null ? card.getMail() : "");
             pStmt.setString(2, card.getName() != null ? card.getName() : "");
             pStmt.setString(3, card.getCompany() != null ? card.getCompany() : "");
-            pStmt.setString(4, HashUtil.sha256(card.getPassword() != null ? card.getPassword() : ""));
+            pStmt.setString(4, card.getPassword() != null ? card.getPassword() : "");
 
             if (pStmt.executeUpdate() == 1) {
                 result = true;
