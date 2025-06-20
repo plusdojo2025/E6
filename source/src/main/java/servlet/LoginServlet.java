@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
 		    request.setAttribute("enteredMail", mail);
 
 		    if (hasError) {
-		        // ログインエラー文は削除（表示させない）
-		        request.removeAttribute("loginError");  // ← これを追加（保険として）
+		    	request.setAttribute("enteredMail", mail);
+		    	request.removeAttribute("loginError"); // ←ここで明示的にnullをセット
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		        dispatcher.forward(request, response);
 		        return;
@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("リダイレクト先: " + contextPath + "/html/looding.html");
             response.sendRedirect(contextPath + "/html/looding.html");
 
-        } else {
+        } else{
             System.out.println("ログイン失敗");
             
             // エラーメッセージと入力情報をリクエストにセット
@@ -78,6 +78,7 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
        }
+      
 	}
 }
 

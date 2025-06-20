@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordWrapper = password.closest('.input-wrapper');
 
     let isValid = true;
+    
+    
 
-    // エラー状態をリセット
+    // ★サーバー側で出力されている "error" クラスも初期化
     mailWrapper.classList.remove("error");
     passwordWrapper.classList.remove("error");
     mailError.textContent = "";
