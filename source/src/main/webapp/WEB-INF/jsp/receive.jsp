@@ -41,16 +41,25 @@
  </div> 
   
 <!-- ページャー -->
-<div style="margin-top: 20px; text-align: center;">
-  <c:if test="${currentPage > 1}">
-    <a href="CoinReceiveServlet?page=${currentPage - 1}">← 前のページ</a>
-  </c:if>
+<!-- ページネーション -->
+<div class="pager">
+  <ul class="pagination">
+    <c:if test="${currentPage > 1}">
+      <li class="pre"><a href="CoinReceiveServlet?page=${currentPage - 1}"><span>←</span></a></li>
+    </c:if>
 
-  <span>ページ ${currentPage} / ${totalPages}</span>
+    <c:forEach begin="1" end="${totalPages}" var="i">
+      <li>
+        <a href="CoinReceiveServlet?page=${i}" class="${i == currentPage ? 'active' : ''}">
+          <span>${i}</span>
+        </a>
+      </li>
+    </c:forEach>
 
-  <c:if test="${currentPage < totalPages}">
-    <a href="CoinReceiveServlet?page=${currentPage + 1}">次のページ →</a>
-  </c:if>
+    <c:if test="${currentPage < totalPages}">
+      <li class="next"><a href="CoinReceiveServlet?page=${currentPage + 1}"><span>→</span></a></li>
+    </c:if>
+  </ul>
 </div>
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/receive.js' />"></script>
