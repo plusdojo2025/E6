@@ -12,8 +12,15 @@
 <style>
 /* 入力間違えたら赤くなるよ */
 .error {
-	border: 2px solid red;
+  border: 2px solid red !important;
+  box-shadow: none !important; /* 影などが原因で見えにくくなる場合に対応 */
 }
+/*フォーカスしても赤枠が消えない*/
+input.error:focus {
+  outline: none;
+  border: 2px solid red !important;
+}
+
 
 .error-message {
 	color: red;
@@ -195,7 +202,7 @@ input::-webkit-credentials-auto-fill-button {
 				</div>
 
 				<div class="note">
-					<small>※8~20文字以内の半角英数字の組み合わせでパスワードを設定してください。</small>
+					<small>※8~20文字以内の記号と半角英数字の組み合わせでパスワードを設定してください。</small>
 				</div>
 
 				<!-- ★ 登録ボタンの上に表示されるエラー（登録失敗など） -->
