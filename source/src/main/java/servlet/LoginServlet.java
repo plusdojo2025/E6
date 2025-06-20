@@ -27,6 +27,28 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
+		
+		 boolean hasError = false;
+
+		    // 入力チェック
+		    if (mail == null || mail.isEmpty()) {
+		        request.setAttribute("mailError", "メールアドレスを入力してください。");
+		        hasError = true;
+		    }
+		    if (password == null || password.isEmpty()) {
+		        request.setAttribute("passwordError", "パスワードを入力してください。");
+		        hasError = true;
+		    }
+
+		    request.setAttribute("enteredMail", mail);
+
+		    if (hasError) {
+		        // ログインエラー文は削除（表示させない）
+		        request.removeAttribute("loginError");  // ← これを追加（保険として）
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		        dispatcher.forward(request, response);
+		        return;
+		    }
 
 
 	// ログイン処理を行う

@@ -137,7 +137,14 @@ input::-webkit-credentials-auto-fill-button {
           <td style="text-align: center;">
             <input class="sub_botun" type="submit" name="submit" value="ログイン">
             <span id="error_message"></span>
-            <% if (request.getAttribute("loginError") != null) { %>
+             <%-- loginError の表示を空欄バリデーションが無いときのみに限定 --%>
+    <%
+      String loginError = (String) request.getAttribute("loginError");
+      String mailError = (String) request.getAttribute("mailError");
+      String passwordError = (String) request.getAttribute("passwordError");
+
+      if (loginError != null && mailError == null && passwordError == null) {
+    %>
               <div class="error-message" style="color:red; font-weight:bold; text-align:center; margin-top:10px;">
                 <%= request.getAttribute("loginError") %>
               </div>
