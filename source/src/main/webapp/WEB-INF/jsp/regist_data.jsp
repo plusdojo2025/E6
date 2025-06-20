@@ -12,8 +12,15 @@
 <style>
 /* 入力間違えたら赤くなるよ */
 .error {
-	border: 2px solid red;
+  border: 2px solid red !important;
+  box-shadow: none !important; /* 影などが原因で見えにくくなる場合に対応 */
 }
+/*フォーカスしても赤枠が消えない*/
+input.error:focus {
+  outline: none;
+  border: 2px solid red !important;
+}
+
 
 .error-message {
 	color: red;
