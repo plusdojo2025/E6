@@ -111,7 +111,7 @@ input::-webkit-credentials-auto-fill-button {
 <tr>
   <td>
     <label for="mail">メールアドレス</label><br>
-    <div class="input-wrapper <%= request.getAttribute("mailError") != null ? "error" : "" %>">
+    <div class="input-wrapper <%= request.getAttribute("loginError") != null ? "error" : "" %>">
       <input type="text" id="mail" name="mail" placeholder="✉Mailadress"
         value="<%= request.getAttribute("enteredMail") != null ? request.getAttribute("enteredMail") : "" %>">
     </div>
@@ -121,7 +121,7 @@ input::-webkit-credentials-auto-fill-button {
 <tr>
   <td>
     <label for="password">パスワード</label><br>
-    <div class="input-wrapper <%= request.getAttribute("passwordError") != null ? "error" : "" %>">
+    <div class="input-wrapper <%= request.getAttribute("loginError") != null ? "error" : "" %>">
       <input type="password" id="password" name="password" placeholder="🔒Password" autocomplete="new-password">
       <button type="button" class="password__toggle"></button>
     </div>
@@ -137,14 +137,7 @@ input::-webkit-credentials-auto-fill-button {
           <td style="text-align: center;">
             <input class="sub_botun" type="submit" name="submit" value="ログイン">
             <span id="error_message"></span>
-             <%-- loginError の表示を空欄バリデーションが無いときのみに限定 --%>
-    <%
-      String loginError = (String) request.getAttribute("loginError");
-      String mailError = (String) request.getAttribute("mailError");
-      String passwordError = (String) request.getAttribute("passwordError");
-
-      if (loginError != null && !loginError.isEmpty() && mailError == null && passwordError == null) {
-    %>
+            <% if (request.getAttribute("loginError") != null) { %>
               <div class="error-message" style="color:red; font-weight:bold; text-align:center; margin-top:10px;">
                 <%= request.getAttribute("loginError") %>
               </div>
@@ -161,7 +154,6 @@ input::-webkit-credentials-auto-fill-button {
     passwordToggle.addEventListener('click', (e) => {
       const input = e.target.previousElementSibling;
       const type = input.getAttribute('type');
-      request.removeAttribute("loginError");
       input.setAttribute('type', type === 'password' ? 'text' : 'password');
       passwordToggle.classList.toggle('is-visible');
     });
