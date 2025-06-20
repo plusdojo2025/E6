@@ -110,7 +110,7 @@ table td {
     <p style="color:green;"><%= message %></p>
 <% } %>
 </div>
-<form method="POST" action="CoinSendServlet">
+<form method="POST" action="CoinSendServlet" onsubmit="return playSoundAndSubmit(event)">
   <div class="account-container">
     <div class="account-card">
       <h3 style="text-align:center;">ありがとう送信✉</h3>
@@ -152,6 +152,8 @@ table td {
   </div>
 </form>
 
+ <audio id="sound" src="<c:url value='/sound/coin_drop.mp3' />" preload="auto"></audio>
+
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/send.js' />"></script>
 <script>
@@ -165,6 +167,19 @@ document.addEventListener("DOMContentLoaded", function () {
 	    });
 	  }
 	});
+	
+function playSoundAndSubmit(event) {
+	  event.preventDefault(); // ページ遷移を止める
+
+	  const sound = document.getElementById("sound");
+	  sound.currentTime = 0;
+	  sound.play();
+
+	  // 効果音が再生された後に送信
+	  setTimeout(() => {
+	    event.target.submit();  // targetはform
+	  }, 800); // coin_drop.mp3 に応じて調整（0.8秒～1秒程度）
+	}
 </script>
 </body>
 </html>
