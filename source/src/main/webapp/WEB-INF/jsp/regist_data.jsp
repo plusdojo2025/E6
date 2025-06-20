@@ -135,6 +135,13 @@ input[type="button"]:hover {
 		padding: 20px;
 	}
 }
+
+input::-ms-reveal,
+input::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+
+
 </style>
 </head>
 <body>
@@ -166,7 +173,7 @@ input[type="button"]:hover {
 				<div class="form-group">
 					<label for="password">パスワード</label>
 					<div class="input-wrapper">
-						<input type="password" name="password" id="password"
+						<input type="password" name="password" id="password" autocomplete="new-password"
 							placeholder="パスワード" maxlength="20" minlength="8"
 							pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+">
 						<button type="button" class="password__toggle"
@@ -178,7 +185,7 @@ input[type="button"]:hover {
 				<div class="form-group">
 					<label for="password2">パスワード再入力</label>
 					<div class="input-wrapper">
-						<input type="password" name="password2" id="password2"
+						<input type="password" name="password2" id="password2" autocomplete="new-password"
 							placeholder="パスワード再入力"
 							pattern="[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\\\|,.<>\/?]+">
 						<button type="button" class="password__toggle"

@@ -14,6 +14,13 @@
 body{
 	padding-top: 0px;
 }
+
+/* 自動補完アイコンを無効化 */
+input::-ms-reveal,
+input::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+
 /* 入力間違えたら赤くなるよ */ 
  .error {
       border: 2px solid red;
@@ -115,7 +122,7 @@ body{
   <td>
     <label for="password">パスワード</label><br>
     <div class="input-wrapper <%= request.getAttribute("loginError") != null ? "error" : "" %>">
-      <input type="password" id="password" name="password" placeholder="🔒Password">
+      <input type="password" id="password" name="password" placeholder="🔒Password" autocomplete="new-password">
       <button type="button" class="password__toggle"></button>
     </div>
     <div id="passwordError" class="error-message"></div>
