@@ -40,6 +40,17 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.6);
+  
+    /* モーダル中央寄せ */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 表示時に上書きするクラスを追加 */
+.modal.show {
+  display: flex;
 }
 
 .modal-content {
@@ -51,6 +62,11 @@
   max-width: 500px;
   font-size: 16px;
   font-family: "メイリオ", Meiryo, sans-serif;
+  
+ 
+   max-height: 80vh; /* 画面の80%までに制限 */
+  overflow-y: auto; /* スクロール対応 */
+   margin-top: 150px;
 }
 
 .modal .close {
@@ -62,6 +78,15 @@
 }
 .modal .close:hover {
   color: #000;
+}
+
+#modalComment {
+  word-wrap: break-word;      /* 長い単語を折り返す */
+  overflow-wrap: break-word;  /* モダンなブラウザ向け */
+  white-space: pre-wrap;      /* 改行も保持しつつ折り返す */
+  max-height: 300px;        /* 高さ制限 */
+  overflow-y: auto;         /* 縦スクロール */
+  padding-right: 10px;      /* スクロールバーが文字に重ならないよう余白を追加 */
 }
 
 /* タイトル中央寄せ */

@@ -22,25 +22,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalCoin = document.getElementById("modalCoin");
   const closeModal = document.querySelector(".modal .close");
 
-  // 全カードにイベントを付加
+  function closeModalHandler() {
+    modal.classList.remove("show");
+    modalDate.textContent = "";
+    modalSender.textContent = "";
+    modalComment.textContent = "";
+    modalCoin.textContent = "";
+  }
+
+  // カードクリックでモーダル表示
   document.querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", function () {
       modalDate.textContent = this.dataset.date;
       modalSender.textContent = this.dataset.sender;
       modalComment.textContent = this.dataset.comment;
       modalCoin.textContent = this.dataset.coin;
-      modal.style.display = "block";
+      modal.classList.add("show");
     });
   });
 
-  // モーダルを閉じる
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
+  // モーダル閉じる処理（ボタン or 背景クリック）
+  closeModal.addEventListener("click", closeModalHandler);
   window.addEventListener("click", function (e) {
     if (e.target === modal) {
-      modal.style.display = "none";
+      closeModalHandler();
     }
   });
 });

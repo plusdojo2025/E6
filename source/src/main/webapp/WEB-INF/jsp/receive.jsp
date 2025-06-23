@@ -51,7 +51,16 @@
       <p><strong>日時：</strong> ${send.send_date}</p>
       <p><strong>送信者：</strong> ${send.sender_name}</p>
       <p><strong>メッセージ：</strong>
-        <span class="short-comment">${fn:length(send.comment) > 30 ? fn:substring(send.comment, 0, 30) + "..." : send.comment}</span>
+        <span class="short-comment">
+    <c:choose>
+      <c:when test="${fn:length(send.comment) > 30}">
+        ${fn:substring(send.comment, 0, 30)}...
+      </c:when>
+      <c:otherwise>
+        ${send.comment}
+      </c:otherwise>
+    </c:choose>
+  </span>
       </p>
       <p><strong>コイン枚数：</strong> ${send.send_coin} 枚</p>
     </div>
@@ -69,31 +78,8 @@
     <p><strong>コイン枚数：</strong> <span id="modalCoin"></span> 枚</p>
   </div>
 </div>
-<!-- ページャー -->
-<!-- ページネーション 
-<div class="pager">
-  <ul class="pagination">
-    <c:if test="${currentPage > 1}">
-      <li class="pre"><a href="CoinReceiveServlet?page=${currentPage - 1}"><span>←</span></a></li>
-    </c:if>
 
-    <c:forEach begin="1" end="${totalPages}" var="i">
-      <li>
-        <a href="CoinReceiveServlet?page=${i}" class="${i == currentPage ? 'active' : ''}">
-          <span>${i}</span>
-        </a>
-      </li>
-    </c:forEach>
-    
-
-    <c:if test="${currentPage < totalPages}">
-      <li class="next"><a href="CoinReceiveServlet?page=${currentPage + 1}"><span>→</span></a></li>
-    </c:if>
-  </ul>
-</div>
--->
-
-
+<!-- ページャー機能 -->
 <div class="pager">
   <ul class="pagination">
     <c:if test="${currentPage > 1}">
