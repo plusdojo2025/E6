@@ -53,6 +53,8 @@ h2, h3, p, a {
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .logout-button {
@@ -74,12 +76,13 @@ h2, h3, p, a {
 
 .nav-links li a:not(.logout-button) {
   color: #666;
-  font-size: 1.5em;
+  font-size: clamp(12px, 1.8vw, 20px); /* 画面サイズで自動縮小 */
   margin: 0 20px;
   text-decoration: none;
   display: inline-block;
   position: relative;
   top: 1px;
+  white-space: nowrap; /* ← 追加！これで折り返さない */
 }
 
 
