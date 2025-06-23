@@ -16,12 +16,15 @@
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
   font-family: "メイリオ", Meiryo, sans-serif;
   transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
 }
 
 .card p {
   margin: 8px 0;
   font-size: 14px;
   line-height: 1.4;
+   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* タイトル中央寄せ */
