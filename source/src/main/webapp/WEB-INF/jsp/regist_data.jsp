@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="<c:url value='/css/common.css' />">
 <link rel="stylesheet" href="<c:url value='/css/regist_data.css' />">
 <style>
+body{
+	padding-top: 0px;
+}
+
 /* 入力間違えたら赤くなるよ */
 .error {
   border: 2px solid red !important;
