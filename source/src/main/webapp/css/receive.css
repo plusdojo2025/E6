@@ -99,6 +99,23 @@ h2 {
   100% { transform: scale(1); }
 }
 
+/* ソートセレクトボックスのスタイル */
+.sort-select {
+  border-radius: 9px;              /* 丸角（デフォルトの1.5倍くらい） */
+  font-size: 1em;                 /* 現在の約1.5倍に拡大 */
+  font-weight: bold;               /* 太字 */
+  font-family: "myfont", sans-serif; /* 丸みのあるフォント */
+  padding: 10px 16px;              /* 内側の余白を調整してクリックしやすく */
+  border: 2px solid #888;          /* 適度な境界線 */
+  background-color: #f8f8f8;       /* 背景をほんのり明るく */
+}
+
+.sort-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(100, 100, 255, 0.5);
+}
+
+
 /* モバイル対応 */
 @media only screen and (max-width: 767px) {
   .pager .pagination li {
