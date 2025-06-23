@@ -41,9 +41,10 @@ h2, h3, p, a {
   box-sizing: border-box;
 }
 
-.logo img {
-  height: 150px; /* 高さ制限を入れる */
-  width: auto;
+.logo-gazou {
+  width: 300px;
+  height: 90px;
+  object-fit: contain; /* または scale-down や cover にすると見栄え調整可能 */
 }
 
 .nav-links {

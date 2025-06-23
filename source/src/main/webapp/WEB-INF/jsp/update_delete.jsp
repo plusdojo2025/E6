@@ -142,7 +142,7 @@ h2 {
 
 <nav id="nav">
   <div class="logo">
-   <a href="<c:url value='/MenuServlet' />"> <img src="<c:url value='/img/arico_logo2.png'/>" width="300" height="150" alt="Arico"></a>
+   <a href="<c:url value='/MenuServlet' />"> <img src="<c:url value='/img/Arico_logo4.png'/>" class="logo-gazou" alt="Arico"></a>
   </div>
   
   <!-- ▼ 追加：ハンバーガーアイコン -->
