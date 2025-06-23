@@ -112,7 +112,7 @@ input::-webkit-credentials-auto-fill-button {
   <td>
     <label for="mail">メールアドレス</label><br>
     <div class="input-wrapper <%= request.getAttribute("loginError") != null ? "error" : "" %>">
-      <input type="text" id="mail" name="mail" placeholder="✉Mailadress"
+      <input type="text" id="mail" name="mail" placeholder="✉Mailaddress"
         value="<%= request.getAttribute("enteredMail") != null ? request.getAttribute("enteredMail") : "" %>">
     </div>
     <div id="mailError" class="error-message"></div>

@@ -29,6 +29,18 @@
 </nav>
 
 <h2>受信履歴</h2>
+
+<!-- ▼ ソート機能 -->
+<form method="get" action="CoinReceiveServlet" style="margin: 10px 0;">
+  <label>ソート順：</label>
+  <select name="sort" onchange="this.form.submit()">
+    <option value="">新着順（デフォルト）</option>
+    <option value="oldest" ${sort == 'oldest' ? 'selected' : ''}>受信順（古い順）</option>
+    <option value="coin_asc" ${sort == 'coin_asc' ? 'selected' : ''}>コイン枚数昇順</option>
+    <option value="coin_desc" ${sort == 'coin_desc' ? 'selected' : ''}>コイン枚数降順</option>
+  </select>
+</form>
+
 <div class="card-container">
 <c:forEach var="send" items="${companySendList}">
   <div class="card">
@@ -41,7 +53,7 @@
  </div> 
   
 <!-- ページャー -->
-<!-- ページネーション -->
+<!-- ページネーション 
 <div class="pager">
   <ul class="pagination">
     <c:if test="${currentPage > 1}">
@@ -55,12 +67,30 @@
         </a>
       </li>
     </c:forEach>
+    
 
     <c:if test="${currentPage < totalPages}">
       <li class="next"><a href="CoinReceiveServlet?page=${currentPage + 1}"><span>→</span></a></li>
     </c:if>
   </ul>
 </div>
+-->
+
+
+<div class="pager">
+  <ul class="pagination">
+    <c:if test="${currentPage > 1}">
+      <li class="pre"><a href="CoinReceiveServlet?page=${currentPage - 1}&sort=${sort}"><span>←</span></a></li>
+    </c:if>
+    <c:forEach begin="1" end="${totalPages}" var="i">
+      <li><a href="CoinReceiveServlet?page=${i}&sort=${sort}" class="${i == currentPage ? 'active' : ''}"><span>${i}</span></a></li>
+    </c:forEach>
+    <c:if test="${currentPage < totalPages}">
+      <li class="next"><a href="CoinReceiveServlet?page=${currentPage + 1}&sort=${sort}"><span>→</span></a></li>
+    </c:if>
+  </ul>
+</div>
+
 <script src="<c:url value='/js/common.js' />"></script>
 <script src="<c:url value='/js/receive.js' />"></script>
 <script>

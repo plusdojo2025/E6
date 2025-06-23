@@ -46,14 +46,19 @@ public class CoinReceiveServlet extends HttpServlet {
 		if (pageParam != null && pageParam.matches("\\d+")) {
 			page = Integer.parseInt(pageParam);
 		}
+		
+		// ソート指定
+				String sort = request.getParameter("sort");
+				if (sort == null) sort = "";
 
-		List<Send> companySendList = sDao.getCompanySendHistoryWithPagination(registNumber, page, pageSize);
+		List<Send> companySendList = sDao.getCompanySendHistoryWithPagination(registNumber, page, pageSize, sort);
 		int totalCompanySendCount = sDao.getCompanySendHistoryCount(registNumber);
 		int totalPages = (int) Math.ceil((double) totalCompanySendCount / pageSize);
 
 		request.setAttribute("companySendList", companySendList);
 		request.setAttribute("currentPage", page);
 		request.setAttribute("totalPages", totalPages);
+		request.setAttribute("sort", sort);
 
 		
 		// JSPにフォワード
