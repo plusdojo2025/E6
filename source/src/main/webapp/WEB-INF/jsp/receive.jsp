@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,16 +42,33 @@
 </form>
 
 <div class="card-container">
-<c:forEach var="send" items="${companySendList}">
-  <div class="card">
-    <p><strong>日時：</strong> ${send.send_date}</p>
-    <p><strong>送信者：</strong> ${send.sender_name}</p>
-    <p><strong>メッセージ：</strong> ${send.comment}</p>
-    <p><strong>コイン枚数：</strong> ${send.send_coin} 枚</p>
+  <c:forEach var="send" items="${companySendList}">
+    <div class="card"
+         data-date="${send.send_date}"
+         data-sender="${send.sender_name}"
+         data-comment="${fn:escapeXml(send.comment)}"
+         data-coin="${send.send_coin}">
+      <p><strong>日時：</strong> ${send.send_date}</p>
+      <p><strong>送信者：</strong> ${send.sender_name}</p>
+      <p><strong>メッセージ：</strong>
+        <span class="short-comment">${fn:length(send.comment) > 30 ? fn:substring(send.comment, 0, 30) + "..." : send.comment}</span>
+      </p>
+      <p><strong>コイン枚数：</strong> ${send.send_coin} 枚</p>
+    </div>
+  </c:forEach>
+</div>
+
+<!-- モーダル -->
+<div id="commentModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><strong>日時：</strong> <span id="modalDate"></span></p>
+    <p><strong>送信者：</strong> <span id="modalSender"></span></p>
+    <p><strong>メッセージ：</strong></p>
+    <p id="modalComment"></p>
+    <p><strong>コイン枚数：</strong> <span id="modalCoin"></span> 枚</p>
   </div>
-</c:forEach>
- </div> 
-  
+</div>
 <!-- ページャー -->
 <!-- ページネーション 
 <div class="pager">
