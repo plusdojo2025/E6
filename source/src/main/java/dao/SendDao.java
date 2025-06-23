@@ -97,7 +97,7 @@ public class SendDao {
         return userList;
     }
 	
-	// 同じ会社の送信履歴をページャーで取得
+	/*// 同じ会社の送信履歴をページャーで取得
 	public List<Send> getCompanySendHistoryWithPagination(String loginUserRegistNumber, int page, int pageSize) {
 	    List<Send> sendList = new ArrayList<>();
 	    Connection conn = null;
@@ -134,6 +134,61 @@ public class SendDao {
 	        }
 
 	    } catch (ClassNotFoundException | SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+	    }
+
+	    return sendList;
+	}
+	*/
+	
+	// 受信履歴（ソート・ページ付き）
+	public List<Send> getCompanySendHistoryWithPagination(String loginUserRegistNumber, int page, int pageSize, String sort) {
+	    List<Send> sendList = new ArrayList<>();
+	    Connection conn = null;
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/e6?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	            "root", "password"
+	        );
+
+	        String baseSql = 
+	            "SELECT s.comment, s.send_coin, s.send_date, u.name " +
+	            "FROM send s " +
+	            "JOIN users u ON s.regist_number = u.regist_number " +
+	            "WHERE s.receiver_number = ? ";
+
+	        String orderBy = "ORDER BY s.send_date DESC"; // デフォルト
+
+	        if ("oldest".equals(sort)) {
+	            orderBy = "ORDER BY s.send_date ASC";
+	        } else if ("coin_asc".equals(sort)) {
+	            orderBy = "ORDER BY s.send_coin ASC";
+	        } else if ("coin_desc".equals(sort)) {
+	            orderBy = "ORDER BY s.send_coin DESC";
+	        }
+
+	        String sql = baseSql + orderBy + " LIMIT ? OFFSET ?";
+
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setString(1, loginUserRegistNumber);
+	        pStmt.setInt(2, pageSize);
+	        pStmt.setInt(3, (page - 1) * pageSize);
+
+	        ResultSet rs = pStmt.executeQuery();
+	        while (rs.next()) {
+	            Send send = new Send();
+	            send.setComment(rs.getString("comment"));
+	            send.setSend_coin(rs.getInt("send_coin"));
+	            send.setSend_date(rs.getTimestamp("send_date"));
+	            send.setSender_name(rs.getString("name"));
+	            sendList.add(send);
+	        }
+
+	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
 	        try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
