@@ -76,7 +76,7 @@ h2, h3, p, a {
 
 .nav-links li a:not(.logout-button) {
   color: #666;
-  font-size: 20px; /* 画面サイズで自動縮小 */
+  font-size: 20px; 
   margin: 0 20px;
   text-decoration: none;
   display: inline-block;
