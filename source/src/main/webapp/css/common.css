@@ -100,7 +100,7 @@ h2, h3, p, a {
   }
   
   .nav-links li a {
-    font-size: 18px; /* ← ここを追加 */
+    font-size: 20px; /* ← ここを追加 */
     padding: 10px 0;
   }
 
