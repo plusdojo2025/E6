@@ -49,7 +49,7 @@ public class CoinReceiveServlet extends HttpServlet {
 		
 		// ソート指定
 				String sort = request.getParameter("sort");
-				if (sort == null) sort = "";
+				if (sort == null) sort = "newest";
 
 		List<Send> companySendList = sDao.getCompanySendHistoryWithPagination(registNumber, page, pageSize, sort);
 		int totalCompanySendCount = sDao.getCompanySendHistoryCount(registNumber);

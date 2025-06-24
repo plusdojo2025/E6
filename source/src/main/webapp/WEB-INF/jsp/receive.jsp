@@ -34,10 +34,21 @@
 <!-- ▼ ソート機能 -->
 <form method="get" action="CoinReceiveServlet" style="margin: 10px 0;">
   <select name="sort" class="sort-select" onchange="this.form.submit()">
-    <option value="newest">新着順（デフォルト）</option>
-    <option value="oldest" ${sort == 'oldest' ? 'selected' : ''}>受信順（古い順）</option>
-    <option value="least" ${sort == 'coin_asc' ? 'selected' : ''}>コイン枚数昇順</option>
-    <option value="most" ${sort == 'coin_desc' ? 'selected' : ''}>コイン枚数降順</option>
+    <option value="newest"
+  <c:if test="${sort == 'newest'}">selected</c:if>
+>新着順（デフォルト）</option>
+
+<option value="oldest"
+  <c:if test="${sort == 'oldest'}">selected</c:if>
+>受信順（古い順）</option>
+
+<option value="coin_asc"
+  <c:if test="${sort == 'coin_asc'}">selected</c:if>
+>コイン枚数昇順</option>
+
+<option value="coin_desc"
+  <c:if test="${sort == 'coin_desc'}">selected</c:if>
+>コイン枚数降順</option>
   </select>
 </form>
 
