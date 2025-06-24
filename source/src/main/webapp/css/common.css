@@ -42,8 +42,8 @@ h2, h3, p, a {
 }
 
 .logo-gazou {
-  width: 300px;
-  height: 90px;
+  width: 250px;
+  height: 80px;
   object-fit: contain; /* または scale-down や cover にすると見栄え調整可能 */
 }
 
@@ -76,7 +76,7 @@ h2, h3, p, a {
 
 .nav-links li a:not(.logout-button) {
   color: #666;
-  font-size: clamp(12px, 1.8vw, 20px); /* 画面サイズで自動縮小 */
+  font-size: 20px; /* 画面サイズで自動縮小 */
   margin: 0 20px;
   text-decoration: none;
   display: inline-block;
@@ -94,16 +94,16 @@ h2, h3, p, a {
     padding: 10px;
   }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
   .nav-links li a {
     font-size: 20px; /* ← ここを追加 */
     padding: 10px 0;
   }
 
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
   .logo img {
     height: 100px;
   }
@@ -115,6 +115,7 @@ h2, h3, p, a {
   .login-card {
     padding: 0 10px;
   }
+  
 }
 
 /* ハンバーガーアイコン（PCでは非表示） */
@@ -146,5 +147,4 @@ h2, h3, p, a {
   .nav-links.active {
     display: flex;
   }
-  
 }
