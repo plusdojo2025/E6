@@ -98,6 +98,11 @@ h2, h3, p, a {
     flex-direction: column;
     gap: 10px;
   }
+  
+  .nav-links li a {
+    font-size: 18px; /* ← ここを追加 */
+    padding: 10px 0;
+  }
 
   .logo img {
     height: 100px;
@@ -141,4 +146,5 @@ h2, h3, p, a {
   .nav-links.active {
     display: flex;
   }
+  
 }
