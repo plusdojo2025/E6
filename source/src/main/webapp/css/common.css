@@ -142,9 +142,22 @@ h2, h3, p, a {
     width: 100%;
     background-color: #EDD7D5;
     padding: 10px 20px;
+    align-items: flex-start;
+  }
+  
+   .nav-links li:last-child {
+    margin-top: 15px; /* ← この行を追加 */
   }
 
   .nav-links.active {
     display: flex;
+  }
+  
+  .nav-links li a.logout-button {
+    padding: 10px 20px; /* 他のリンクと同じ余白に */
+    margin-left: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left; /* 文字も左寄せ */
   }
 }
